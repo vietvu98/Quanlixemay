@@ -1,0 +1,237 @@
+﻿-- Proc nhà cung cấp
+GO
+create proc NCC_INSERT (
+@MANHACUNGCAP NVARCHAR(50),
+@TENNHACUNGCAP NVARCHAR(50),
+@DIACHI NVARCHAR(100),
+@DIENTHOAI FLOAT,
+@EMAIL NVARCHAR(50),
+@HINHANH IMAGE
+)
+AS BEGIN
+INSERT INTO NHACUNGCAP VALUES (@MANHACUNGCAP, @TENNHACUNGCAP, @DIACHI, @DIENTHOAI, @EMAIL, @HINHANH)
+END
+-----------------------------------------------------------------------------------------
+GO
+CREATE PROC NCC_UPDATE (
+@MANHACUNGCAP NVARCHAR(50),
+@TENNHACUNGCAP NVARCHAR(50),
+@DIACHI NVARCHAR(100),
+@DIENTHOAI FLOAT,
+@EMAIL NVARCHAR(50),
+@HINHANH IMAGE
+)
+AS BEGIN 
+   UPDATE NHACUNGCAP SET TENNHACUNGCAP=@TENNHACUNGCAP, DIACHI=@DIACHI, DIENTHOAI=@DIENTHOAI, 
+   EMAIL=@EMAIL, HINHANH=@HINHANH WHERE MANHACUNGCAP=@MANHACUNGCAP
+   END
+-----------------------------------------------------------------------------------------
+GO 
+CREATE PROC NCC_DELETE(
+@MANHACUNGCAP   NVARCHAR(50)
+)
+AS BEGIN 
+    DELETE FROM NHACUNGCAP WHERE MANHACUNGCAP=@MANHACUNGCAP
+END	
+-----------------------------------------------------------------------------------------
+GO 
+CREATE PROC NCC_SEARCH(@MANHACUNGCAP NVARCHAR(50))
+AS BEGIN
+   SELECT * FROM NHACUNGCAP WHERE   MANHACUNGCAP=@MANHACUNGCAP
+END
+-----------------------------------------------------------------------------------------
+GO 
+CREATE PROC NCC_SELECT
+AS BEGIN 
+    SELECT * FROM NHACUNGCAP
+END
+-----------------------------------------------------------------------------------------
+GO 
+CREATE PROC NCC_SELECTMANCC(@MANHACUNGCAP NVARCHAR(50))
+AS BEGIN
+   SELECT * FROM NHACUNGCAP WHERE MANHACUNGCAP=@MANHACUNGCAP
+END
+--Proc khach hang
+GO
+create proc KH_SELECT
+AS BEGIN 
+   SELECT * FROM KHACHHANG 
+END
+-----------------------------------------------------------------------------------------
+GO
+CREATE PROC KH_INSERT(
+    @MAKH NVARCHAR(50),
+	@TENKH NVARCHAR(50),
+	@DIACHI NVARCHAR(50),
+	@DIENTHOAI FLOAT,
+	@GMAIL NVARCHAR(50)
+)
+AS BEGIN 
+   INSERT INTO KHACHHANG VALUES (@MAKH, @TENKH, @DIACHI, @DIENTHOAI, @GMAIL)
+END
+-----------------------------------------------------------------------------------------
+GO 
+CREATE PROC KH_UPDATE(
+     @MAKH NVARCHAR(50),
+	@TENKH NVARCHAR(50),
+	@DIACHI NVARCHAR(50),
+	@DIENTHOAI FLOAT,
+	@GMAIL NVARCHAR(50)
+)
+AS BEGIN
+    UPDATE KHACHHANG SET TENKH=@TENKH, DIACHI= @DIACHI, DIENTHOAI= @DIENTHOAI, GMAIL= @GMAIL Where MAKH= @MAKH
+end
+-----------------------------------------------------------------------------------------
+go
+CREATE PROC KH_DELETE(@MAKH NVARCHAR(50))
+AS BEGIN 
+   DELETE FROM KHACHHANG WHERE MAKH=@MAKH
+END
+-----------------------------------------------------------------------------------------
+GO 
+CREATE PROC KH_SEARCH(@MAKH NVARCHAR(50))
+AS BEGIN
+   SELECT * FROM KHACHHANG WHERE MAKH=@MAKH
+END
+-----------------------------------------------------------------------------------------
+--Proc San pham
+go
+create proc SELECTALL_VND
+as begin
+   select MASP, TENSP,MALOAI, DUNGTICHXL, KICHTHUOC, CONCAT(KHOILUONG, ' Kg') As KHOILUONGSP, CONGSUATTD, HANGXE, MAUSAC, CONCAT (GIABAN, N' VNĐ') AS GIASP  from SANPHAM 
+   END
+  EXEC SELECTALL_VND
+  -----------------------------------------------------------------------------------------
+ GO
+ CREATE PROC SP_INSERT(
+ @MASP NVARCHAR(50),
+ @TENSP NVARCHAR(50),
+ @MALOAI NVARCHAR(50),
+ @DUNGTICHXL NVARCHAR(50),
+ @KICHTHUOC NVARCHAR(50),
+ @KHOILUONG INT,
+ @CONGSAUTTD NVARCHAR(50),
+ @HANGXE NVARCHAR(50),
+ @MAUSAC NVARCHAR(50),
+ @GIABAN BIGINT,
+ @HINHANH IMAGE
+)
+AS BEGIN 
+INSERT INTO SANPHAM VALUES (@MASP, @TENSP, @MALOAI, @DUNGTICHXL, @KICHTHUOC, @KHOILUONG, @CONGSAUTTD, @HANGXE, @MAUSAC, @GIABAN, @HINHANH)
+END
+ -----------------------------------------------------------------------------------------
+ GO
+ CREATE PROC SP_UPDATE(
+ @MASP NVARCHAR(50),
+ @TENSP NVARCHAR(50),
+ @MALOAI NVARCHAR(50),
+ @DUNGTICHXL NVARCHAR(50),
+ @KICHTHUOC NVARCHAR(50),
+ @KHOILUONG INT,
+ @CONGSAUTTD NVARCHAR(50),
+ @HANGXE NVARCHAR(50),
+ @MAUSAC NVARCHAR(50),
+ @GIABAN BIGINT,
+ @HINHANH IMAGE
+ )
+ AS BEGIN 
+ UPDATE SANPHAM SET TENSP=@TENSP, MALOAI=@MALOAI, DUNGTICHXL=@DUNGTICHXL, KICHTHUOC=@KICHTHUOC, KHOILUONG=@KHOILUONG, CONGSUATTD=@CONGSAUTTD, HANGXE=@HANGXE, MAUSAC=@MAUSAC, GIABAN=@GIABAN, HINHANH=@HINHANH
+ WHERE MASP=@MASP
+ END
+  -----------------------------------------------------------------------------------------
+ GO
+ CREATE PROC SP_DELETE(
+@MASP   NVARCHAR(50)
+)
+AS BEGIN 
+    DELETE FROM SANPHAM WHERE MASP=@MASP
+END	
+-----------------------------------------------------------------------------------------
+GO 
+CREATE PROC SP_SEARCH(@MASP NVARCHAR(50))
+AS BEGIN
+   SELECT * FROM SANPHAM WHERE MASP=@MASP
+END
+-----------------------------------------------------------------------------------------
+GO
+CREATE PROC LOAIXE (@MALOAI NVARCHAR(50))
+AS BEGIN 
+select MASP, TENSP,MALOAI, DUNGTICHXL, KICHTHUOC, CONCAT(KHOILUONG, ' Kg') As KHOILUONGSP, CONGSUATTD, HANGXE, MAUSAC, CONCAT (GIABAN, N' VNĐ') AS GIASP  from SANPHAM 
+WHERE MALOAI=@MALOAI 
+END
+-----------------------------------------------------------------------------------------
+--Nhân viên 
+GO
+CREATE PROC NV_INSERT (
+@MANHANVIEN NVARCHAR(50),
+@TENNHANVIEN NVARCHAR(50),
+@SDT          FLOAT,
+@DIACHI      NVARCHAR(50),
+@EMAIL       NVARCHAR(50),
+@NGAYSINH    DATE,
+@GIOITINH    NVARCHAR(50),
+@QUEQUAN     NVARCHAR(50),
+@PASSWORD    NVARCHAR(50),
+@USERLOGIN   NVARCHAR(50),
+@MACV        NVARCHAR(50)
+)
+AS BEGIN 
+INSERT INTO NHANVIEN VALUES (@MANHANVIEN, @TENNHANVIEN, @SDT, @DIACHI, @EMAIL, @NGAYSINH, @GIOITINH, @QUEQUAN, @PASSWORD, @USERLOGIN,@MACV)
+END
+-----------------------------------------------------------------------------------------
+GO
+CREATE PROC NV_UPDATE (
+@MANHANVIEN NVARCHAR(50),
+@TENNHANVIEN NVARCHAR(50),
+@SDT          FLOAT,
+@DIACHI      NVARCHAR(50),
+@EMAIL       NVARCHAR(50),
+@NGAYSINH    DATE,
+@GIOITINH    nvarchar(50),
+@QUEQUAN     NVARCHAR(50),
+@MACV        NVARCHAR(50)
+)
+AS BEGIN 
+UPDATE NHANVIEN SET TENNHANVIEN=@TENNHANVIEN, SDT=@SDT, DIACHI=@DIACHI, EMAIL=@EMAIL, NGAYSINH=@NGAYSINH, GIOITINH=@GIOITINH, QUEQUAN=@QUEQUAN, MACV=@MACV
+WHERE MANHANVIEN=@MANHANVIEN
+END
+ -----------------------------------------------------------------------------------------
+ GO
+ CREATE PROC NV_DELETE(
+@MANHANVIEN   NVARCHAR(50)
+)
+AS BEGIN 
+    DELETE FROM NHANVIEN WHERE MANHANVIEN=@MANHANVIEN
+END	
+-----------------------------------------------------------------------------------------
+GO 
+CREATE PROC NV_SEARCH(@MANHANVIEN NVARCHAR(50))
+AS BEGIN
+   SELECT * FROM NHANVIEN WHERE MANHANVIEN=@MANHANVIEN
+END
+-----------------------------------------------------------------------------------------
+GO
+CREATE PROC UPDATEMAHOA(@MANHANVIEN NVARCHAR(50), @PASS NVARCHAR(50))
+AS
+BEGIN
+	UPDATE NHANVIEN SET PASSWORD = @PASS WHERE MANHANVIEN = @MANHANVIEN
+END
+go
+create proc quenmk(@tk nvarchar(50), @PASS NVARCHAR(50))
+AS
+BEGIN
+	UPDATE NHANVIEN SET PASSWORD = @PASS WHERE USERLOGIN=@tk
+END
+----------------------------------------------------------------------
+GO
+CREATE PROC INSERT_HINHANH (
+ @MASP NVARCHAR(50),
+ @HinhAnh1 image,
+ @HinhAnh2 image,
+ @HinhAnh3 image,
+ @HinhAnh4 image
+
+)
+AS BEGIN 
+INSERT INTO HinhAnhSP VALUES (@MASP, @HinhAnh1, @HinhAnh2, @HinhAnh3, @HinhAnh4)
+   END
