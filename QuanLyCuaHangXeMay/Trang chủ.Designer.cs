@@ -33,11 +33,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label_TIME = new System.Windows.Forms.Label();
-            this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
             this.status_NguoiDung = new System.Windows.Forms.StatusStrip();
             this.User_NguoiDung = new System.Windows.Forms.ToolStripDropDownButton();
             this.bt_ThongTinNguoiDung = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.bt_DangXuat = new System.Windows.Forms.ToolStripMenuItem();
             this.label_NguoiDung = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -47,22 +45,22 @@
             this.toolStripBaoHanh = new System.Windows.Forms.ToolStripButton();
             this.toolStripDoiTac = new System.Windows.Forms.ToolStripButton();
             this.btnHoaDon = new System.Windows.Forms.ToolStripButton();
-            this.btnKhuyenMai = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.btnDangNhap = new Guna.UI.WinForms.GunaPictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
             this.status_NguoiDung.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDangNhap)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnDangNhap);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label_TIME);
-            this.panel1.Controls.Add(this.bunifuImageButton1);
             this.panel1.Controls.Add(this.status_NguoiDung);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -94,20 +92,6 @@
             this.label_TIME.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label_TIME.Click += new System.EventHandler(this.label_TIME_Click);
             // 
-            // bunifuImageButton1
-            // 
-            this.bunifuImageButton1.BackColor = System.Drawing.Color.GhostWhite;
-            this.bunifuImageButton1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.bunifuImageButton1.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton1.Image")));
-            this.bunifuImageButton1.ImageActive = null;
-            this.bunifuImageButton1.Location = new System.Drawing.Point(0, 0);
-            this.bunifuImageButton1.Name = "bunifuImageButton1";
-            this.bunifuImageButton1.Size = new System.Drawing.Size(76, 77);
-            this.bunifuImageButton1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.bunifuImageButton1.TabIndex = 16;
-            this.bunifuImageButton1.TabStop = false;
-            this.bunifuImageButton1.Zoom = 10;
-            // 
             // status_NguoiDung
             // 
             this.status_NguoiDung.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -117,7 +101,7 @@
             this.status_NguoiDung.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.User_NguoiDung,
             this.label_NguoiDung});
-            this.status_NguoiDung.Location = new System.Drawing.Point(1002, 9);
+            this.status_NguoiDung.Location = new System.Drawing.Point(1012, 9);
             this.status_NguoiDung.Name = "status_NguoiDung";
             this.status_NguoiDung.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.status_NguoiDung.Size = new System.Drawing.Size(62, 38);
@@ -129,7 +113,6 @@
             this.User_NguoiDung.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.User_NguoiDung.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bt_ThongTinNguoiDung,
-            this.toolStripMenuItem1,
             this.bt_DangXuat});
             this.User_NguoiDung.Image = ((System.Drawing.Image)(resources.GetObject("User_NguoiDung.Image")));
             this.User_NguoiDung.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -144,14 +127,6 @@
             this.bt_ThongTinNguoiDung.Size = new System.Drawing.Size(226, 24);
             this.bt_ThongTinNguoiDung.Text = "Thông tin người dùng";
             this.bt_ThongTinNguoiDung.Click += new System.EventHandler(this.bt_ThongTinNguoiDung_Click);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(226, 24);
-            this.toolStripMenuItem1.Text = "Đổi mật khẩu";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // bt_DangXuat
             // 
@@ -178,7 +153,6 @@
             this.toolStripBaoHanh,
             this.toolStripDoiTac,
             this.btnHoaDon,
-            this.btnKhuyenMai,
             this.toolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 77);
             this.toolStrip1.Name = "toolStrip1";
@@ -252,16 +226,15 @@
             this.btnHoaDon.Size = new System.Drawing.Size(112, 23);
             this.btnHoaDon.Text = "Hóa Đơn";
             // 
-            // btnKhuyenMai
+            // toolStripButton1
             // 
-            this.btnKhuyenMai.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnKhuyenMai.Image = ((System.Drawing.Image)(resources.GetObject("btnKhuyenMai.Image")));
-            this.btnKhuyenMai.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnKhuyenMai.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnKhuyenMai.Name = "btnKhuyenMai";
-            this.btnKhuyenMai.Size = new System.Drawing.Size(112, 23);
-            this.btnKhuyenMai.Text = "Khuyến Mãi";
-            this.btnKhuyenMai.Click += new System.EventHandler(this.btnKhuyenMai_Click);
+            this.toolStripButton1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(112, 23);
+            this.toolStripButton1.Text = "Thống kê";
             // 
             // panel2
             // 
@@ -284,13 +257,16 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // toolStripButton1
+            // btnDangNhap
             // 
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(112, 20);
-            this.toolStripButton1.Text = "Thống kê";
+            this.btnDangNhap.BaseColor = System.Drawing.Color.White;
+            this.btnDangNhap.Image = ((System.Drawing.Image)(resources.GetObject("btnDangNhap.Image")));
+            this.btnDangNhap.Location = new System.Drawing.Point(0, 0);
+            this.btnDangNhap.Name = "btnDangNhap";
+            this.btnDangNhap.Size = new System.Drawing.Size(81, 77);
+            this.btnDangNhap.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnDangNhap.TabIndex = 19;
+            this.btnDangNhap.TabStop = false;
             // 
             // Form1
             // 
@@ -309,11 +285,11 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();
             this.status_NguoiDung.ResumeLayout(false);
             this.status_NguoiDung.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDangNhap)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -330,19 +306,17 @@
         private System.Windows.Forms.StatusStrip status_NguoiDung;
         private System.Windows.Forms.ToolStripStatusLabel label_NguoiDung;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
-        private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton1;
         private System.Windows.Forms.ToolStripButton btnHoaDon;
-        private System.Windows.Forms.ToolStripButton btnKhuyenMai;
         private System.Windows.Forms.ToolStripButton toolStripSanPham;
         private System.Windows.Forms.Label label_TIME;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ToolStripButton toolStripBaoHanh;
         private System.Windows.Forms.ToolStripDropDownButton User_NguoiDung;
         private System.Windows.Forms.ToolStripMenuItem bt_ThongTinNguoiDung;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem bt_DangXuat;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private Guna.UI.WinForms.GunaPictureBox btnDangNhap;
     }
 }
 

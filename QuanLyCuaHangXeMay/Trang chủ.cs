@@ -93,15 +93,7 @@ namespace QuanLyCuaHangXeMay
             
         }
 
-        private void btnKhuyenMai_Click(object sender, EventArgs e)
-        {
-            panel2.Controls.Clear();
-            KhuyenMai km = new KhuyenMai();
-            km.TopLevel = false;
-            panel2.Controls.Add(km);
-            km.Dock = DockStyle.Fill;
-            km.Show();
-        }
+        
 
         public void toolStripSanPham_Click(object sender, EventArgs e)
         {
