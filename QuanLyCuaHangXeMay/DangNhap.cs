@@ -187,6 +187,7 @@ namespace QuanLyCuaHangXeMay
             }
             else
             {
+
                 MessageBox.Show("Chào Mừng Bạn Đến Với\nNVV Shop", "Thông Báo", MessageBoxButtons.OK);
 
                 TTNV.MaNV =nv.MANHANVIEN ;
@@ -223,6 +224,11 @@ namespace QuanLyCuaHangXeMay
         }
 
         private void txtMatKhau_OnValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
         {
 
         }

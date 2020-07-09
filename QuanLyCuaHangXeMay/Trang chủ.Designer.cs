@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnDangNhap = new Guna.UI.WinForms.GunaPictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label_TIME = new System.Windows.Forms.Label();
             this.status_NguoiDung = new System.Windows.Forms.StatusStrip();
@@ -49,11 +50,10 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btnDangNhap = new Guna.UI.WinForms.GunaPictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDangNhap)).BeginInit();
             this.status_NguoiDung.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnDangNhap)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -68,6 +68,17 @@
             this.panel1.Size = new System.Drawing.Size(1083, 77);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // btnDangNhap
+            // 
+            this.btnDangNhap.BaseColor = System.Drawing.Color.White;
+            this.btnDangNhap.Image = ((System.Drawing.Image)(resources.GetObject("btnDangNhap.Image")));
+            this.btnDangNhap.Location = new System.Drawing.Point(0, 0);
+            this.btnDangNhap.Name = "btnDangNhap";
+            this.btnDangNhap.Size = new System.Drawing.Size(81, 77);
+            this.btnDangNhap.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnDangNhap.TabIndex = 19;
+            this.btnDangNhap.TabStop = false;
             // 
             // label1
             // 
@@ -157,7 +168,7 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 77);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip1.Size = new System.Drawing.Size(115, 608);
+            this.toolStrip1.Size = new System.Drawing.Size(133, 608);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -168,7 +179,7 @@
             this.toolStripKhachHang.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolStripKhachHang.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripKhachHang.Name = "toolStripKhachHang";
-            this.toolStripKhachHang.Size = new System.Drawing.Size(112, 23);
+            this.toolStripKhachHang.Size = new System.Drawing.Size(130, 23);
             this.toolStripKhachHang.Text = "Khách Hàng";
             this.toolStripKhachHang.Click += new System.EventHandler(this.toolStripKhachHang_Click);
             // 
@@ -179,8 +190,8 @@
             this.toolStripSanPham.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolStripSanPham.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSanPham.Name = "toolStripSanPham";
-            this.toolStripSanPham.Size = new System.Drawing.Size(112, 23);
-            this.toolStripSanPham.Text = "Sản Phẩm";
+            this.toolStripSanPham.Size = new System.Drawing.Size(130, 23);
+            this.toolStripSanPham.Text = "Xử lí sản phẩm";
             this.toolStripSanPham.Click += new System.EventHandler(this.toolStripSanPham_Click);
             // 
             // toolStripPhuTung
@@ -190,7 +201,7 @@
             this.toolStripPhuTung.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolStripPhuTung.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripPhuTung.Name = "toolStripPhuTung";
-            this.toolStripPhuTung.Size = new System.Drawing.Size(112, 23);
+            this.toolStripPhuTung.Size = new System.Drawing.Size(130, 23);
             this.toolStripPhuTung.Text = "Phụ Tùng";
             this.toolStripPhuTung.Click += new System.EventHandler(this.toolStripLinhKien_Click);
             // 
@@ -201,7 +212,7 @@
             this.toolStripBaoHanh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolStripBaoHanh.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripBaoHanh.Name = "toolStripBaoHanh";
-            this.toolStripBaoHanh.Size = new System.Drawing.Size(112, 23);
+            this.toolStripBaoHanh.Size = new System.Drawing.Size(130, 23);
             this.toolStripBaoHanh.Text = "Bảo Hành";
             this.toolStripBaoHanh.Click += new System.EventHandler(this.toolStripBaoHanh_Click);
             // 
@@ -212,7 +223,7 @@
             this.toolStripDoiTac.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolStripDoiTac.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDoiTac.Name = "toolStripDoiTac";
-            this.toolStripDoiTac.Size = new System.Drawing.Size(112, 23);
+            this.toolStripDoiTac.Size = new System.Drawing.Size(130, 23);
             this.toolStripDoiTac.Text = "Đối Tác ";
             this.toolStripDoiTac.Click += new System.EventHandler(this.toolStripDoiTac_Click);
             // 
@@ -223,7 +234,7 @@
             this.btnHoaDon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnHoaDon.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnHoaDon.Name = "btnHoaDon";
-            this.btnHoaDon.Size = new System.Drawing.Size(112, 23);
+            this.btnHoaDon.Size = new System.Drawing.Size(130, 23);
             this.btnHoaDon.Text = "Hóa Đơn";
             // 
             // toolStripButton1
@@ -233,15 +244,15 @@
             this.toolStripButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(112, 23);
+            this.toolStripButton1.Size = new System.Drawing.Size(130, 23);
             this.toolStripButton1.Text = "Thống kê";
             // 
             // panel2
             // 
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(115, 77);
+            this.panel2.Location = new System.Drawing.Point(133, 77);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(968, 608);
+            this.panel2.Size = new System.Drawing.Size(950, 608);
             this.panel2.TabIndex = 2;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -256,17 +267,6 @@
             // 
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // btnDangNhap
-            // 
-            this.btnDangNhap.BaseColor = System.Drawing.Color.White;
-            this.btnDangNhap.Image = ((System.Drawing.Image)(resources.GetObject("btnDangNhap.Image")));
-            this.btnDangNhap.Location = new System.Drawing.Point(0, 0);
-            this.btnDangNhap.Name = "btnDangNhap";
-            this.btnDangNhap.Size = new System.Drawing.Size(81, 77);
-            this.btnDangNhap.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnDangNhap.TabIndex = 19;
-            this.btnDangNhap.TabStop = false;
             // 
             // Form1
             // 
@@ -285,11 +285,11 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDangNhap)).EndInit();
             this.status_NguoiDung.ResumeLayout(false);
             this.status_NguoiDung.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnDangNhap)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

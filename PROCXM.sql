@@ -1,4 +1,5 @@
-﻿-- Proc nhà cung cấp
+﻿USE QUANLICUAHANG_XEMAY
+-- Proc nhà cung cấp
 GO
 create proc NCC_INSERT (
 @MANHACUNGCAP NVARCHAR(50),
@@ -35,9 +36,9 @@ AS BEGIN
 END	
 -----------------------------------------------------------------------------------------
 GO 
-CREATE PROC NCC_SEARCH(@MANHACUNGCAP NVARCHAR(50))
+ALTER PROC NCC_SEARCH(@TKNHACUNGCAP NVARCHAR(50))
 AS BEGIN
-   SELECT * FROM NHACUNGCAP WHERE   MANHACUNGCAP=@MANHACUNGCAP
+   SELECT MANHACUNGCAP, TENNHACUNGCAP, DIACHI, DIENTHOAI, EMAIL FROM NHACUNGCAP WHERE   CONCAT(MANHACUNGCAP, TENNHACUNGCAP, DIACHI, DIENTHOAI, EMAIL) LIKE '%'+@TKNHACUNGCAP+'%'
 END
 -----------------------------------------------------------------------------------------
 GO 
@@ -89,9 +90,9 @@ AS BEGIN
 END
 -----------------------------------------------------------------------------------------
 GO 
-CREATE PROC KH_SEARCH(@MAKH NVARCHAR(50))
+ALTER PROC KH_SEARCH(@TKKH NVARCHAR(50))
 AS BEGIN
-   SELECT * FROM KHACHHANG WHERE MAKH=@MAKH
+   SELECT MAKH, TENKH, DIACHI, DIENTHOAI, GMAIL FROM KHACHHANG WHERE CONCAT(MAKH, TENKH, DIACHI, DIENTHOAI, GMAIL) LIKE '%'+@TKKH+'%'
 END
 -----------------------------------------------------------------------------------------
 --Proc San pham
@@ -148,9 +149,9 @@ AS BEGIN
 END	
 -----------------------------------------------------------------------------------------
 GO 
-CREATE PROC SP_SEARCH(@MASP NVARCHAR(50))
+ALTER PROC SP_SEARCH(@TKSP NVARCHAR(50))
 AS BEGIN
-   SELECT * FROM SANPHAM WHERE MASP=@MASP
+   SELECT MASP, TENSP,MALOAI, DUNGTICHXL, KICHTHUOC, CONCAT(KHOILUONG, ' Kg') As KHOILUONGSP, CONGSUATTD, HANGXE, SOLUONG, CONCAT (GIABAN, N' VNĐ') AS GIASP FROM SANPHAM WHERE  CONCAT(MASP, TENSP, HANGXE) LIKE '%'+@TKSP+'%'
 END
 -----------------------------------------------------------------------------------------
 GO
@@ -223,7 +224,7 @@ BEGIN
 	UPDATE NHANVIEN SET PASSWORD = @PASS WHERE USERLOGIN=@tk
 END
 ----------------------------------------------------------------------
-GO
+/**GO
 CREATE PROC INSERT_HINHANH (
  @MASP NVARCHAR(50),
  @HinhAnh1 image,
@@ -232,12 +233,105 @@ CREATE PROC INSERT_HINHANH (
  @HinhAnh4 image
 
 )
-AS BEGIN 
-INSERT INTO HinhAnhSP VALUES (@MASP, @HinhAnh1, @HinhAnh2, @HinhAnh3, @HinhAnh4)
-   END
+AS 
+INSERT INTO HinhAnhSP VALUES (@MASP, @HinhAnh1, @HinhAnh2, @HinhAnh3, @HinhAnh4)**/
+--Phiếu nhập ---------------------------------
+GO
+alter PROC SELECT_CTNHAP
+AS BEGIN
+SELECT   CTX.MASP, CTX.SLNHAP, CTX.DONGIANHAP, CTP.MAPT, CTP.SLNHAP, CTP.DONGIANHAP
+FROM  CTPNHAP CTX, CTPNHAPPT CTP, PNHAP PN
+WHERE CTX.MAPN = PN.MAPN and CTP.MAPN = PN.MAPN
+END
+GO
+alter PROC INSERT_PNHAP(
+@MAPN NVARCHAR(50),
+@MANHACUNGCAP NVARCHAR(50),
+@MANHANVIEN NVARCHAR(50),
+@NGAYNHAP DATE,
+@TONGTIEN FLOAT
+)
+AS
+INSERT INTO PNHAP VALUES(@MAPN, @MANHACUNGCAP, @MANHANVIEN, @NGAYNHAP, @TONGTIEN)
+GO
+alter PROC INSERT_CTPNHAPXE(
+@MAPN NVARCHAR(50),
+@MASP NVARCHAR(50),
+@SLNHAPXE INT,
+@DONGIANHAPXE FLOAT
+)
+AS 
+INSERT INTO CTPNHAP VALUES (@MAPN, @MASP, @SLNHAPXE, @DONGIANHAPXE) 
+UPDATE SANPHAM SET SOLUONG= SOLUONG +@SLNHAPXE where MASP=@MASP
+GO
+alter PROC INSERT_CTPNHAPPT(
+@MAPN NVARCHAR(50),
+@MAPT NVARCHAR(50),
+@SLNHAPPT INT,
+@DONGIANHAPPT FLOAT
+)
+AS 
+INSERT INTO CTPNHAPPT VALUES (@MAPN, @MAPT, @SLNHAPPT, @DONGIANHAPPT) 
+UPDATE PHUTUNG SET SOLUONG= SOLUONG +@SLNHAPPT where MAPT=@MAPT
+
 
 GO
-CREATE TRIGGER AUTO_UPDATE_TRANGTHAISANPHAM ON SANPHAM FOR UPDATE
-AS BEGIN 
-	UPDATE SANPHAM SET TRANGTHAI = 0 WHERE SOLUONG = 0
-END
+alter PROC UPDATE_TIENNHAPXE(
+@MAPN NVARCHAR(50),
+@DONGIANHAPXE FLOAT
+)
+as	
+UPDATE PNHAP SET TONGTIEN = @DONGIANHAPXE WHERE MAPN= @MAPN
+
+GO
+alter PROC UPDATE_TIENNHAPPT(
+@MAPN NVARCHAR(50),
+@DONGIANHAPPT FLOAT
+)
+as	
+UPDATE PNHAP SET TONGTIEN = @DONGIANHAPPT WHERE MAPN= @MAPN
+
+go
+alter proc selectNCC (@MA nvarchar (50))
+AS
+select * from NHACUNGCAP where MANHACUNGCAP = @ma
+go
+
+alter proc selectCTPN (@mapn nvarchar (50), @masp nvarchar (50))
+as
+select * from CTPNHAP where MAPN = @mapn and MASP = @masp
+go
+
+alter proc selectPN (@ma nvarchar (50))
+as
+select * from PNHAP where MAPN = @ma
+go
+
+alter proc selectCTPTung (@mapn nvarchar (50), @mapt nvarchar (50))
+as
+select * from CTPNHAPPT where MAPN = @mapn and MAPT = @mapt
+go
+
+alter proc updateSTCTPNX (@ma nvarchar (50), @masp nvarchar (50), @soluong int)
+as
+update CTPNHAP set SLNHAP = @soluong where MAPN = @ma and MASP = @masp
+
+go
+
+alter proc updateSLCTPPT (@ma nvarchar (50), @mapt nvarchar (50), @soluong int)
+as
+update CTPNHAPPT set SLNHAP = @soluong where MAPN = @ma and MAPT = @mapt
+go
+
+alter proc selectCTPNxe (@ma nvarchar (50))
+as
+select * from CTPNHAP where MAPN = @ma
+select * from PNHAP
+
+go
+
+alter proc selectCTPNPT (@ma nvarchar (50))
+as
+select * from CTPNHAPPT where MAPN = @ma
+
+

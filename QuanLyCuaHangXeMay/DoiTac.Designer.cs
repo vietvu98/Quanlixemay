@@ -38,18 +38,11 @@
             this.btnTimKiem = new System.Windows.Forms.ToolStripButton();
             this.txtSearch = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnQuayLai = new DevExpress.XtraEditors.SimpleButton();
             this.panelChiTietDatHang = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panelThongTinDT = new System.Windows.Forms.Panel();
             this.dgvDoiTac = new System.Windows.Forms.DataGridView();
-            this.MANHACUNGCAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TENNHACUNGCAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DIACHI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DIENTHOAI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EMAIL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.xem = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.btnChonAnh = new DevExpress.XtraEditors.SimpleButton();
@@ -64,7 +57,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.MaKH = new System.Windows.Forms.Label();
             this.txtMaDT = new System.Windows.Forms.TextBox();
-            this.btnXemCT = new DevExpress.XtraEditors.SimpleButton();
+            this.MANHACUNGCAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TENNHACUNGCAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DIACHI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DIENTHOAI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EMAIL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             this.panelChiTietDatHang.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -149,8 +146,7 @@
             this.btnTimKiem.ImageAlign = System.Drawing.ContentAlignment.TopRight;
             this.btnTimKiem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(91, 22);
-            this.btnTimKiem.Text = "Tìm kiếm";
+            this.btnTimKiem.Size = new System.Drawing.Size(23, 22);
             this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // txtSearch
@@ -160,6 +156,8 @@
             this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(260, 25);
+            this.txtSearch.Click += new System.EventHandler(this.txtSearch_Click);
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // toolStripSeparator1
             // 
@@ -168,15 +166,6 @@
             this.toolStripSeparator1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // btnQuayLai
-            // 
-            this.btnQuayLai.Location = new System.Drawing.Point(756, 540);
-            this.btnQuayLai.Name = "btnQuayLai";
-            this.btnQuayLai.Size = new System.Drawing.Size(118, 34);
-            this.btnQuayLai.TabIndex = 15;
-            this.btnQuayLai.Text = "Quay Lại";
-            this.btnQuayLai.Click += new System.EventHandler(this.btnQuayLai_Click);
             // 
             // panelChiTietDatHang
             // 
@@ -228,8 +217,7 @@
             this.TENNHACUNGCAP,
             this.DIACHI,
             this.DIENTHOAI,
-            this.EMAIL,
-            this.xem});
+            this.EMAIL});
             this.dgvDoiTac.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDoiTac.Location = new System.Drawing.Point(0, 0);
             this.dgvDoiTac.Name = "dgvDoiTac";
@@ -242,51 +230,6 @@
             this.dgvDoiTac.TabIndex = 0;
             this.dgvDoiTac.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDoiTac_CellClick);
             this.dgvDoiTac.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDoiTac_CellContentClick);
-            // 
-            // MANHACUNGCAP
-            // 
-            this.MANHACUNGCAP.DataPropertyName = "MANHACUNGCAP";
-            this.MANHACUNGCAP.HeaderText = "Mã đối tác";
-            this.MANHACUNGCAP.Name = "MANHACUNGCAP";
-            this.MANHACUNGCAP.ReadOnly = true;
-            // 
-            // TENNHACUNGCAP
-            // 
-            this.TENNHACUNGCAP.DataPropertyName = "TENNHACUNGCAP";
-            this.TENNHACUNGCAP.HeaderText = "Tên đối tác";
-            this.TENNHACUNGCAP.Name = "TENNHACUNGCAP";
-            this.TENNHACUNGCAP.ReadOnly = true;
-            // 
-            // DIACHI
-            // 
-            this.DIACHI.DataPropertyName = "DIACHI";
-            this.DIACHI.HeaderText = "Địa chỉ";
-            this.DIACHI.Name = "DIACHI";
-            this.DIACHI.ReadOnly = true;
-            // 
-            // DIENTHOAI
-            // 
-            this.DIENTHOAI.DataPropertyName = "DIENTHOAI";
-            this.DIENTHOAI.HeaderText = "Điện thoại";
-            this.DIENTHOAI.Name = "DIENTHOAI";
-            this.DIENTHOAI.ReadOnly = true;
-            // 
-            // EMAIL
-            // 
-            this.EMAIL.DataPropertyName = "EMAIL";
-            this.EMAIL.HeaderText = "Email";
-            this.EMAIL.Name = "EMAIL";
-            this.EMAIL.ReadOnly = true;
-            // 
-            // xem
-            // 
-            this.xem.HeaderText = "Sản phẩm nhập";
-            this.xem.Name = "xem";
-            this.xem.ReadOnly = true;
-            this.xem.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.xem.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.xem.Text = "Xem chi tiết";
-            this.xem.UseColumnTextForButtonValue = true;
             // 
             // panel1
             // 
@@ -422,14 +365,40 @@
             this.txtMaDT.Size = new System.Drawing.Size(165, 20);
             this.txtMaDT.TabIndex = 0;
             // 
-            // btnXemCT
+            // MANHACUNGCAP
             // 
-            this.btnXemCT.Location = new System.Drawing.Point(408, 540);
-            this.btnXemCT.Name = "btnXemCT";
-            this.btnXemCT.Size = new System.Drawing.Size(119, 34);
-            this.btnXemCT.TabIndex = 12;
-            this.btnXemCT.Text = "Xem Chi Tiết";
-            this.btnXemCT.Click += new System.EventHandler(this.btnXemCT_Click);
+            this.MANHACUNGCAP.DataPropertyName = "MANHACUNGCAP";
+            this.MANHACUNGCAP.HeaderText = "Mã đối tác";
+            this.MANHACUNGCAP.Name = "MANHACUNGCAP";
+            this.MANHACUNGCAP.ReadOnly = true;
+            // 
+            // TENNHACUNGCAP
+            // 
+            this.TENNHACUNGCAP.DataPropertyName = "TENNHACUNGCAP";
+            this.TENNHACUNGCAP.HeaderText = "Tên đối tác";
+            this.TENNHACUNGCAP.Name = "TENNHACUNGCAP";
+            this.TENNHACUNGCAP.ReadOnly = true;
+            // 
+            // DIACHI
+            // 
+            this.DIACHI.DataPropertyName = "DIACHI";
+            this.DIACHI.HeaderText = "Địa chỉ";
+            this.DIACHI.Name = "DIACHI";
+            this.DIACHI.ReadOnly = true;
+            // 
+            // DIENTHOAI
+            // 
+            this.DIENTHOAI.DataPropertyName = "DIENTHOAI";
+            this.DIENTHOAI.HeaderText = "Điện thoại";
+            this.DIENTHOAI.Name = "DIENTHOAI";
+            this.DIENTHOAI.ReadOnly = true;
+            // 
+            // EMAIL
+            // 
+            this.EMAIL.DataPropertyName = "EMAIL";
+            this.EMAIL.HeaderText = "Email";
+            this.EMAIL.Name = "EMAIL";
+            this.EMAIL.ReadOnly = true;
             // 
             // DoiTac
             // 
@@ -437,11 +406,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.GhostWhite;
             this.ClientSize = new System.Drawing.Size(968, 610);
-            this.Controls.Add(this.btnQuayLai);
             this.Controls.Add(this.panelChiTietDatHang);
             this.Controls.Add(this.panelThongTinDT);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.btnXemCT);
             this.Controls.Add(this.toolStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DoiTac";
@@ -473,7 +440,6 @@
         private System.Windows.Forms.ToolStripButton btnTimKiem;
         private System.Windows.Forms.ToolStripTextBox txtSearch;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private DevExpress.XtraEditors.SimpleButton btnQuayLai;
         private System.Windows.Forms.Panel panelChiTietDatHang;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panelThongTinDT;
@@ -488,17 +454,15 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label MaKH;
         private System.Windows.Forms.TextBox txtMaDT;
-        private DevExpress.XtraEditors.SimpleButton btnXemCT;
         private DevExpress.XtraEditors.SimpleButton btnChonAnh;
         private System.Windows.Forms.PictureBox ptbAnh;
         private System.Windows.Forms.DataGridView dgvDoiTac;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridViewTextBoxColumn MANHACUNGCAP;
         private System.Windows.Forms.DataGridViewTextBoxColumn TENNHACUNGCAP;
         private System.Windows.Forms.DataGridViewTextBoxColumn DIACHI;
         private System.Windows.Forms.DataGridViewTextBoxColumn DIENTHOAI;
         private System.Windows.Forms.DataGridViewTextBoxColumn EMAIL;
-        private System.Windows.Forms.DataGridViewButtonColumn xem;
-        private System.Windows.Forms.Label label6;
     }
 }

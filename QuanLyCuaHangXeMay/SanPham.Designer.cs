@@ -34,7 +34,6 @@
             this.btnThem = new System.Windows.Forms.ToolStripButton();
             this.btnSua = new System.Windows.Forms.ToolStripButton();
             this.btnLuu = new System.Windows.Forms.ToolStripButton();
-            this.btnXoa = new System.Windows.Forms.ToolStripButton();
             this.btnHuy = new System.Windows.Forms.ToolStripButton();
             this.btnTimKiem = new System.Windows.Forms.ToolStripButton();
             this.txtSearch = new System.Windows.Forms.ToolStripTextBox();
@@ -44,7 +43,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtGia = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtMauSac = new System.Windows.Forms.TextBox();
+            this.txtSoLuong = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtHangXe = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -73,21 +72,8 @@
             this.KHOILUONGSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CONGSUATTD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HANGXE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MAUSAC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SOLUONG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GIAVSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pnlHinhAnh = new System.Windows.Forms.Panel();
-            this.gunaGradientButton1 = new Guna.UI.WinForms.GunaGradientButton();
-            this.gunaCircleButton4 = new Guna.UI.WinForms.GunaCircleButton();
-            this.lb_TenSP = new System.Windows.Forms.Label();
-            this.gunaCircleButton3 = new Guna.UI.WinForms.GunaCircleButton();
-            this.gunaCircleButton2 = new Guna.UI.WinForms.GunaCircleButton();
-            this.gunaCircleButton1 = new Guna.UI.WinForms.GunaCircleButton();
-            this.pbAnh4 = new System.Windows.Forms.PictureBox();
-            this.pbAnh2 = new System.Windows.Forms.PictureBox();
-            this.pbAnh3 = new System.Windows.Forms.PictureBox();
-            this.pbAnh1 = new System.Windows.Forms.PictureBox();
-            this.btnQuayLai = new DevExpress.XtraEditors.SimpleButton();
-            this.btnXemHinh = new DevExpress.XtraEditors.SimpleButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnXeMoTo = new DevExpress.XtraEditors.SimpleButton();
             this.btnXeTayGa = new DevExpress.XtraEditors.SimpleButton();
@@ -99,11 +85,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvTTSanPham)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lOAISPBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lOAISP_SPDataSet)).BeginInit();
-            this.pnlHinhAnh.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAnh4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAnh2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAnh3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAnh1)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -113,14 +94,13 @@
             this.btnThem,
             this.btnSua,
             this.btnLuu,
-            this.btnXoa,
             this.btnHuy,
             this.btnTimKiem,
             this.txtSearch,
             this.toolStripSeparator1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1940, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(973, 25);
             this.toolStrip1.TabIndex = 7;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -154,16 +134,6 @@
             this.btnLuu.Text = "Lưu";
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
-            // btnXoa
-            // 
-            this.btnXoa.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.Image")));
-            this.btnXoa.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(53, 22);
-            this.btnXoa.Text = "Xóa";
-            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
-            // 
             // btnHuy
             // 
             this.btnHuy.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -182,8 +152,7 @@
             this.btnTimKiem.ImageAlign = System.Drawing.ContentAlignment.TopRight;
             this.btnTimKiem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(91, 22);
-            this.btnTimKiem.Text = "Tìm kiếm";
+            this.btnTimKiem.Size = new System.Drawing.Size(23, 22);
             this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // txtSearch
@@ -193,6 +162,7 @@
             this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(260, 25);
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // toolStripSeparator1
             // 
@@ -209,7 +179,7 @@
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.txtGia);
             this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.txtMauSac);
+            this.panel1.Controls.Add(this.txtSoLuong);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.txtHangXe);
             this.panel1.Controls.Add(this.label6);
@@ -266,21 +236,23 @@
             this.label8.TabIndex = 18;
             this.label8.Text = "Giá bán";
             // 
-            // txtMauSac
+            // txtSoLuong
             // 
-            this.txtMauSac.Location = new System.Drawing.Point(791, 159);
-            this.txtMauSac.Name = "txtMauSac";
-            this.txtMauSac.Size = new System.Drawing.Size(154, 20);
-            this.txtMauSac.TabIndex = 17;
+            this.txtSoLuong.Enabled = false;
+            this.txtSoLuong.Location = new System.Drawing.Point(791, 159);
+            this.txtSoLuong.Name = "txtSoLuong";
+            this.txtSoLuong.Size = new System.Drawing.Size(154, 20);
+            this.txtSoLuong.TabIndex = 17;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.Enabled = false;
             this.label7.Location = new System.Drawing.Point(666, 166);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(48, 13);
+            this.label7.Size = new System.Drawing.Size(49, 13);
             this.label7.TabIndex = 16;
-            this.label7.Text = "Màu sắc";
+            this.label7.Text = "Số lượng";
             // 
             // txtHangXe
             // 
@@ -431,7 +403,7 @@
             this.KHOILUONGSP,
             this.CONGSUATTD,
             this.HANGXE,
-            this.MAUSAC,
+            this.SOLUONG,
             this.GIAVSP});
             this.dgvTTSanPham.Location = new System.Drawing.Point(0, 346);
             this.dgvTTSanPham.Name = "dgvTTSanPham";
@@ -520,12 +492,12 @@
             this.HANGXE.Name = "HANGXE";
             this.HANGXE.ReadOnly = true;
             // 
-            // MAUSAC
+            // SOLUONG
             // 
-            this.MAUSAC.DataPropertyName = "MAUSAC";
-            this.MAUSAC.HeaderText = "Màu sắc";
-            this.MAUSAC.Name = "MAUSAC";
-            this.MAUSAC.ReadOnly = true;
+            this.SOLUONG.DataPropertyName = "SOLUONG";
+            this.SOLUONG.HeaderText = "Số lượng";
+            this.SOLUONG.Name = "SOLUONG";
+            this.SOLUONG.ReadOnly = true;
             // 
             // GIAVSP
             // 
@@ -535,212 +507,10 @@
             this.GIAVSP.ReadOnly = true;
             this.GIAVSP.ToolTipText = "VND";
             // 
-            // pnlHinhAnh
-            // 
-            this.pnlHinhAnh.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlHinhAnh.Controls.Add(this.gunaGradientButton1);
-            this.pnlHinhAnh.Controls.Add(this.gunaCircleButton4);
-            this.pnlHinhAnh.Controls.Add(this.lb_TenSP);
-            this.pnlHinhAnh.Controls.Add(this.gunaCircleButton3);
-            this.pnlHinhAnh.Controls.Add(this.gunaCircleButton2);
-            this.pnlHinhAnh.Controls.Add(this.gunaCircleButton1);
-            this.pnlHinhAnh.Controls.Add(this.pbAnh4);
-            this.pnlHinhAnh.Controls.Add(this.pbAnh2);
-            this.pnlHinhAnh.Controls.Add(this.pbAnh3);
-            this.pnlHinhAnh.Controls.Add(this.pbAnh1);
-            this.pnlHinhAnh.Location = new System.Drawing.Point(989, 92);
-            this.pnlHinhAnh.Name = "pnlHinhAnh";
-            this.pnlHinhAnh.Size = new System.Drawing.Size(875, 492);
-            this.pnlHinhAnh.TabIndex = 16;
-            // 
-            // gunaGradientButton1
-            // 
-            this.gunaGradientButton1.AnimationHoverSpeed = 0.07F;
-            this.gunaGradientButton1.AnimationSpeed = 0.03F;
-            this.gunaGradientButton1.BaseColor1 = System.Drawing.Color.LightSteelBlue;
-            this.gunaGradientButton1.BaseColor2 = System.Drawing.Color.GhostWhite;
-            this.gunaGradientButton1.BorderColor = System.Drawing.Color.Black;
-            this.gunaGradientButton1.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaGradientButton1.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaGradientButton1.ForeColor = System.Drawing.Color.Black;
-            this.gunaGradientButton1.Image = ((System.Drawing.Image)(resources.GetObject("gunaGradientButton1.Image")));
-            this.gunaGradientButton1.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaGradientButton1.Location = new System.Drawing.Point(721, 227);
-            this.gunaGradientButton1.Name = "gunaGradientButton1";
-            this.gunaGradientButton1.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(145)))), ((int)(((byte)(221)))));
-            this.gunaGradientButton1.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(85)))), ((int)(((byte)(255)))));
-            this.gunaGradientButton1.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.gunaGradientButton1.OnHoverForeColor = System.Drawing.Color.White;
-            this.gunaGradientButton1.OnHoverImage = null;
-            this.gunaGradientButton1.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaGradientButton1.Size = new System.Drawing.Size(144, 42);
-            this.gunaGradientButton1.TabIndex = 21;
-            this.gunaGradientButton1.Text = "Lưu hình ảnh";
-            this.gunaGradientButton1.Click += new System.EventHandler(this.gunaGradientButton1_Click);
-            // 
-            // gunaCircleButton4
-            // 
-            this.gunaCircleButton4.AnimationHoverSpeed = 0.07F;
-            this.gunaCircleButton4.AnimationSpeed = 0.03F;
-            this.gunaCircleButton4.BaseColor = System.Drawing.Color.Transparent;
-            this.gunaCircleButton4.BorderColor = System.Drawing.Color.Black;
-            this.gunaCircleButton4.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaCircleButton4.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaCircleButton4.ForeColor = System.Drawing.Color.White;
-            this.gunaCircleButton4.Image = ((System.Drawing.Image)(resources.GetObject("gunaCircleButton4.Image")));
-            this.gunaCircleButton4.ImageSize = new System.Drawing.Size(52, 52);
-            this.gunaCircleButton4.Location = new System.Drawing.Point(641, 415);
-            this.gunaCircleButton4.Name = "gunaCircleButton4";
-            this.gunaCircleButton4.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.gunaCircleButton4.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.gunaCircleButton4.OnHoverForeColor = System.Drawing.Color.White;
-            this.gunaCircleButton4.OnHoverImage = null;
-            this.gunaCircleButton4.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaCircleButton4.Size = new System.Drawing.Size(52, 47);
-            this.gunaCircleButton4.TabIndex = 13;
-            this.gunaCircleButton4.Click += new System.EventHandler(this.gunaCircleButton4_Click);
-            // 
-            // lb_TenSP
-            // 
-            this.lb_TenSP.AutoSize = true;
-            this.lb_TenSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_TenSP.Location = new System.Drawing.Point(759, 173);
-            this.lb_TenSP.Name = "lb_TenSP";
-            this.lb_TenSP.Size = new System.Drawing.Size(67, 20);
-            this.lb_TenSP.TabIndex = 20;
-            this.lb_TenSP.Text = "label10";
-            this.lb_TenSP.Click += new System.EventHandler(this.lb_TenSP_Click);
-            // 
-            // gunaCircleButton3
-            // 
-            this.gunaCircleButton3.AnimationHoverSpeed = 0.07F;
-            this.gunaCircleButton3.AnimationSpeed = 0.03F;
-            this.gunaCircleButton3.BaseColor = System.Drawing.Color.Transparent;
-            this.gunaCircleButton3.BorderColor = System.Drawing.Color.Black;
-            this.gunaCircleButton3.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaCircleButton3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaCircleButton3.ForeColor = System.Drawing.Color.White;
-            this.gunaCircleButton3.Image = ((System.Drawing.Image)(resources.GetObject("gunaCircleButton3.Image")));
-            this.gunaCircleButton3.ImageSize = new System.Drawing.Size(52, 52);
-            this.gunaCircleButton3.Location = new System.Drawing.Point(291, 414);
-            this.gunaCircleButton3.Name = "gunaCircleButton3";
-            this.gunaCircleButton3.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.gunaCircleButton3.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.gunaCircleButton3.OnHoverForeColor = System.Drawing.Color.White;
-            this.gunaCircleButton3.OnHoverImage = null;
-            this.gunaCircleButton3.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaCircleButton3.Size = new System.Drawing.Size(52, 48);
-            this.gunaCircleButton3.TabIndex = 12;
-            this.gunaCircleButton3.Click += new System.EventHandler(this.gunaCircleButton3_Click);
-            // 
-            // gunaCircleButton2
-            // 
-            this.gunaCircleButton2.AnimationHoverSpeed = 0.07F;
-            this.gunaCircleButton2.AnimationSpeed = 0.03F;
-            this.gunaCircleButton2.BaseColor = System.Drawing.Color.Transparent;
-            this.gunaCircleButton2.BorderColor = System.Drawing.Color.Black;
-            this.gunaCircleButton2.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaCircleButton2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaCircleButton2.ForeColor = System.Drawing.Color.White;
-            this.gunaCircleButton2.Image = ((System.Drawing.Image)(resources.GetObject("gunaCircleButton2.Image")));
-            this.gunaCircleButton2.ImageSize = new System.Drawing.Size(52, 52);
-            this.gunaCircleButton2.Location = new System.Drawing.Point(641, 173);
-            this.gunaCircleButton2.Name = "gunaCircleButton2";
-            this.gunaCircleButton2.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.gunaCircleButton2.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.gunaCircleButton2.OnHoverForeColor = System.Drawing.Color.White;
-            this.gunaCircleButton2.OnHoverImage = null;
-            this.gunaCircleButton2.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaCircleButton2.Size = new System.Drawing.Size(52, 47);
-            this.gunaCircleButton2.TabIndex = 12;
-            this.gunaCircleButton2.Click += new System.EventHandler(this.gunaCircleButton2_Click);
-            // 
-            // gunaCircleButton1
-            // 
-            this.gunaCircleButton1.AnimationHoverSpeed = 0.07F;
-            this.gunaCircleButton1.AnimationSpeed = 0.03F;
-            this.gunaCircleButton1.BaseColor = System.Drawing.Color.Transparent;
-            this.gunaCircleButton1.BorderColor = System.Drawing.Color.Black;
-            this.gunaCircleButton1.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaCircleButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaCircleButton1.ForeColor = System.Drawing.Color.White;
-            this.gunaCircleButton1.Image = ((System.Drawing.Image)(resources.GetObject("gunaCircleButton1.Image")));
-            this.gunaCircleButton1.ImageSize = new System.Drawing.Size(52, 52);
-            this.gunaCircleButton1.Location = new System.Drawing.Point(291, 173);
-            this.gunaCircleButton1.Name = "gunaCircleButton1";
-            this.gunaCircleButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.gunaCircleButton1.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.gunaCircleButton1.OnHoverForeColor = System.Drawing.Color.White;
-            this.gunaCircleButton1.OnHoverImage = null;
-            this.gunaCircleButton1.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaCircleButton1.Size = new System.Drawing.Size(52, 50);
-            this.gunaCircleButton1.TabIndex = 11;
-            this.gunaCircleButton1.Click += new System.EventHandler(this.gunaCircleButton1_Click);
-            // 
-            // pbAnh4
-            // 
-            this.pbAnh4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbAnh4.Location = new System.Drawing.Point(386, 263);
-            this.pbAnh4.Name = "pbAnh4";
-            this.pbAnh4.Size = new System.Drawing.Size(316, 208);
-            this.pbAnh4.TabIndex = 10;
-            this.pbAnh4.TabStop = false;
-            // 
-            // pbAnh2
-            // 
-            this.pbAnh2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbAnh2.Location = new System.Drawing.Point(386, 16);
-            this.pbAnh2.Name = "pbAnh2";
-            this.pbAnh2.Size = new System.Drawing.Size(316, 208);
-            this.pbAnh2.TabIndex = 9;
-            this.pbAnh2.TabStop = false;
-            // 
-            // pbAnh3
-            // 
-            this.pbAnh3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbAnh3.Location = new System.Drawing.Point(38, 263);
-            this.pbAnh3.Name = "pbAnh3";
-            this.pbAnh3.Size = new System.Drawing.Size(316, 208);
-            this.pbAnh3.TabIndex = 8;
-            this.pbAnh3.TabStop = false;
-            // 
-            // pbAnh1
-            // 
-            this.pbAnh1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbAnh1.Location = new System.Drawing.Point(38, 16);
-            this.pbAnh1.Name = "pbAnh1";
-            this.pbAnh1.Size = new System.Drawing.Size(316, 208);
-            this.pbAnh1.TabIndex = 4;
-            this.pbAnh1.TabStop = false;
-            // 
-            // btnQuayLai
-            // 
-            this.btnQuayLai.Appearance.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQuayLai.Appearance.Options.UseFont = true;
-            this.btnQuayLai.Location = new System.Drawing.Point(830, 6);
-            this.btnQuayLai.Name = "btnQuayLai";
-            this.btnQuayLai.Size = new System.Drawing.Size(116, 38);
-            this.btnQuayLai.TabIndex = 18;
-            this.btnQuayLai.Text = "Quay lại";
-            this.btnQuayLai.Click += new System.EventHandler(this.btnQuayLai_Click);
-            // 
-            // btnXemHinh
-            // 
-            this.btnXemHinh.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXemHinh.Appearance.Options.UseFont = true;
-            this.btnXemHinh.Location = new System.Drawing.Point(670, 6);
-            this.btnXemHinh.Name = "btnXemHinh";
-            this.btnXemHinh.Size = new System.Drawing.Size(119, 39);
-            this.btnXemHinh.TabIndex = 17;
-            this.btnXemHinh.Text = "Xem hình ảnh";
-            this.btnXemHinh.Click += new System.EventHandler(this.btnXemHinh_Click);
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.btnXeMoTo);
-            this.panel2.Controls.Add(this.btnQuayLai);
             this.panel2.Controls.Add(this.btnXeTayGa);
-            this.panel2.Controls.Add(this.btnXemHinh);
             this.panel2.Controls.Add(this.btnXeSo);
             this.panel2.Location = new System.Drawing.Point(0, 32);
             this.panel2.Name = "panel2";
@@ -753,7 +523,7 @@
             this.btnXeMoTo.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnXeMoTo.Appearance.Options.UseFont = true;
             this.btnXeMoTo.Appearance.Options.UseForeColor = true;
-            this.btnXeMoTo.Location = new System.Drawing.Point(490, 6);
+            this.btnXeMoTo.Location = new System.Drawing.Point(822, 6);
             this.btnXeMoTo.Name = "btnXeMoTo";
             this.btnXeMoTo.Size = new System.Drawing.Size(124, 39);
             this.btnXeMoTo.TabIndex = 2;
@@ -766,7 +536,7 @@
             this.btnXeTayGa.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btnXeTayGa.Appearance.Options.UseFont = true;
             this.btnXeTayGa.Appearance.Options.UseForeColor = true;
-            this.btnXeTayGa.Location = new System.Drawing.Point(276, 6);
+            this.btnXeTayGa.Location = new System.Drawing.Point(453, 3);
             this.btnXeTayGa.Name = "btnXeTayGa";
             this.btnXeTayGa.Size = new System.Drawing.Size(124, 39);
             this.btnXeTayGa.TabIndex = 1;
@@ -779,7 +549,7 @@
             this.btnXeSo.Appearance.ForeColor = System.Drawing.Color.Red;
             this.btnXeSo.Appearance.Options.UseFont = true;
             this.btnXeSo.Appearance.Options.UseForeColor = true;
-            this.btnXeSo.Location = new System.Drawing.Point(42, 6);
+            this.btnXeSo.Location = new System.Drawing.Point(80, 6);
             this.btnXeSo.Name = "btnXeSo";
             this.btnXeSo.Size = new System.Drawing.Size(124, 39);
             this.btnXeSo.TabIndex = 0;
@@ -795,9 +565,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.GhostWhite;
-            this.ClientSize = new System.Drawing.Size(1940, 610);
+            this.ClientSize = new System.Drawing.Size(973, 610);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.pnlHinhAnh);
             this.Controls.Add(this.dgvTTSanPham);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip1);
@@ -813,12 +582,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvTTSanPham)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lOAISPBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lOAISP_SPDataSet)).EndInit();
-            this.pnlHinhAnh.ResumeLayout(false);
-            this.pnlHinhAnh.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAnh4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAnh2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAnh3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAnh1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -828,10 +591,8 @@
         #endregion
 
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton btnThem;
         private System.Windows.Forms.ToolStripButton btnSua;
         private System.Windows.Forms.ToolStripButton btnLuu;
-        private System.Windows.Forms.ToolStripButton btnXoa;
         private System.Windows.Forms.ToolStripButton btnHuy;
         private System.Windows.Forms.ToolStripButton btnTimKiem;
         private System.Windows.Forms.ToolStripTextBox txtSearch;
@@ -850,10 +611,6 @@
         private System.Windows.Forms.Label lbmsp;
         private System.Windows.Forms.TextBox txtMaSP;
         private System.Windows.Forms.DataGridView dgvTTSanPham;
-        private System.Windows.Forms.Panel pnlHinhAnh;
-        private DevExpress.XtraEditors.SimpleButton btnQuayLai;
-        private DevExpress.XtraEditors.SimpleButton btnXemHinh;
-        private System.Windows.Forms.PictureBox pbAnh1;
         private System.Windows.Forms.Panel panel2;
         private DevExpress.XtraEditors.SimpleButton btnXeMoTo;
         private DevExpress.XtraEditors.SimpleButton btnXeTayGa;
@@ -862,7 +619,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtGia;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtMauSac;
+        private System.Windows.Forms.TextBox txtSoLuong;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtHangXe;
         private System.Windows.Forms.Label label6;
@@ -879,16 +636,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn KHOILUONGSP;
         private System.Windows.Forms.DataGridViewTextBoxColumn CONGSUATTD;
         private System.Windows.Forms.DataGridViewTextBoxColumn HANGXE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MAUSAC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SOLUONG;
         private System.Windows.Forms.DataGridViewTextBoxColumn GIAVSP;
-        private System.Windows.Forms.Label lb_TenSP;
-        private Guna.UI.WinForms.GunaCircleButton gunaCircleButton4;
-        private Guna.UI.WinForms.GunaCircleButton gunaCircleButton3;
-        private Guna.UI.WinForms.GunaCircleButton gunaCircleButton2;
-        private Guna.UI.WinForms.GunaCircleButton gunaCircleButton1;
-        private System.Windows.Forms.PictureBox pbAnh4;
-        private System.Windows.Forms.PictureBox pbAnh2;
-        private System.Windows.Forms.PictureBox pbAnh3;
-        private Guna.UI.WinForms.GunaGradientButton gunaGradientButton1;
+        private System.Windows.Forms.ToolStripButton btnThem;
     }
 }

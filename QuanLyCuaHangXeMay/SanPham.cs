@@ -38,35 +38,35 @@ namespace QuanLyCuaHangXeMay
             }
         }
 
-        private void btnXemHinh_Click(object sender, EventArgs e)
-        {
-            if (pnlHinhAnh.Left == 989)
-            {
-                dgvTTSanPham.Visible = false;
-                panel1.Left = 989;
-                dgvTTSanPham.Left = 989;
+        //private void btnXemHinh_Click(object sender, EventArgs e)
+        //{
+        //    if (pnlHinhAnh.Left == 989)
+        //    {
+        //        dgvTTSanPham.Visible = false;
+        //        panel1.Left = 989;
+        //        dgvTTSanPham.Left = 989;
 
-                pnlHinhAnh.Visible = false;
-                pnlHinhAnh.Left = 0;
-                pnlHinhAnh.Visible = true;
-                pnlHinhAnh.Refresh();
-            }
-        }
+        //        pnlHinhAnh.Visible = false;
+        //        pnlHinhAnh.Left = 0;
+        //        pnlHinhAnh.Visible = true;
+        //        pnlHinhAnh.Refresh();
+        //    }
+        //}
 
-        private void btnQuayLai_Click(object sender, EventArgs e)
-        {
-            if (dgvTTSanPham.Left == 989 && panel1.Left == 989)
-            {
-                pnlHinhAnh.Visible = false;
-                pnlHinhAnh.Left = 989;
+        //private void btnQuayLai_Click(object sender, EventArgs e)
+        //{
+        //    if (dgvTTSanPham.Left == 989 && panel1.Left == 989)
+        //    {
+        //        pnlHinhAnh.Visible = false;
+        //        pnlHinhAnh.Left = 989;
 
-                dgvTTSanPham.Visible = false;
-                panel1.Left = 0;
-                dgvTTSanPham.Left = 0;
-                dgvTTSanPham.Visible = true;
-                dgvTTSanPham.Refresh();
-            }
-        }
+        //        dgvTTSanPham.Visible = false;
+        //        panel1.Left = 0;
+        //        dgvTTSanPham.Left = 0;
+        //        dgvTTSanPham.Visible = true;
+        //        dgvTTSanPham.Refresh();
+        //    }
+        //}
 
         private void SanPham_Load(object sender, EventArgs e)
         {
@@ -111,15 +111,17 @@ namespace QuanLyCuaHangXeMay
         {
             int i = dgvTTSanPham.CurrentRow.Index;
             txtMaSP.Text = dgvTTSanPham.Rows[i].Cells[0].Value.ToString();
-            txtTenSP.Text = dgvTTSanPham.Rows[i].Cells[1].Value.ToString();
-            cbxLoai.SelectedValue = dgvTTSanPham.Rows[i].Cells[2].Value.ToString();
-            txtDungTich.Text = dgvTTSanPham.Rows[i].Cells[3].Value.ToString();
-            txtKichThuoc.Text = dgvTTSanPham.Rows[i].Cells[4].Value.ToString();
-            txtKhoiLuong.Text = dgvTTSanPham.Rows[i].Cells[5].Value.ToString();
-            txtCongSuat.Text = dgvTTSanPham.Rows[i].Cells[6].Value.ToString();
-            txtHangXe.Text = dgvTTSanPham.Rows[i].Cells[7].Value.ToString();
-            txtMauSac.Text = dgvTTSanPham.Rows[i].Cells[8].Value.ToString();
-            txtGia.Text = dgvTTSanPham.Rows[i].Cells[9].Value.ToString();
+            var sph = dt.SANPHAMs.Where(s => s.MASP == txtMaSP.Text).FirstOrDefault();
+        //    var loaisp = dt.LOAISPs.Where(s=>s.MALOAI == sph.L)
+            txtTenSP.Text = sph.TENSP;
+            cbxLoai.SelectedValue = dgvTTSanPham.Rows[i].Cells[2].Value;
+            txtDungTich.Text = sph.DUNGTICHXL;
+            txtKichThuoc.Text = sph.KICHTHUOC;
+            txtKhoiLuong.Text = sph.KHOILUONG.ToString();
+            txtCongSuat.Text = sph.CONGSUATTD;
+            txtHangXe.Text = sph.HANGXE;
+            txtSoLuong.Text = sph.SOLUONG.ToString();
+            txtGia.Text = sph.GIABAN.ToString();
             SANPHAM sp = dt.SANPHAMs.Where(s => s.MASP == txtMaSP.Text).FirstOrDefault();
             if (sp == null || sp.HINHANH == null)
             {
@@ -151,7 +153,7 @@ namespace QuanLyCuaHangXeMay
             txtKhoiLuong.Text = "";
             txtCongSuat.Text = "";
             txtHangXe.Text = "";
-            txtMauSac.Text = "";
+            txtSoLuong.Text = "0";
             txtGia.Text = "";
 
             btnThem.Enabled = false;
@@ -174,12 +176,12 @@ namespace QuanLyCuaHangXeMay
             txtKhoiLuong.Enabled = true;
             txtCongSuat.Enabled = true;
             txtHangXe.Enabled = true;
-            txtMauSac.Enabled = true;
+            txtSoLuong.Enabled = true;
             txtGia.Enabled = true;
 
             btnThem.Enabled = false;
             btnSua.Enabled = false;
-            btnXoa.Enabled = false;
+           
             btnLuu.Enabled = true;
             btnHuy.Enabled = true;
             btnChonAnh.Enabled = true;
@@ -191,7 +193,7 @@ namespace QuanLyCuaHangXeMay
 
             btnThem.Enabled = true;
             btnSua.Enabled = true;
-            btnXoa.Enabled = true;
+            
             btnLuu.Enabled = false;
             btnHuy.Enabled = false;
         }
@@ -204,11 +206,11 @@ namespace QuanLyCuaHangXeMay
                 MemoryStream stream = new MemoryStream();
                 ptbAnh.Image.Save(stream, ImageFormat.Jpeg);
                 dt.SP_INSERT(txtMaSP.Text, txtTenSP.Text, cbxLoai.SelectedValue.ToString(), txtDungTich.Text, txtKichThuoc.Text, Convert.ToInt32(txtKhoiLuong.Text)
-                    , txtCongSuat.Text, txtHangXe.Text, txtMauSac.Text, Convert.ToInt64(txtGia.Text), stream.ToArray());
+                    , txtCongSuat.Text, txtHangXe.Text, Convert.ToInt32(txtSoLuong.Text), Convert.ToInt32(txtGia.Text), stream.ToArray());
                 dgvTTSanPham.AutoGenerateColumns = false;
                 dgvTTSanPham.DataSource = dt.SELECTALL_VND();
                 a = 0;
-                
+
             }
             else if (a == 1 && r != null)
             {
@@ -223,17 +225,17 @@ namespace QuanLyCuaHangXeMay
                     txtKhoiLuong.Text = "";
                     txtCongSuat.Text = "";
                     txtHangXe.Text = "";
-                    txtMauSac.Text = "";
+                    txtSoLuong.Text = "";
                     txtGia.Text = "";
                 }
-                
+
             }
             else if (a == 2 && r != null)
             {
                 MemoryStream stream = new MemoryStream();
                 ptbAnh.Image.Save(stream, ImageFormat.Jpeg);
-                dt.SP_UPDATE(txtMaSP.Text, txtTenSP.Text, cbxLoai.SelectedValue.ToString(), txtDungTich.Text, txtKichThuoc.Text, Convert.ToInt32(txtKhoiLuong.Text.Remove(txtKhoiLuong.Text.Length - 3))
-                   , txtCongSuat.Text, txtHangXe.Text, txtMauSac.Text, Convert.ToInt64(txtGia.Text.Remove(txtGia.Text.Length - 4)), stream.ToArray());
+                dt.SP_UPDATE(txtMaSP.Text, txtTenSP.Text, cbxLoai.SelectedValue.ToString(), txtDungTich.Text, txtKichThuoc.Text, Convert.ToInt32(txtKhoiLuong.Text)
+                   , txtCongSuat.Text, txtHangXe.Text, Convert.ToInt32( txtSoLuong.Text), Convert.ToInt64(txtGia.Text), stream.ToArray());
                 dgvTTSanPham.AutoGenerateColumns = false;
                 dgvTTSanPham.DataSource = dt.SELECTALL_VND();
                 a = 0;
@@ -247,12 +249,12 @@ namespace QuanLyCuaHangXeMay
             txtKhoiLuong.Text = "";
             txtCongSuat.Text = "";
             txtHangXe.Text = "";
-            txtMauSac.Text = "";
+            txtSoLuong.Text = "";
             txtGia.Text = "";
 
             btnThem.Enabled = true;
             btnSua.Enabled = true;
-            btnXoa.Enabled = true;
+            
             btnLuu.Enabled = false;
             btnHuy.Enabled = false;
 
@@ -260,28 +262,28 @@ namespace QuanLyCuaHangXeMay
 
         }
 
-        private void btnXoa_Click(object sender, EventArgs e)
-        {
-            DialogResult dtr = MessageBox.Show("Ban co muon xoa khong!", "Thong bao", MessageBoxButtons.YesNo);
-            if (dtr == DialogResult.Yes)
-            {
-                if (txtMaSP.Text == "")
-                {
-                    MessageBox.Show("Ban chua chon thong tin de xoa!");
-                }
-                else
-                {
-                    dt.SP_DELETE(txtMaSP.Text);
-                    dgvTTSanPham.AutoGenerateColumns = false;
-                    dgvTTSanPham.DataSource = dt.SELECTALL_VND();
-                }
-                btnThem.Enabled = true;
-                btnSua.Enabled = true;
-                btnXoa.Enabled = true;
-                btnLuu.Enabled = false;
-                btnHuy.Enabled = false;
-            }
-        }
+        //private void btnXoa_Click(object sender, EventArgs e)
+        //{
+        //    DialogResult dtr = MessageBox.Show("Ban co muon xoa khong!", "Thong bao", MessageBoxButtons.YesNo);
+        //    if (dtr == DialogResult.Yes)
+        //    {
+        //        if (txtMaSP.Text == "")
+        //        {
+        //            MessageBox.Show("Ban chua chon thong tin de xoa!");
+        //        }
+        //        else
+        //        {
+        //            dt.SP_DELETE(txtMaSP.Text);
+        //            dgvTTSanPham.AutoGenerateColumns = false;
+        //            dgvTTSanPham.DataSource = dt.SELECTALL_VND();
+        //        }
+        //        btnThem.Enabled = true;
+        //        btnSua.Enabled = true;
+                
+        //        btnLuu.Enabled = false;
+        //        btnHuy.Enabled = false;
+        //    }
+        //}
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
@@ -304,94 +306,94 @@ namespace QuanLyCuaHangXeMay
             dgvTTSanPham.DataSource = dt.LOAIXE("L03");
         }
 
-        private void gunaCircleButton1_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog a = new OpenFileDialog();
-            a.Filter = "Image Files(*.jpg; *.png; *.gif;)| *.jpg; *.png; *.gif";
-            if (a.ShowDialog() == DialogResult.OK)
-            {
-                pbAnh1.Image = new Bitmap(a.FileName);
-                pbAnh1.SizeMode = PictureBoxSizeMode.StretchImage;
-            }
-            if(pbAnh1 != null)
-            {
-                gunaCircleButton1.Visible = false;
-            }
-            else
-            {
-                gunaCircleButton1.Visible = true;
-            }
-        }
+        //private void gunaCircleButton1_Click(object sender, EventArgs e)
+        //{
+        //    OpenFileDialog a = new OpenFileDialog();
+        //    a.Filter = "Image Files(*.jpg; *.png; *.gif;)| *.jpg; *.png; *.gif";
+        //    if (a.ShowDialog() == DialogResult.OK)
+        //    {
+        //        pbAnh1.Image = new Bitmap(a.FileName);
+        //        pbAnh1.SizeMode = PictureBoxSizeMode.StretchImage;
+        //    }
+        //    if(pbAnh1 != null)
+        //    {
+        //        gunaCircleButton1.Visible = false;
+        //    }
+        //    else
+        //    {
+        //        gunaCircleButton1.Visible = true;
+        //    }
+        //}
 
-        private void gunaCircleButton3_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog a = new OpenFileDialog();
-            a.Filter = "Image Files(*.jpg; *.png; *.gif;)| *.jpg; *.png; *.gif";
-            if (a.ShowDialog() == DialogResult.OK)
-            {
-                pbAnh3.Image = new Bitmap(a.FileName);
-                pbAnh3.SizeMode = PictureBoxSizeMode.StretchImage;
-            }
-            if (pbAnh3 != null)
-            {
-                gunaCircleButton3.Visible = false;
-            }
-            else
-            {
-                gunaCircleButton3.Visible = true;
-            }
-        }
+        //private void gunaCircleButton3_Click(object sender, EventArgs e)
+        //{
+        //    OpenFileDialog a = new OpenFileDialog();
+        //    a.Filter = "Image Files(*.jpg; *.png; *.gif;)| *.jpg; *.png; *.gif";
+        //    if (a.ShowDialog() == DialogResult.OK)
+        //    {
+        //        pbAnh3.Image = new Bitmap(a.FileName);
+        //        pbAnh3.SizeMode = PictureBoxSizeMode.StretchImage;
+        //    }
+        //    if (pbAnh3 != null)
+        //    {
+        //        gunaCircleButton3.Visible = false;
+        //    }
+        //    else
+        //    {
+        //        gunaCircleButton3.Visible = true;
+        //    }
+        //}
 
-        private void gunaCircleButton2_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog a = new OpenFileDialog();
-            a.Filter = "Image Files(*.jpg; *.png; *.gif;)| *.jpg; *.png; *.gif";
-            if (a.ShowDialog() == DialogResult.OK)
-            {
-                pbAnh2.Image = new Bitmap(a.FileName);
-                pbAnh2.SizeMode = PictureBoxSizeMode.StretchImage;
-            }
-            if (pbAnh2 != null)
-            {
-                gunaCircleButton2.Visible = false;
-            }
-            else
-            {
-                gunaCircleButton2.Visible = true;
-            }
-        }
+        //private void gunaCircleButton2_Click(object sender, EventArgs e)
+        //{
+        //    OpenFileDialog a = new OpenFileDialog();
+        //    a.Filter = "Image Files(*.jpg; *.png; *.gif;)| *.jpg; *.png; *.gif";
+        //    if (a.ShowDialog() == DialogResult.OK)
+        //    {
+        //        pbAnh2.Image = new Bitmap(a.FileName);
+        //        pbAnh2.SizeMode = PictureBoxSizeMode.StretchImage;
+        //    }
+        //    if (pbAnh2 != null)
+        //    {
+        //        gunaCircleButton2.Visible = false;
+        //    }
+        //    else
+        //    {
+        //        gunaCircleButton2.Visible = true;
+        //    }
+        //}
 
-        private void gunaCircleButton4_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog a = new OpenFileDialog();
-            a.Filter = "Image Files(*.jpg; *.png; *.gif;)| *.jpg; *.png; *.gif";
-            if (a.ShowDialog() == DialogResult.OK)
-            {
-                pbAnh4.Image = new Bitmap(a.FileName);
-                pbAnh4.SizeMode = PictureBoxSizeMode.StretchImage;
-            }
-            if (pbAnh4 != null)
-            {
-                gunaCircleButton4.Visible = false;
-            }
-            else
-            {
-                gunaCircleButton4.Visible = true;
-            }
-        }
+        //private void gunaCircleButton4_Click(object sender, EventArgs e)
+        //{
+        //    OpenFileDialog a = new OpenFileDialog();
+        //    a.Filter = "Image Files(*.jpg; *.png; *.gif;)| *.jpg; *.png; *.gif";
+        //    if (a.ShowDialog() == DialogResult.OK)
+        //    {
+        //        pbAnh4.Image = new Bitmap(a.FileName);
+        //        pbAnh4.SizeMode = PictureBoxSizeMode.StretchImage;
+        //    }
+        //    if (pbAnh4 != null)
+        //    {
+        //        gunaCircleButton4.Visible = false;
+        //    }
+        //    else
+        //    {
+        //        gunaCircleButton4.Visible = true;
+        //    }
+        //}
 
         private void gunaGradientButton1_Click(object sender, EventArgs e)
         {
-            MemoryStream x = new MemoryStream();
-            pbAnh1.Image.Save(x, ImageFormat.Jpeg);
-            MemoryStream y = new MemoryStream();
-            pbAnh2.Image.Save(y, ImageFormat.Jpeg);
-            MemoryStream z = new MemoryStream();
-            pbAnh3.Image.Save(z, ImageFormat.Jpeg);
-            MemoryStream t = new MemoryStream();
-            pbAnh4.Image.Save(t, ImageFormat.Jpeg);
+            //MemoryStream x = new MemoryStream();
+            //pbAnh1.Image.Save(x, ImageFormat.Jpeg);
+            //MemoryStream y = new MemoryStream();
+            //pbAnh2.Image.Save(y, ImageFormat.Jpeg);
+            //MemoryStream z = new MemoryStream();
+            //pbAnh3.Image.Save(z, ImageFormat.Jpeg);
+            //MemoryStream t = new MemoryStream();
+            //pbAnh4.Image.Save(t, ImageFormat.Jpeg);
 
-            dt.INSERT_HINHANH(txtMaSP.Text, x.ToArray(), y.ToArray(), z.ToArray(), t.ToArray());
+            //dt.INSERT_HINHANH(txtMaSP.Text, x.ToArray(), y.ToArray(), z.ToArray(), t.ToArray());
 
         }
 
@@ -403,6 +405,22 @@ namespace QuanLyCuaHangXeMay
         private void dgvTTSanPham_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (txtSearch.Text.Trim() != "" || txtSearch.Text.Trim() != null)
+            {
+                dgvTTSanPham.AutoGenerateColumns = false;
+                dgvTTSanPham.DataSource = dt.SP_SEARCH(txtSearch.Text);
+            }
+            else if (txtSearch.Text.Trim() == "" || txtSearch.Text.Trim() == null)
+            {
+
+
+                dgvTTSanPham.AutoGenerateColumns = false;
+                dgvTTSanPham.DataSource = dt.SELECTALL_VND();
+            }
         }
     }
 }

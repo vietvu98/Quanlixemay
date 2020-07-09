@@ -144,6 +144,12 @@
     <Compile Include="DoiTac.Designer.cs">
       <DependentUpon>DoiTac.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormNhapSanPham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNhapSanPham.Designer.cs">
+      <DependentUpon>FormNhapSanPham.cs</DependentUpon>
+    </Compile>
     <Compile Include="Google.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -217,6 +223,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DoiTac.resx">
       <DependentUpon>DoiTac.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNhapSanPham.resx">
+      <DependentUpon>FormNhapSanPham.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Google.resx">
       <DependentUpon>Google.cs</DependentUpon>

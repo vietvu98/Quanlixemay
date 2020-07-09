@@ -289,8 +289,29 @@ namespace QuanLyCuaHangXeMay
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            dgvDoiTac.AutoGenerateColumns = false;
-            dgvDoiTac.DataSource = dt.NCC_SEARCH(txtSearch.Text);
+            //dgvDoiTac.AutoGenerateColumns = false;
+            //dgvDoiTac.DataSource = dt.NCC_SEARCH(txtSearch.Text);
+        }
+
+        private void txtSearch_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            
+            if(txtSearch.Text.Trim() != "" || txtSearch.Text.Trim() != null) 
+            {
+                dgvDoiTac.AutoGenerateColumns = false;
+                dgvDoiTac.DataSource = dt.NCC_SEARCH(txtSearch.Text);
+            }else if (txtSearch.Text.Trim() == "" || txtSearch.Text.Trim() == null) 
+            {
+
+                
+                dgvDoiTac.AutoGenerateColumns = false;
+                dgvDoiTac.DataSource = dt.NHACUNGCAPs;
+            }
         }
     }
 }

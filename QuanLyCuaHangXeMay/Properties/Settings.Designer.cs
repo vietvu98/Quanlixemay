@@ -33,5 +33,16 @@ namespace QuanLyCuaHangXeMay.Properties {
                 return ((string)(this["QuanLyCUaHangXeMayConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-Q7I2RQM\\SQLEXPRESS;Initial Catalog=QUANLICUAHANG_XEMAY;Integr" +
+            "ated Security=True")]
+        public string QUANLICUAHANG_XEMAYConnectionString {
+            get {
+                return ((string)(this["QUANLICUAHANG_XEMAYConnectionString"]));
+            }
+        }
     }
 }
