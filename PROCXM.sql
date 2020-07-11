@@ -334,4 +334,4 @@ alter proc selectCTPNPT (@ma nvarchar (50))
 as
 select * from CTPNHAPPT where MAPN = @ma
 
-
+select * from CTPNHAP
