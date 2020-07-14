@@ -51,9 +51,6 @@ namespace QuanLyCuaHangXeMay
     partial void InsertCTPNHAP(CTPNHAP instance);
     partial void UpdateCTPNHAP(CTPNHAP instance);
     partial void DeleteCTPNHAP(CTPNHAP instance);
-    partial void InsertCTPNHAPPT(CTPNHAPPT instance);
-    partial void UpdateCTPNHAPPT(CTPNHAPPT instance);
-    partial void DeleteCTPNHAPPT(CTPNHAPPT instance);
     partial void InsertDICHVU(DICHVU instance);
     partial void UpdateDICHVU(DICHVU instance);
     partial void DeleteDICHVU(DICHVU instance);
@@ -69,9 +66,6 @@ namespace QuanLyCuaHangXeMay
     partial void InsertKHACHHANG(KHACHHANG instance);
     partial void UpdateKHACHHANG(KHACHHANG instance);
     partial void DeleteKHACHHANG(KHACHHANG instance);
-    partial void InsertLOAIPT(LOAIPT instance);
-    partial void UpdateLOAIPT(LOAIPT instance);
-    partial void DeleteLOAIPT(LOAIPT instance);
     partial void InsertLOAISP(LOAISP instance);
     partial void UpdateLOAISP(LOAISP instance);
     partial void DeleteLOAISP(LOAISP instance);
@@ -81,9 +75,6 @@ namespace QuanLyCuaHangXeMay
     partial void InsertNHANVIEN(NHANVIEN instance);
     partial void UpdateNHANVIEN(NHANVIEN instance);
     partial void DeleteNHANVIEN(NHANVIEN instance);
-    partial void InsertPHUTUNG(PHUTUNG instance);
-    partial void UpdatePHUTUNG(PHUTUNG instance);
-    partial void DeletePHUTUNG(PHUTUNG instance);
     partial void InsertPNHAP(PNHAP instance);
     partial void UpdatePNHAP(PNHAP instance);
     partial void DeletePNHAP(PNHAP instance);
@@ -175,14 +166,6 @@ namespace QuanLyCuaHangXeMay
 			}
 		}
 		
-		public System.Data.Linq.Table<CTPNHAPPT> CTPNHAPPTs
-		{
-			get
-			{
-				return this.GetTable<CTPNHAPPT>();
-			}
-		}
-		
 		public System.Data.Linq.Table<DICHVU> DICHVUs
 		{
 			get
@@ -223,14 +206,6 @@ namespace QuanLyCuaHangXeMay
 			}
 		}
 		
-		public System.Data.Linq.Table<LOAIPT> LOAIPTs
-		{
-			get
-			{
-				return this.GetTable<LOAIPT>();
-			}
-		}
-		
 		public System.Data.Linq.Table<LOAISP> LOAISPs
 		{
 			get
@@ -255,14 +230,6 @@ namespace QuanLyCuaHangXeMay
 			}
 		}
 		
-		public System.Data.Linq.Table<PHUTUNG> PHUTUNGs
-		{
-			get
-			{
-				return this.GetTable<PHUTUNG>();
-			}
-		}
-		
 		public System.Data.Linq.Table<PNHAP> PNHAPs
 		{
 			get
@@ -271,38 +238,17 @@ namespace QuanLyCuaHangXeMay
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INSERT_CTPNHAPPT")]
-		public int INSERT_CTPNHAPPT([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MAPN", DbType="NVarChar(50)")] string mAPN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MAPT", DbType="NVarChar(50)")] string mAPT, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SLNHAPPT", DbType="Int")] System.Nullable<int> sLNHAPPT, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DONGIANHAPPT", DbType="Float")] System.Nullable<double> dONGIANHAPPT)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), mAPN, mAPT, sLNHAPPT, dONGIANHAPPT);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.updateSTCTPNX")]
-		public int updateSTCTPNX([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string ma, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string masp, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> soluong)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ma, masp, soluong);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INSERT_CTPNHAPXE")]
-		public int INSERT_CTPNHAPXE([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MAPN", DbType="NVarChar(50)")] string mAPN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MASP", DbType="NVarChar(50)")] string mASP, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SLNHAPXE", DbType="Int")] System.Nullable<int> sLNHAPXE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DONGIANHAPXE", DbType="Float")] System.Nullable<double> dONGIANHAPXE)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), mAPN, mASP, sLNHAPXE, dONGIANHAPXE);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INSERT_PNHAP")]
-		public int INSERT_PNHAP([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MAPN", DbType="NVarChar(50)")] string mAPN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MANHACUNGCAP", DbType="NVarChar(50)")] string mANHACUNGCAP, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MANHANVIEN", DbType="NVarChar(50)")] string mANHANVIEN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NGAYNHAP", DbType="Date")] System.Nullable<System.DateTime> nGAYNHAP, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TONGTIEN", DbType="Float")] System.Nullable<double> tONGTIEN)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), mAPN, mANHACUNGCAP, mANHANVIEN, nGAYNHAP, tONGTIEN);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.KH_DELETE")]
 		public int KH_DELETE([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MAKH", DbType="NVarChar(50)")] string mAKH)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), mAKH);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UPDATEMAHOA")]
+		public int UPDATEMAHOA([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MANHANVIEN", DbType="NVarChar(50)")] string mANHANVIEN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PASS", DbType="NVarChar(50)")] string pASS)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), mANHANVIEN, pASS);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -412,17 +358,10 @@ namespace QuanLyCuaHangXeMay
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.quenmk")]
-		public ISingleResult<quenmkResult> quenmk([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string tk, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PASS", DbType="NVarChar(50)")] string pASS)
+		public int quenmk([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string tk, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PASS", DbType="NVarChar(50)")] string pASS)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), tk, pASS);
-			return ((ISingleResult<quenmkResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SELECT_CTNHAP")]
-		public ISingleResult<SELECT_CTNHAPResult> SELECT_CTNHAP()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<SELECT_CTNHAPResult>)(result.ReturnValue));
+			return ((int)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SELECTALL_VND")]
@@ -430,48 +369,6 @@ namespace QuanLyCuaHangXeMay
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<SELECTALL_VNDResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.selectCTPN")]
-		public ISingleResult<selectCTPNResult> selectCTPN([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string mapn, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string masp)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), mapn, masp);
-			return ((ISingleResult<selectCTPNResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.selectCTPNPT")]
-		public ISingleResult<selectCTPNPTResult> selectCTPNPT([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string ma)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ma);
-			return ((ISingleResult<selectCTPNPTResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.selectCTPNxe")]
-		public ISingleResult<selectCTPNxeResult> selectCTPNxe([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string ma)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ma);
-			return ((ISingleResult<selectCTPNxeResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.selectCTPTung")]
-		public ISingleResult<selectCTPTungResult> selectCTPTung([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string mapn, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string mapt)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), mapn, mapt);
-			return ((ISingleResult<selectCTPTungResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.selectNCC")]
-		public ISingleResult<selectNCCResult> selectNCC([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MA", DbType="NVarChar(50)")] string mA)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), mA);
-			return ((ISingleResult<selectNCCResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.selectPN")]
-		public ISingleResult<selectPNResult> selectPN([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string ma)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ma);
-			return ((ISingleResult<selectPNResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_DELETE")]
@@ -502,10 +399,24 @@ namespace QuanLyCuaHangXeMay
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UPDATE_TIENNHAPPT")]
-		public int UPDATE_TIENNHAPPT([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MAPN", DbType="NVarChar(50)")] string mAPN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DONGIANHAPPT", DbType="Float")] System.Nullable<double> dONGIANHAPPT)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.selectPN")]
+		public ISingleResult<selectPNResult> selectPN([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string ma)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), mAPN, dONGIANHAPPT);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ma);
+			return ((ISingleResult<selectPNResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INSERT_PNHAP")]
+		public int INSERT_PNHAP([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MAPN", DbType="NVarChar(50)")] string mAPN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MANHACUNGCAP", DbType="NVarChar(50)")] string mANHACUNGCAP, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MANHANVIEN", DbType="NVarChar(50)")] string mANHANVIEN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NGAYNHAP", DbType="Date")] System.Nullable<System.DateTime> nGAYNHAP, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TONGTIEN", DbType="Float")] System.Nullable<double> tONGTIEN)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), mAPN, mANHACUNGCAP, mANHANVIEN, nGAYNHAP, tONGTIEN);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INSERT_CTPNHAPXE")]
+		public int INSERT_CTPNHAPXE([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MAPN", DbType="NVarChar(50)")] string mAPN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MASP", DbType="NVarChar(50)")] string mASP, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SLNHAPXE", DbType="Int")] System.Nullable<int> sLNHAPXE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DONGIANHAPXE", DbType="Float")] System.Nullable<double> dONGIANHAPXE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="THANHTIEN", DbType="Float")] System.Nullable<double> tHANHTIEN)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), mAPN, mASP, sLNHAPXE, dONGIANHAPXE, tHANHTIEN);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -516,17 +427,38 @@ namespace QuanLyCuaHangXeMay
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UPDATEMAHOA")]
-		public int UPDATEMAHOA([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MANHANVIEN", DbType="NVarChar(50)")] string mANHANVIEN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PASS", DbType="NVarChar(50)")] string pASS)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.selectCTPN")]
+		public ISingleResult<selectCTPNResult> selectCTPN([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string mapn, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string masp)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), mANHANVIEN, pASS);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), mapn, masp);
+			return ((ISingleResult<selectCTPNResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.selectCTPNxe")]
+		public ISingleResult<selectCTPNxeResult> selectCTPNxe([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string ma)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ma);
+			return ((ISingleResult<selectCTPNxeResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.updateSLTCTPNX")]
+		public int updateSLTCTPNX([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string ma, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string masp, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> soluong, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="THANHTIEN", DbType="Float")] System.Nullable<double> tHANHTIEN)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ma, masp, soluong, tHANHTIEN);
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.updateSLCTPPT")]
-		public int updateSLCTPPT([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string ma, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string mapt, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> soluong)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.delete_PhieuNhap")]
+		public int delete_PhieuNhap([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string ma, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MASP", DbType="NVarChar(50)")] string mASP)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ma, mapt, soluong);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ma, mASP);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.updateSLT")]
+		public int updateSLT([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string masp, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> soluong)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), masp, soluong);
 			return ((int)(result.ReturnValue));
 		}
 	}
@@ -2022,222 +1954,6 @@ namespace QuanLyCuaHangXeMay
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CTPNHAPPT")]
-	public partial class CTPNHAPPT : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _MAPN;
-		
-		private string _MAPT;
-		
-		private int _SLNHAP;
-		
-		private System.Nullable<double> _DONGIANHAP;
-		
-		private EntityRef<PHUTUNG> _PHUTUNG;
-		
-		private EntityRef<PNHAP> _PNHAP;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnMAPNChanging(string value);
-    partial void OnMAPNChanged();
-    partial void OnMAPTChanging(string value);
-    partial void OnMAPTChanged();
-    partial void OnSLNHAPChanging(int value);
-    partial void OnSLNHAPChanged();
-    partial void OnDONGIANHAPChanging(System.Nullable<double> value);
-    partial void OnDONGIANHAPChanged();
-    #endregion
-		
-		public CTPNHAPPT()
-		{
-			this._PHUTUNG = default(EntityRef<PHUTUNG>);
-			this._PNHAP = default(EntityRef<PNHAP>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAPN", DbType="NVarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string MAPN
-		{
-			get
-			{
-				return this._MAPN;
-			}
-			set
-			{
-				if ((this._MAPN != value))
-				{
-					if (this._PNHAP.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMAPNChanging(value);
-					this.SendPropertyChanging();
-					this._MAPN = value;
-					this.SendPropertyChanged("MAPN");
-					this.OnMAPNChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAPT", DbType="NVarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string MAPT
-		{
-			get
-			{
-				return this._MAPT;
-			}
-			set
-			{
-				if ((this._MAPT != value))
-				{
-					if (this._PHUTUNG.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMAPTChanging(value);
-					this.SendPropertyChanging();
-					this._MAPT = value;
-					this.SendPropertyChanged("MAPT");
-					this.OnMAPTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SLNHAP", DbType="Int NOT NULL")]
-		public int SLNHAP
-		{
-			get
-			{
-				return this._SLNHAP;
-			}
-			set
-			{
-				if ((this._SLNHAP != value))
-				{
-					this.OnSLNHAPChanging(value);
-					this.SendPropertyChanging();
-					this._SLNHAP = value;
-					this.SendPropertyChanged("SLNHAP");
-					this.OnSLNHAPChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DONGIANHAP", DbType="Float")]
-		public System.Nullable<double> DONGIANHAP
-		{
-			get
-			{
-				return this._DONGIANHAP;
-			}
-			set
-			{
-				if ((this._DONGIANHAP != value))
-				{
-					this.OnDONGIANHAPChanging(value);
-					this.SendPropertyChanging();
-					this._DONGIANHAP = value;
-					this.SendPropertyChanged("DONGIANHAP");
-					this.OnDONGIANHAPChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PHUTUNG_CTPNHAPPT", Storage="_PHUTUNG", ThisKey="MAPT", OtherKey="MAPT", IsForeignKey=true)]
-		public PHUTUNG PHUTUNG
-		{
-			get
-			{
-				return this._PHUTUNG.Entity;
-			}
-			set
-			{
-				PHUTUNG previousValue = this._PHUTUNG.Entity;
-				if (((previousValue != value) 
-							|| (this._PHUTUNG.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._PHUTUNG.Entity = null;
-						previousValue.CTPNHAPPTs.Remove(this);
-					}
-					this._PHUTUNG.Entity = value;
-					if ((value != null))
-					{
-						value.CTPNHAPPTs.Add(this);
-						this._MAPT = value.MAPT;
-					}
-					else
-					{
-						this._MAPT = default(string);
-					}
-					this.SendPropertyChanged("PHUTUNG");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PNHAP_CTPNHAPPT", Storage="_PNHAP", ThisKey="MAPN", OtherKey="MAPN", IsForeignKey=true)]
-		public PNHAP PNHAP
-		{
-			get
-			{
-				return this._PNHAP.Entity;
-			}
-			set
-			{
-				PNHAP previousValue = this._PNHAP.Entity;
-				if (((previousValue != value) 
-							|| (this._PNHAP.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._PNHAP.Entity = null;
-						previousValue.CTPNHAPPTs.Remove(this);
-					}
-					this._PNHAP.Entity = value;
-					if ((value != null))
-					{
-						value.CTPNHAPPTs.Add(this);
-						this._MAPN = value.MAPN;
-					}
-					else
-					{
-						this._MAPN = default(string);
-					}
-					this.SendPropertyChanged("PNHAP");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.DICHVU")]
 	public partial class DICHVU : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -3154,144 +2870,6 @@ namespace QuanLyCuaHangXeMay
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.LOAIPT")]
-	public partial class LOAIPT : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _MALOAIPT;
-		
-		private string _TENLOAIPT;
-		
-		private string _MOTA;
-		
-		private EntitySet<PHUTUNG> _PHUTUNGs;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnMALOAIPTChanging(string value);
-    partial void OnMALOAIPTChanged();
-    partial void OnTENLOAIPTChanging(string value);
-    partial void OnTENLOAIPTChanged();
-    partial void OnMOTAChanging(string value);
-    partial void OnMOTAChanged();
-    #endregion
-		
-		public LOAIPT()
-		{
-			this._PHUTUNGs = new EntitySet<PHUTUNG>(new Action<PHUTUNG>(this.attach_PHUTUNGs), new Action<PHUTUNG>(this.detach_PHUTUNGs));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MALOAIPT", DbType="NVarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string MALOAIPT
-		{
-			get
-			{
-				return this._MALOAIPT;
-			}
-			set
-			{
-				if ((this._MALOAIPT != value))
-				{
-					this.OnMALOAIPTChanging(value);
-					this.SendPropertyChanging();
-					this._MALOAIPT = value;
-					this.SendPropertyChanged("MALOAIPT");
-					this.OnMALOAIPTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TENLOAIPT", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string TENLOAIPT
-		{
-			get
-			{
-				return this._TENLOAIPT;
-			}
-			set
-			{
-				if ((this._TENLOAIPT != value))
-				{
-					this.OnTENLOAIPTChanging(value);
-					this.SendPropertyChanging();
-					this._TENLOAIPT = value;
-					this.SendPropertyChanged("TENLOAIPT");
-					this.OnTENLOAIPTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MOTA", DbType="NText", UpdateCheck=UpdateCheck.Never)]
-		public string MOTA
-		{
-			get
-			{
-				return this._MOTA;
-			}
-			set
-			{
-				if ((this._MOTA != value))
-				{
-					this.OnMOTAChanging(value);
-					this.SendPropertyChanging();
-					this._MOTA = value;
-					this.SendPropertyChanged("MOTA");
-					this.OnMOTAChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="LOAIPT_PHUTUNG", Storage="_PHUTUNGs", ThisKey="MALOAIPT", OtherKey="MALOAIPT")]
-		public EntitySet<PHUTUNG> PHUTUNGs
-		{
-			get
-			{
-				return this._PHUTUNGs;
-			}
-			set
-			{
-				this._PHUTUNGs.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_PHUTUNGs(PHUTUNG entity)
-		{
-			this.SendPropertyChanging();
-			entity.LOAIPT = this;
-		}
-		
-		private void detach_PHUTUNGs(PHUTUNG entity)
-		{
-			this.SendPropertyChanging();
-			entity.LOAIPT = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.LOAISP")]
 	public partial class LOAISP : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -4015,257 +3593,6 @@ namespace QuanLyCuaHangXeMay
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PHUTUNG")]
-	public partial class PHUTUNG : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _MAPT;
-		
-		private string _TENPT;
-		
-		private string _MALOAIPT;
-		
-		private System.Nullable<int> _SOLUONG;
-		
-		private System.Nullable<long> _GIABAN;
-		
-		private System.Data.Linq.Binary _HINHANH;
-		
-		private EntitySet<CTPNHAPPT> _CTPNHAPPTs;
-		
-		private EntityRef<LOAIPT> _LOAIPT;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnMAPTChanging(string value);
-    partial void OnMAPTChanged();
-    partial void OnTENPTChanging(string value);
-    partial void OnTENPTChanged();
-    partial void OnMALOAIPTChanging(string value);
-    partial void OnMALOAIPTChanged();
-    partial void OnSOLUONGChanging(System.Nullable<int> value);
-    partial void OnSOLUONGChanged();
-    partial void OnGIABANChanging(System.Nullable<long> value);
-    partial void OnGIABANChanged();
-    partial void OnHINHANHChanging(System.Data.Linq.Binary value);
-    partial void OnHINHANHChanged();
-    #endregion
-		
-		public PHUTUNG()
-		{
-			this._CTPNHAPPTs = new EntitySet<CTPNHAPPT>(new Action<CTPNHAPPT>(this.attach_CTPNHAPPTs), new Action<CTPNHAPPT>(this.detach_CTPNHAPPTs));
-			this._LOAIPT = default(EntityRef<LOAIPT>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAPT", DbType="NVarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string MAPT
-		{
-			get
-			{
-				return this._MAPT;
-			}
-			set
-			{
-				if ((this._MAPT != value))
-				{
-					this.OnMAPTChanging(value);
-					this.SendPropertyChanging();
-					this._MAPT = value;
-					this.SendPropertyChanged("MAPT");
-					this.OnMAPTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TENPT", DbType="NVarChar(200)")]
-		public string TENPT
-		{
-			get
-			{
-				return this._TENPT;
-			}
-			set
-			{
-				if ((this._TENPT != value))
-				{
-					this.OnTENPTChanging(value);
-					this.SendPropertyChanging();
-					this._TENPT = value;
-					this.SendPropertyChanged("TENPT");
-					this.OnTENPTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MALOAIPT", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string MALOAIPT
-		{
-			get
-			{
-				return this._MALOAIPT;
-			}
-			set
-			{
-				if ((this._MALOAIPT != value))
-				{
-					if (this._LOAIPT.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMALOAIPTChanging(value);
-					this.SendPropertyChanging();
-					this._MALOAIPT = value;
-					this.SendPropertyChanged("MALOAIPT");
-					this.OnMALOAIPTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SOLUONG", DbType="Int")]
-		public System.Nullable<int> SOLUONG
-		{
-			get
-			{
-				return this._SOLUONG;
-			}
-			set
-			{
-				if ((this._SOLUONG != value))
-				{
-					this.OnSOLUONGChanging(value);
-					this.SendPropertyChanging();
-					this._SOLUONG = value;
-					this.SendPropertyChanged("SOLUONG");
-					this.OnSOLUONGChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GIABAN", DbType="BigInt")]
-		public System.Nullable<long> GIABAN
-		{
-			get
-			{
-				return this._GIABAN;
-			}
-			set
-			{
-				if ((this._GIABAN != value))
-				{
-					this.OnGIABANChanging(value);
-					this.SendPropertyChanging();
-					this._GIABAN = value;
-					this.SendPropertyChanged("GIABAN");
-					this.OnGIABANChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HINHANH", DbType="Image", UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary HINHANH
-		{
-			get
-			{
-				return this._HINHANH;
-			}
-			set
-			{
-				if ((this._HINHANH != value))
-				{
-					this.OnHINHANHChanging(value);
-					this.SendPropertyChanging();
-					this._HINHANH = value;
-					this.SendPropertyChanged("HINHANH");
-					this.OnHINHANHChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PHUTUNG_CTPNHAPPT", Storage="_CTPNHAPPTs", ThisKey="MAPT", OtherKey="MAPT")]
-		public EntitySet<CTPNHAPPT> CTPNHAPPTs
-		{
-			get
-			{
-				return this._CTPNHAPPTs;
-			}
-			set
-			{
-				this._CTPNHAPPTs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="LOAIPT_PHUTUNG", Storage="_LOAIPT", ThisKey="MALOAIPT", OtherKey="MALOAIPT", IsForeignKey=true)]
-		public LOAIPT LOAIPT
-		{
-			get
-			{
-				return this._LOAIPT.Entity;
-			}
-			set
-			{
-				LOAIPT previousValue = this._LOAIPT.Entity;
-				if (((previousValue != value) 
-							|| (this._LOAIPT.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._LOAIPT.Entity = null;
-						previousValue.PHUTUNGs.Remove(this);
-					}
-					this._LOAIPT.Entity = value;
-					if ((value != null))
-					{
-						value.PHUTUNGs.Add(this);
-						this._MALOAIPT = value.MALOAIPT;
-					}
-					else
-					{
-						this._MALOAIPT = default(string);
-					}
-					this.SendPropertyChanged("LOAIPT");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_CTPNHAPPTs(CTPNHAPPT entity)
-		{
-			this.SendPropertyChanging();
-			entity.PHUTUNG = this;
-		}
-		
-		private void detach_CTPNHAPPTs(CTPNHAPPT entity)
-		{
-			this.SendPropertyChanging();
-			entity.PHUTUNG = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PNHAP")]
 	public partial class PNHAP : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -4283,8 +3610,6 @@ namespace QuanLyCuaHangXeMay
 		private System.Nullable<double> _TONGTIEN;
 		
 		private EntitySet<CTPNHAP> _CTPNHAPs;
-		
-		private EntitySet<CTPNHAPPT> _CTPNHAPPTs;
 		
 		private EntityRef<NHACUNGCAP> _NHACUNGCAP;
 		
@@ -4309,7 +3634,6 @@ namespace QuanLyCuaHangXeMay
 		public PNHAP()
 		{
 			this._CTPNHAPs = new EntitySet<CTPNHAP>(new Action<CTPNHAP>(this.attach_CTPNHAPs), new Action<CTPNHAP>(this.detach_CTPNHAPs));
-			this._CTPNHAPPTs = new EntitySet<CTPNHAPPT>(new Action<CTPNHAPPT>(this.attach_CTPNHAPPTs), new Action<CTPNHAPPT>(this.detach_CTPNHAPPTs));
 			this._NHACUNGCAP = default(EntityRef<NHACUNGCAP>);
 			this._NHANVIEN = default(EntityRef<NHANVIEN>);
 			OnCreated();
@@ -4436,19 +3760,6 @@ namespace QuanLyCuaHangXeMay
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PNHAP_CTPNHAPPT", Storage="_CTPNHAPPTs", ThisKey="MAPN", OtherKey="MAPN")]
-		public EntitySet<CTPNHAPPT> CTPNHAPPTs
-		{
-			get
-			{
-				return this._CTPNHAPPTs;
-			}
-			set
-			{
-				this._CTPNHAPPTs.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NHACUNGCAP_PNHAP", Storage="_NHACUNGCAP", ThisKey="MANHACUNGCAP", OtherKey="MANHACUNGCAP", IsForeignKey=true)]
 		public NHACUNGCAP NHACUNGCAP
 		{
@@ -4544,18 +3855,6 @@ namespace QuanLyCuaHangXeMay
 		}
 		
 		private void detach_CTPNHAPs(CTPNHAP entity)
-		{
-			this.SendPropertyChanging();
-			entity.PNHAP = null;
-		}
-		
-		private void attach_CTPNHAPPTs(CTPNHAPPT entity)
-		{
-			this.SendPropertyChanging();
-			entity.PNHAP = this;
-		}
-		
-		private void detach_CTPNHAPPTs(CTPNHAPPT entity)
 		{
 			this.SendPropertyChanging();
 			entity.PNHAP = null;
@@ -5482,328 +4781,6 @@ namespace QuanLyCuaHangXeMay
 		}
 	}
 	
-	public partial class quenmkResult
-	{
-		
-		private string _MASP;
-		
-		private string _TENSP;
-		
-		private string _MALOAI;
-		
-		private string _DUNGTICHXL;
-		
-		private string _KICHTHUOC;
-		
-		private System.Nullable<int> _KHOILUONG;
-		
-		private string _CONGSUATTD;
-		
-		private string _HANGXE;
-		
-		private System.Nullable<int> _SOLUONG;
-		
-		private System.Nullable<long> _GIABAN;
-		
-		private System.Data.Linq.Binary _HINHANH;
-		
-		public quenmkResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MASP", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string MASP
-		{
-			get
-			{
-				return this._MASP;
-			}
-			set
-			{
-				if ((this._MASP != value))
-				{
-					this._MASP = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TENSP", DbType="NVarChar(200)")]
-		public string TENSP
-		{
-			get
-			{
-				return this._TENSP;
-			}
-			set
-			{
-				if ((this._TENSP != value))
-				{
-					this._TENSP = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MALOAI", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string MALOAI
-		{
-			get
-			{
-				return this._MALOAI;
-			}
-			set
-			{
-				if ((this._MALOAI != value))
-				{
-					this._MALOAI = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DUNGTICHXL", DbType="NVarChar(50)")]
-		public string DUNGTICHXL
-		{
-			get
-			{
-				return this._DUNGTICHXL;
-			}
-			set
-			{
-				if ((this._DUNGTICHXL != value))
-				{
-					this._DUNGTICHXL = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KICHTHUOC", DbType="NVarChar(50)")]
-		public string KICHTHUOC
-		{
-			get
-			{
-				return this._KICHTHUOC;
-			}
-			set
-			{
-				if ((this._KICHTHUOC != value))
-				{
-					this._KICHTHUOC = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KHOILUONG", DbType="Int")]
-		public System.Nullable<int> KHOILUONG
-		{
-			get
-			{
-				return this._KHOILUONG;
-			}
-			set
-			{
-				if ((this._KHOILUONG != value))
-				{
-					this._KHOILUONG = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CONGSUATTD", DbType="NVarChar(50)")]
-		public string CONGSUATTD
-		{
-			get
-			{
-				return this._CONGSUATTD;
-			}
-			set
-			{
-				if ((this._CONGSUATTD != value))
-				{
-					this._CONGSUATTD = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HANGXE", DbType="NVarChar(50)")]
-		public string HANGXE
-		{
-			get
-			{
-				return this._HANGXE;
-			}
-			set
-			{
-				if ((this._HANGXE != value))
-				{
-					this._HANGXE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SOLUONG", DbType="Int")]
-		public System.Nullable<int> SOLUONG
-		{
-			get
-			{
-				return this._SOLUONG;
-			}
-			set
-			{
-				if ((this._SOLUONG != value))
-				{
-					this._SOLUONG = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GIABAN", DbType="BigInt")]
-		public System.Nullable<long> GIABAN
-		{
-			get
-			{
-				return this._GIABAN;
-			}
-			set
-			{
-				if ((this._GIABAN != value))
-				{
-					this._GIABAN = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HINHANH", DbType="Image")]
-		public System.Data.Linq.Binary HINHANH
-		{
-			get
-			{
-				return this._HINHANH;
-			}
-			set
-			{
-				if ((this._HINHANH != value))
-				{
-					this._HINHANH = value;
-				}
-			}
-		}
-	}
-	
-	public partial class SELECT_CTNHAPResult
-	{
-		
-		private string _MASP;
-		
-		private int _SLNHAP;
-		
-		private System.Nullable<double> _DONGIANHAP;
-		
-		private string _MAPT;
-		
-		private int _SLNHAP1;
-		
-		private System.Nullable<double> _DONGIANHAP1;
-		
-		public SELECT_CTNHAPResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MASP", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string MASP
-		{
-			get
-			{
-				return this._MASP;
-			}
-			set
-			{
-				if ((this._MASP != value))
-				{
-					this._MASP = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SLNHAP", DbType="Int NOT NULL")]
-		public int SLNHAP
-		{
-			get
-			{
-				return this._SLNHAP;
-			}
-			set
-			{
-				if ((this._SLNHAP != value))
-				{
-					this._SLNHAP = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DONGIANHAP", DbType="Float")]
-		public System.Nullable<double> DONGIANHAP
-		{
-			get
-			{
-				return this._DONGIANHAP;
-			}
-			set
-			{
-				if ((this._DONGIANHAP != value))
-				{
-					this._DONGIANHAP = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAPT", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string MAPT
-		{
-			get
-			{
-				return this._MAPT;
-			}
-			set
-			{
-				if ((this._MAPT != value))
-				{
-					this._MAPT = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SLNHAP1", DbType="Int NOT NULL")]
-		public int SLNHAP1
-		{
-			get
-			{
-				return this._SLNHAP1;
-			}
-			set
-			{
-				if ((this._SLNHAP1 != value))
-				{
-					this._SLNHAP1 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DONGIANHAP1", DbType="Float")]
-		public System.Nullable<double> DONGIANHAP1
-		{
-			get
-			{
-				return this._DONGIANHAP1;
-			}
-			set
-			{
-				if ((this._DONGIANHAP1 != value))
-				{
-					this._DONGIANHAP1 = value;
-				}
-			}
-		}
-	}
-	
 	public partial class SELECTALL_VNDResult
 	{
 		
@@ -5992,540 +4969,6 @@ namespace QuanLyCuaHangXeMay
 		}
 	}
 	
-	public partial class selectCTPNResult
-	{
-		
-		private string _MAPN;
-		
-		private string _MASP;
-		
-		private int _SLNHAP;
-		
-		private System.Nullable<double> _DONGIANHAP;
-		
-		public selectCTPNResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAPN", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string MAPN
-		{
-			get
-			{
-				return this._MAPN;
-			}
-			set
-			{
-				if ((this._MAPN != value))
-				{
-					this._MAPN = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MASP", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string MASP
-		{
-			get
-			{
-				return this._MASP;
-			}
-			set
-			{
-				if ((this._MASP != value))
-				{
-					this._MASP = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SLNHAP", DbType="Int NOT NULL")]
-		public int SLNHAP
-		{
-			get
-			{
-				return this._SLNHAP;
-			}
-			set
-			{
-				if ((this._SLNHAP != value))
-				{
-					this._SLNHAP = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DONGIANHAP", DbType="Float")]
-		public System.Nullable<double> DONGIANHAP
-		{
-			get
-			{
-				return this._DONGIANHAP;
-			}
-			set
-			{
-				if ((this._DONGIANHAP != value))
-				{
-					this._DONGIANHAP = value;
-				}
-			}
-		}
-	}
-	
-	public partial class selectCTPNPTResult
-	{
-		
-		private string _MAPN;
-		
-		private string _MAPT;
-		
-		private int _SLNHAP;
-		
-		private System.Nullable<double> _DONGIANHAP;
-		
-		public selectCTPNPTResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAPN", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string MAPN
-		{
-			get
-			{
-				return this._MAPN;
-			}
-			set
-			{
-				if ((this._MAPN != value))
-				{
-					this._MAPN = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAPT", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string MAPT
-		{
-			get
-			{
-				return this._MAPT;
-			}
-			set
-			{
-				if ((this._MAPT != value))
-				{
-					this._MAPT = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SLNHAP", DbType="Int NOT NULL")]
-		public int SLNHAP
-		{
-			get
-			{
-				return this._SLNHAP;
-			}
-			set
-			{
-				if ((this._SLNHAP != value))
-				{
-					this._SLNHAP = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DONGIANHAP", DbType="Float")]
-		public System.Nullable<double> DONGIANHAP
-		{
-			get
-			{
-				return this._DONGIANHAP;
-			}
-			set
-			{
-				if ((this._DONGIANHAP != value))
-				{
-					this._DONGIANHAP = value;
-				}
-			}
-		}
-	}
-	
-	public partial class selectCTPNxeResult
-	{
-		
-		private string _MAPN;
-		
-		private string _MASP;
-		
-		private int _SLNHAP;
-		
-		private System.Nullable<double> _DONGIANHAP;
-		
-		public selectCTPNxeResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAPN", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string MAPN
-		{
-			get
-			{
-				return this._MAPN;
-			}
-			set
-			{
-				if ((this._MAPN != value))
-				{
-					this._MAPN = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MASP", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string MASP
-		{
-			get
-			{
-				return this._MASP;
-			}
-			set
-			{
-				if ((this._MASP != value))
-				{
-					this._MASP = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SLNHAP", DbType="Int NOT NULL")]
-		public int SLNHAP
-		{
-			get
-			{
-				return this._SLNHAP;
-			}
-			set
-			{
-				if ((this._SLNHAP != value))
-				{
-					this._SLNHAP = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DONGIANHAP", DbType="Float")]
-		public System.Nullable<double> DONGIANHAP
-		{
-			get
-			{
-				return this._DONGIANHAP;
-			}
-			set
-			{
-				if ((this._DONGIANHAP != value))
-				{
-					this._DONGIANHAP = value;
-				}
-			}
-		}
-	}
-	
-	public partial class selectCTPTungResult
-	{
-		
-		private string _MAPN;
-		
-		private string _MAPT;
-		
-		private int _SLNHAP;
-		
-		private System.Nullable<double> _DONGIANHAP;
-		
-		public selectCTPTungResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAPN", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string MAPN
-		{
-			get
-			{
-				return this._MAPN;
-			}
-			set
-			{
-				if ((this._MAPN != value))
-				{
-					this._MAPN = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAPT", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string MAPT
-		{
-			get
-			{
-				return this._MAPT;
-			}
-			set
-			{
-				if ((this._MAPT != value))
-				{
-					this._MAPT = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SLNHAP", DbType="Int NOT NULL")]
-		public int SLNHAP
-		{
-			get
-			{
-				return this._SLNHAP;
-			}
-			set
-			{
-				if ((this._SLNHAP != value))
-				{
-					this._SLNHAP = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DONGIANHAP", DbType="Float")]
-		public System.Nullable<double> DONGIANHAP
-		{
-			get
-			{
-				return this._DONGIANHAP;
-			}
-			set
-			{
-				if ((this._DONGIANHAP != value))
-				{
-					this._DONGIANHAP = value;
-				}
-			}
-		}
-	}
-	
-	public partial class selectNCCResult
-	{
-		
-		private string _MANHACUNGCAP;
-		
-		private string _TENNHACUNGCAP;
-		
-		private string _DIACHI;
-		
-		private System.Nullable<double> _DIENTHOAI;
-		
-		private string _EMAIL;
-		
-		private System.Data.Linq.Binary _HINHANH;
-		
-		public selectNCCResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MANHACUNGCAP", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string MANHACUNGCAP
-		{
-			get
-			{
-				return this._MANHACUNGCAP;
-			}
-			set
-			{
-				if ((this._MANHACUNGCAP != value))
-				{
-					this._MANHACUNGCAP = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TENNHACUNGCAP", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string TENNHACUNGCAP
-		{
-			get
-			{
-				return this._TENNHACUNGCAP;
-			}
-			set
-			{
-				if ((this._TENNHACUNGCAP != value))
-				{
-					this._TENNHACUNGCAP = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIACHI", DbType="NVarChar(100)")]
-		public string DIACHI
-		{
-			get
-			{
-				return this._DIACHI;
-			}
-			set
-			{
-				if ((this._DIACHI != value))
-				{
-					this._DIACHI = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIENTHOAI", DbType="Float")]
-		public System.Nullable<double> DIENTHOAI
-		{
-			get
-			{
-				return this._DIENTHOAI;
-			}
-			set
-			{
-				if ((this._DIENTHOAI != value))
-				{
-					this._DIENTHOAI = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EMAIL", DbType="NVarChar(50)")]
-		public string EMAIL
-		{
-			get
-			{
-				return this._EMAIL;
-			}
-			set
-			{
-				if ((this._EMAIL != value))
-				{
-					this._EMAIL = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HINHANH", DbType="Image")]
-		public System.Data.Linq.Binary HINHANH
-		{
-			get
-			{
-				return this._HINHANH;
-			}
-			set
-			{
-				if ((this._HINHANH != value))
-				{
-					this._HINHANH = value;
-				}
-			}
-		}
-	}
-	
-	public partial class selectPNResult
-	{
-		
-		private string _MAPN;
-		
-		private string _MANHACUNGCAP;
-		
-		private string _MANHANVIEN;
-		
-		private System.DateTime _NGAYNHAP;
-		
-		private System.Nullable<double> _TONGTIEN;
-		
-		public selectPNResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAPN", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string MAPN
-		{
-			get
-			{
-				return this._MAPN;
-			}
-			set
-			{
-				if ((this._MAPN != value))
-				{
-					this._MAPN = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MANHACUNGCAP", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string MANHACUNGCAP
-		{
-			get
-			{
-				return this._MANHACUNGCAP;
-			}
-			set
-			{
-				if ((this._MANHACUNGCAP != value))
-				{
-					this._MANHACUNGCAP = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MANHANVIEN", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string MANHANVIEN
-		{
-			get
-			{
-				return this._MANHANVIEN;
-			}
-			set
-			{
-				if ((this._MANHANVIEN != value))
-				{
-					this._MANHANVIEN = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NGAYNHAP", DbType="Date NOT NULL")]
-		public System.DateTime NGAYNHAP
-		{
-			get
-			{
-				return this._NGAYNHAP;
-			}
-			set
-			{
-				if ((this._NGAYNHAP != value))
-				{
-					this._NGAYNHAP = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TONGTIEN", DbType="Float")]
-		public System.Nullable<double> TONGTIEN
-		{
-			get
-			{
-				return this._TONGTIEN;
-			}
-			set
-			{
-				if ((this._TONGTIEN != value))
-				{
-					this._TONGTIEN = value;
-				}
-			}
-		}
-	}
-	
 	public partial class SP_SEARCHResult
 	{
 		
@@ -6709,6 +5152,282 @@ namespace QuanLyCuaHangXeMay
 				if ((this._GIASP != value))
 				{
 					this._GIASP = value;
+				}
+			}
+		}
+	}
+	
+	public partial class selectPNResult
+	{
+		
+		private string _MAPN;
+		
+		private string _MANHACUNGCAP;
+		
+		private string _MANHANVIEN;
+		
+		private System.DateTime _NGAYNHAP;
+		
+		public selectPNResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAPN", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string MAPN
+		{
+			get
+			{
+				return this._MAPN;
+			}
+			set
+			{
+				if ((this._MAPN != value))
+				{
+					this._MAPN = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MANHACUNGCAP", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string MANHACUNGCAP
+		{
+			get
+			{
+				return this._MANHACUNGCAP;
+			}
+			set
+			{
+				if ((this._MANHACUNGCAP != value))
+				{
+					this._MANHACUNGCAP = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MANHANVIEN", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string MANHANVIEN
+		{
+			get
+			{
+				return this._MANHANVIEN;
+			}
+			set
+			{
+				if ((this._MANHANVIEN != value))
+				{
+					this._MANHANVIEN = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NGAYNHAP", DbType="Date NOT NULL")]
+		public System.DateTime NGAYNHAP
+		{
+			get
+			{
+				return this._NGAYNHAP;
+			}
+			set
+			{
+				if ((this._NGAYNHAP != value))
+				{
+					this._NGAYNHAP = value;
+				}
+			}
+		}
+	}
+	
+	public partial class selectCTPNResult
+	{
+		
+		private string _MAPN;
+		
+		private string _MASP;
+		
+		private int _SLNHAP;
+		
+		private System.Nullable<double> _DONGIANHAP;
+		
+		private System.Nullable<double> _THANHTIEN;
+		
+		public selectCTPNResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAPN", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string MAPN
+		{
+			get
+			{
+				return this._MAPN;
+			}
+			set
+			{
+				if ((this._MAPN != value))
+				{
+					this._MAPN = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MASP", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string MASP
+		{
+			get
+			{
+				return this._MASP;
+			}
+			set
+			{
+				if ((this._MASP != value))
+				{
+					this._MASP = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SLNHAP", DbType="Int NOT NULL")]
+		public int SLNHAP
+		{
+			get
+			{
+				return this._SLNHAP;
+			}
+			set
+			{
+				if ((this._SLNHAP != value))
+				{
+					this._SLNHAP = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DONGIANHAP", DbType="Float")]
+		public System.Nullable<double> DONGIANHAP
+		{
+			get
+			{
+				return this._DONGIANHAP;
+			}
+			set
+			{
+				if ((this._DONGIANHAP != value))
+				{
+					this._DONGIANHAP = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_THANHTIEN", DbType="Float")]
+		public System.Nullable<double> THANHTIEN
+		{
+			get
+			{
+				return this._THANHTIEN;
+			}
+			set
+			{
+				if ((this._THANHTIEN != value))
+				{
+					this._THANHTIEN = value;
+				}
+			}
+		}
+	}
+	
+	public partial class selectCTPNxeResult
+	{
+		
+		private string _MASP;
+		
+		private string _TENSP;
+		
+		private int _SLNHAP;
+		
+		private System.Nullable<double> _DONGIANHAP;
+		
+		private System.Nullable<double> _THANHTIEN;
+		
+		public selectCTPNxeResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MASP", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string MASP
+		{
+			get
+			{
+				return this._MASP;
+			}
+			set
+			{
+				if ((this._MASP != value))
+				{
+					this._MASP = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TENSP", DbType="NVarChar(200)")]
+		public string TENSP
+		{
+			get
+			{
+				return this._TENSP;
+			}
+			set
+			{
+				if ((this._TENSP != value))
+				{
+					this._TENSP = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SLNHAP", DbType="Int NOT NULL")]
+		public int SLNHAP
+		{
+			get
+			{
+				return this._SLNHAP;
+			}
+			set
+			{
+				if ((this._SLNHAP != value))
+				{
+					this._SLNHAP = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DONGIANHAP", DbType="Float")]
+		public System.Nullable<double> DONGIANHAP
+		{
+			get
+			{
+				return this._DONGIANHAP;
+			}
+			set
+			{
+				if ((this._DONGIANHAP != value))
+				{
+					this._DONGIANHAP = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_THANHTIEN", DbType="Float")]
+		public System.Nullable<double> THANHTIEN
+		{
+			get
+			{
+				return this._THANHTIEN;
+			}
+			set
+			{
+				if ((this._THANHTIEN != value))
+				{
+					this._THANHTIEN = value;
 				}
 			}
 		}

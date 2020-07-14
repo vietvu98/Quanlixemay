@@ -27,7 +27,7 @@ CREATE TABLE NHACUNGCAP(
 	MANHACUNGCAP		NVARCHAR(50)	PRIMARY KEY,		
 	TENNHACUNGCAP		NVARCHAR(50)	NOT NULL,
 	DIACHI				NVARCHAR(100)			,
-	DIENTHOAI			FLOAT					,
+	DIENTHOAI			float					,
 	EMAIL				NVARCHAR(50)			,
 	HINHANH				IMAGE
 )
@@ -36,7 +36,7 @@ CREATE TABLE KHACHHANG(
 	MAKH			NVARCHAR(50)	PRIMARY KEY,
 	TENKH			NVARCHAR(50)	NOT NULL,
 	DIACHI				NVARCHAR(50)	NULL	,
-	DIENTHOAI			FLOAT		NULL,
+	DIENTHOAI			float		NULL,
 	GMAIL				NVARCHAR(100)
 )
 
@@ -65,40 +65,22 @@ CREATE TABLE PNHAP	(
 	MANHACUNGCAP		NVARCHAR(50)	NOT NULL,	
 	MANHANVIEN			NVARCHAR(50)	NOT NULL,		
 	NGAYNHAP			DATE			NOT NULL,
+	TONGTIEN			FLOAT
 )
+--ALTER TABLE PNHAP
+--ADD  TONGTIEN FLOAT
 GO
 CREATE TABLE CTPNHAP(
 	MAPN				NVARCHAR(50)	,
 	MASP				NVARCHAR(50)	,
 	PRIMARY KEY(MAPN, MASP),
 	SLNHAP				INT				NOT NULL,
-	DONGIANHAP			FLOAT					,		
+	DONGIANHAP			FLOAT					,
+	THANHTIEN FLOAT
 )
---PHỤ TÙNG----------------------------------------
-go
-CREATE TABLE PHUTUNG(
+--ALTER TABLE CTPNHAP
+--ADD  THANHTIEN FLOAT
 
-	MAPT                NVARCHAR(50) PRIMARY KEY,
-	TENPT               NVARCHAR(200),
-	MALOAIPT		    NVARCHAR(50)	NOT NULL,
-	SOLUONG             INT,
-	GIABAN              BIGINT,
-	HINHANH             IMAGE
-)
-GO
-CREATE TABLE LOAIPT(
-	MALOAIPT			NVARCHAR(50)	PRIMARY KEY,	
-	TENLOAIPT			NVARCHAR(50)	NOT NULL,
-		MOTA                NTEXT,
-)
-GO
-CREATE TABLE CTPNHAPPT(
-	MAPN				NVARCHAR(50)	,
-	MAPT				NVARCHAR(50)	,
-	PRIMARY KEY(MAPN, MAPT),
-	SLNHAP				INT				NOT NULL,
-	DONGIANHAP			FLOAT							
-)
 GO
 CREATE TABLE HOADON	(
 	MAHD			NVARCHAR(50)	PRIMARY KEY,	
@@ -168,14 +150,13 @@ ALTER TABLE PNHAP ADD FOREIGN KEY(MANHANVIEN) REFERENCES NHANVIEN(MANHANVIEN)
 ALTER TABLE CTPNHAP ADD FOREIGN KEY(MASP) REFERENCES SANPHAM(MASP)
 ALTER TABLE CTPNHAP ADD FOREIGN KEY(MAPN) REFERENCES PNHAP(MAPN)
 
-ALTER TABLE CTPNHAPPT ADD FOREIGN KEY(MAPT) REFERENCES PHUTUNG(MAPT)
-ALTER TABLE CTPNHAPPT ADD FOREIGN KEY(MAPN) REFERENCES PNHAP(MAPN)
+
 
 ALTER TABLE CTBAOHANH ADD FOREIGN KEY(MAPHIEUBH) REFERENCES BAOHANH(MAPHIEUBH)
 ALTER TABLE CTBAOHANH ADD FOREIGN KEY(MAHD) REFERENCES HOADON(MAHD)
 ALTER TABLE SANPHAM ADD FOREIGN KEY(MALOAI) REFERENCES LOAISP(MALOAI)
 
-ALTER TABLE PHUTUNG ADD FOREIGN KEY(MALOAIPT) REFERENCES LOAIPT(MALOAIPT)
+
 
 ALTER TABLE NHANVIEN ADD FOREIGN KEY(MACV) REFERENCES CHUCVU(MACV)
 ALTER TABLE CTHD ADD FOREIGN KEY(MASP) REFERENCES SANPHAM(MASP)
@@ -211,7 +192,7 @@ INSERT INTO LOAISP (MALOAI, TENLOAI) VALUES (N'L03', N'Xe MOTO')
 --Dịch vụ
 INSERT INTO DICHVU(MADV, TENDV) VALUES (N'KM01', N'Rửa xe')
 INSERT INTO DICHVU(MADV, TENDV) VALUES (N'KM02', N'Thay nhớt')
-INSERT INTO DICHVU(MADV, TENDV) VALUES (N'KM03', N'Rửa xe')
+INSERT INTO DICHVU(MADV, TENDV) VALUES (N'KM03', N'Dán decan')
 
 
 
@@ -260,23 +241,10 @@ INSERT INTO NHANVIEN (MANHANVIEN, TENNHANVIEN, SDT, DIACHI, EMAIL, NGAYSINH, GIO
 INSERT INTO NHANVIEN (MANHANVIEN, TENNHANVIEN, SDT, DIACHI, EMAIL, NGAYSINH, GIOITINH, QUEQUAN, PASSWORD, USERLOGIN, MACV) VALUES (N'NV09', N'Nguyễn Phúc Hoài Linh', 930222565, N'Q.9 TPHCM', N'zzaza@gmail.com', CAST(N'1999-03-03' AS Date), N'Nam', N'Tỉnh Quảng Nam', N'123', N'admin0*', N'CV02')
 INSERT INTO NHANVIEN (MANHANVIEN, TENNHANVIEN, SDT, DIACHI, EMAIL, NGAYSINH, GIOITINH, QUEQUAN, PASSWORD, USERLOGIN, MACV) VALUES (N'NV10', N'Nguyễn Văn Vân', 932022203, N'Q.9 TPHCM', N'zzzaaa@gmail.com', CAST(N'1999-12-05' AS Date), N'Nam', N'TPHCM', N'123', N'admin10', N'CV02')
 
---Loại phụ tùng ----------------------------------------------------
-INSERT INTO LOAIPT(MALOAIPT, TENLOAIPT, MOTA) VALUES(N'LPT01', N'Tấm lọc gió', N'Lọc gió có chức năng lọc không khí đi vào động cơ và giữ lại bụi bẩn, đảm bảo không khí đi vào động. Lọc gió không được kiểm tra và vệ sinh sẽ làm gia tăng việc tiêu hao nhiên liệu và giảm tuổi thọ các phụ tùng khác. Lọc gió khô cần được vệ sinh sau mỗi 4000km và thay thế sau mỗi 12000km. Đối với lọc gió dầu, không được cố gắng làm sạch mà cần thay thế sau mỗi 16000km với xe bảo hành 2 năm, mỗi 18000km với xe bảo hành 3 năm để đảm bảo xe được vận hành an toàn.')
-INSERT INTO LOAIPT(MALOAIPT, TENLOAIPT, MOTA) VALUES(N'LPT02', N'Bugi', N'Honda khuyến cáo cứ 8000 km bạn nên thay thế định kì 1 lần để đảm bảo xe của bạn được vận hành an toàn, riêng với Airblade và PCX 2016, sau 12000 km bạn nên thay thế định kì 1 lần.')
-INSERT INTO LOAIPT(MALOAIPT, TENLOAIPT, MOTA) VALUES(N'LPT03', N'Bộ má phanh', N'Hệ thống phanh giữ vai trò là hệ thống an toàn, nếu duy trì tình trạng xấu trong thời gian dài có thể làm lây lan hư hỏng sang các chi tiết và bộ phận liên quan, trường hợp xấu có thể gây ra tai nạn. Honda khuyến cáo cần kiểm tra má phanh mỗi 4000km với xe bảo hành 2 năm hoặc mỗi 6000km với xe bảo hành 3 năm để đảm bảo xe được vận hành an toàn.')
-INSERT INTO LOAIPT(MALOAIPT, TENLOAIPT, MOTA) VALUES(N'LPT04', N'Bộ nhông, xích', N'Tuổi thọ của xích tải phụ thuộc vào việc điều chỉnh va bôi trơn hợp lý. Bảo dưỡng không tốt dẫn đến hư hỏng xích tải và nhông xích. Honda khuyến cáo bạn nên kiểm tra và bôi trơn định kì mỗi 500km và thay thế theo tư vấn của kỹ thuật viên để đảm bảo xe của bạn được vận hành an toàn.')
-INSERT INTO LOAIPT(MALOAIPT, TENLOAIPT, MOTA) VALUES(N'LPT05', N'Ắc quy', N'Ắc quy không được kiểm tra định kỳ, xe có thể không khởi động được, hệ thống chếu sáng bị ảnh hưởng. Sử dụng ắc quy không chính hiệu, không tương thích dễ dẫn đến hư hỏng bất thường. Honda khuyến cáo sau 2 năm bạn nên thay thế định kì 1 lần đối với ắc quy nước và sau 3 năm thay thế định kì 1 lần đối với ắc quy khô để đảm bảo xe của bạn được vận hành an toàn. (Riêng PCX 125 cần kiểm tra sau mỗi 6000km)')
-INSERT INTO LOAIPT(MALOAIPT, TENLOAIPT, MOTA) VALUES(N'LPT06', N'Lốp Xe', N'Lốp xe bảo đảm cho việc lái xe an toàn và êm ái. Sử dụng lốp không chính hiệu làm giảm tuổi thọ của các phụ tùng liên quan khác, gây khó khăn khi điều khiển xe và làm gia tăng nhiên liệu tiêu hao. Khuyến cáo: Cần kiểm tra lốp xe mỗi 4000km với xe bảo hành 2 năm hoặc mỗi 6000km với xe bảo hành 3 năm để đảm bảo xe được vận hành an toàn')
 
---Phụ tùng ---------------------------------------------------------
-INSERT INTO PHUTUNG(MAPT, TENPT, MALOAIPT, SOLUONG, GIABAN, HINHANH) VALUES (N'PT01', N'Tấm lọc gió (dành cho) Wave alpha; Wave RSX', N'LPT01', 40, 64000, NULL )
-INSERT INTO PHUTUNG(MAPT, TENPT, MALOAIPT, SOLUONG, GIABAN, HINHANH) VALUES (N'PT02', N'Bugi (dành cho) Future 110; Super Dream 100', N'LPT02', 50, 57200, NULL )
-INSERT INTO PHUTUNG(MAPT, TENPT, MALOAIPT, SOLUONG, GIABAN, HINHANH) VALUES (N'PT03', N'Bộ má phanh (dành cho) Wave alpha 100; Dream 100; Future 11', N'LPT03', 54, 66000, NULL )
-INSERT INTO PHUTUNG(MAPT, TENPT, MALOAIPT, SOLUONG, GIABAN, HINHANH) VALUES (N'PT04', N'Bộ nhông, xích (dành cho) Wave RSX 110; Wave alpha 100', N'LPT04', 47, 165000, NULL )
-INSERT INTO PHUTUNG(MAPT, TENPT, MALOAIPT, SOLUONG, GIABAN, HINHANH) VALUES (N'PT05', N'Ắc quy (dành cho) Wave RSX 110', N'LPT04', 48, 253000, NULL )
-INSERT INTO PHUTUNG(MAPT, TENPT, MALOAIPT, SOLUONG, GIABAN, HINHANH) VALUES (N'PT06', N'Lốp Xe (dành cho) LEAD 110', N'LPT05', 48, 371800, NULL )
 
-select * from SANPHAM
+
+
 
 
 

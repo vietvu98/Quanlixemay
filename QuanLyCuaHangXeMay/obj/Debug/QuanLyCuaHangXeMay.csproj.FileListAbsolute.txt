@@ -254,5 +254,7 @@ E:\QuanLyCuaHangXeMay\QuanLyCuaHangXeMay\bin\Debug\es\DevExpress.Diagram.v19.1.C
 E:\QuanLyCuaHangXeMay\QuanLyCuaHangXeMay\bin\Debug\ja\DevExpress.Diagram.v19.1.Core.resources.dll
 E:\QuanLyCuaHangXeMay\QuanLyCuaHangXeMay\bin\Debug\ru\DevExpress.Diagram.v19.1.Core.resources.dll
 E:\QuanLyCuaHangXeMay\QuanLyCuaHangXeMay\obj\Debug\QuanLyCuaHangXeMay.ControlDangNhap.resources
-E:\QuanLyCuaHangXeMay\QuanLyCuaHangXeMay\obj\Debug\QuanLyCuaHangXeMay.Hoadon.resources
 E:\QuanLyCuaHangXeMay\QuanLyCuaHangXeMay\obj\Debug\QuanLyCuaHangXeMay.FormNhapSanPham.resources
+E:\QuanLyCuaHangXeMay\QuanLyCuaHangXeMay\obj\Debug\QuanLyCuaHangXeMay.FormHoaDon.resources
+E:\QuanLyCuaHangXeMay\QuanLyCuaHangXeMay\obj\Debug\RdlCompile.cache
+E:\QuanLyCuaHangXeMay\QuanLyCuaHangXeMay\obj\Debug\RdlCompile.compiled

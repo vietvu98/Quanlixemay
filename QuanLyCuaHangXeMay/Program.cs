@@ -16,7 +16,7 @@ namespace QuanLyCuaHangXeMay
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormNhapSanPham());
+            Application.Run(new DangNhap());
         }
     }
 }

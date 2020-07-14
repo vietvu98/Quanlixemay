@@ -20,7 +20,12 @@ namespace QuanLyCuaHangXeMay
         DataClassesQLDataContext dt = new DataClassesQLDataContext();
         private void toolStripLinhKien_Click(object sender, EventArgs e)
         {
-
+            panel2.Controls.Clear();
+            FormNhapSanPham sp = new FormNhapSanPham();
+            sp.TopLevel = false;
+            panel2.Controls.Add(sp);
+            sp.Dock = DockStyle.Fill;
+            sp.Show();
         }
 
   

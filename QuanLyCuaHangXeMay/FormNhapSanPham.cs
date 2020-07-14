@@ -21,64 +21,64 @@ namespace QuanLyCuaHangXeMay
         DataClassesQLDataContext dt = new DataClassesQLDataContext();
         private void FormNhapSanPham_Load(object sender, EventArgs e)
         {
-            var ma = from u in dt.PNHAPs
-                     select u;
-            var str = ma.OrderByDescending(s => s.MAPN).FirstOrDefault();
-            int a = Convert.ToInt32(str.MAPN.ToString().Substring(2)) + 1;
-            lbMaHD.Text = "PN" + a;
+            //var ma = from u in dt.PNHAPs
+            //         select u;
+            //var str = ma.OrderByDescending(s => s.MAPN).FirstOrDefault();
+            //int a = Convert.ToInt32(str.MAPN.ToString().Substring(2)) + 1;
+
+            //lbMaPN.Text = "PN" + a;
             //lbMaHD.Text = a;
 
-            //int i = 0;
-            //List<int> demso = new List<int>();
-            //foreach (var r in dt.PNHAPs)
-            //{
-            //    demso.Add(Convert.ToInt32(r.MAPN.Remove(0, 2)));
-            //    i++;
-            //}
-            //var a = dt.PNHAPs.FirstOrDefault();
-            //if (a == null)
-            //{
-            //    lbMaHD.Text = "PN01";
-            //}
-            //else
-            //{
-            //    int max = demso[0];
-            //    for (int j = 1; j < i; j++)
-            //    {
-            //        if (max < demso[j])
-            //        {
-            //            max = demso[j];
-            //        }
-            //    }
-            //    if (max < 9)
-            //    {
-            //        max = max + 1;
-            //        lbMaHD.Text = "PN0" + max;
-            //    }
-            //    else if (max > 9)
-            //    {
-            //        max = max + 1;
-            //        lbMaHD.Text = "PN" + max;
-            //    }
-            //}
+            int i = 0;
+            List<int> demso = new List<int>();
+            foreach (var r in dt.PNHAPs)
+            {
+                demso.Add(Convert.ToInt32(r.MAPN.Remove(0, 2)));
+                i++;
+            }
+            var a = dt.PNHAPs.FirstOrDefault();
+            if (a == null)
+            {
+                lbMaPN.Text = "PN01";
+            }
+            else
+            {
+                int max = demso[0];
+                for (int j = 1; j < i; j++)
+                {
+                    if (max < demso[j])
+                    {
+                        max = demso[j];
+                    }
+                }
+                if (max < 9)
+                {
+                    max = max + 1;
+                    lbMaPN.Text = "PN0" + max;
+                }
+                else if (max > 9)
+                {
+                    max = max + 1;
+                    lbMaPN.Text = "PN" + max;
+                }
+            }
             hehe = 1;
             haha = 1;
             cbxXe.DisplayMember = "TENSP";
             cbxXe.ValueMember = "MASP";
             cbxXe.DataSource = dt.SANPHAMs.ToList();
 
-            cbxPT.DisplayMember = "TENPT";
-            cbxPT.ValueMember = "MAPT";
-            cbxPT.DataSource = dt.PHUTUNGs.ToList();
-
             cbxNCC.DisplayMember = "TENNHACUNGCAP";
             cbxNCC.ValueMember = "MANHACUNGCAP";
             cbxNCC.DataSource = dt.NHACUNGCAPs;
+
+            dgvXe.AutoGenerateColumns = false;
+            
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            var HDN = dt.selectPN(lbMaHD.Text).FirstOrDefault();
+            var HDN = dt.selectPN(lbMaPN.Text).FirstOrDefault();
             if (txtDGXe.Text.Trim() == ""|| txtSLXe.Text.Trim() == "" || txtDGXe.Text == null || txtSLXe.Text == null)
             {
                 MessageBox.Show("Chưa nhập đủ","Thông Báo");
@@ -96,85 +96,59 @@ namespace QuanLyCuaHangXeMay
             {
                 if (HDN == null)
                 {
-                    dt.INSERT_PNHAP(lbMaHD.Text, Convert.ToString(cbxNCC.SelectedValue), "NV01", Convert.ToDateTime(DateTime.Now), 0);
+                    dt.INSERT_PNHAP(lbMaPN.Text, Convert.ToString(cbxNCC.SelectedValue), DangNhap.TTNV.MaNV, Convert.ToDateTime(DateTime.Now), 0);
                     //insert CTPNXE + update slt
-                    dt.INSERT_CTPNHAPXE(lbMaHD.Text, cbxXe.SelectedValue.ToString(), Convert.ToInt32(txtSLXe.Text), Convert.ToDouble(txtDGXe.Text));
+                    dt.INSERT_CTPNHAPXE(lbMaPN.Text, cbxXe.SelectedValue.ToString(), Convert.ToInt32(txtSLXe.Text), Convert.ToDouble(txtDGXe.Text),
+                                        (Convert.ToDouble(txtDGXe.Text) * Convert.ToDouble(txtSLXe.Text)));
                     double tongtien = 0;
-                    foreach (var a in dt.selectCTPNxe(lbMaHD.Text) )
+                    foreach (var a in dt.selectCTPNxe(lbMaPN.Text) )
                     {
                         tongtien = tongtien + Convert.ToDouble(a.DONGIANHAP) * Convert.ToDouble( a.SLNHAP);
                     }    
-                    dt.UPDATE_TIENNHAPXE(lbMaHD.Text, tongtien);
+                    dt.UPDATE_TIENNHAPXE(lbMaPN.Text, tongtien);
                     MessageBox.Show("Thêm thành công", "Thêm");
                 }
                 else if (HDN != null)
                 {
-                    var CTPNX = dt.selectCTPN(lbMaHD.Text, cbxXe.SelectedValue.ToString()).FirstOrDefault();
+                    var CTPNX = dt.selectCTPN(lbMaPN.Text, cbxXe.SelectedValue.ToString()).FirstOrDefault();
                     if (CTPNX == null)
                     {
-                        dt.INSERT_CTPNHAPXE(lbMaHD.Text, cbxXe.SelectedValue.ToString(), Convert.ToInt32(txtSLXe.Text) + CTPNX.SLNHAP, Convert.ToDouble(txtDGXe.Text));
+                        dt.INSERT_CTPNHAPXE(lbMaPN.Text, cbxXe.SelectedValue.ToString(), Convert.ToInt32(txtSLXe.Text) , Convert.ToDouble(txtDGXe.Text),
+                            (Convert.ToDouble(txtDGXe.Text) * Convert.ToDouble(txtSLXe.Text)));
                         double tongtien = 0;
-                        foreach (var a in dt.selectCTPNxe(lbMaHD.Text))
+                        foreach (var a in dt.selectCTPNxe(lbMaPN.Text))
                         {
                             tongtien = tongtien + Convert.ToDouble(a.DONGIANHAP) * Convert.ToDouble(a.SLNHAP);
                         }
-                        dt.UPDATE_TIENNHAPXE(lbMaHD.Text, tongtien);
+                        dt.UPDATE_TIENNHAPXE(lbMaPN.Text, tongtien);
                     }
                     else if (CTPNX != null)
                     {
-                        dt.updateSTCTPNX(lbMaHD.Text, cbxXe.SelectedValue.ToString(), Convert.ToInt32(txtSLXe.Text) + CTPNX.SLNHAP);
+
+                        dt.updateSLTCTPNX(lbMaPN.Text, cbxXe.SelectedValue.ToString(), Convert.ToInt32(txtSLXe.Text) + CTPNX.SLNHAP, 
+                            CTPNX.THANHTIEN + (Convert.ToDouble(txtSLXe.Text) * Convert.ToDouble(txtDGXe.Text) ));
                         double tongtien = 0;
-                        foreach (var a in dt.selectCTPNxe(lbMaHD.Text) )
+                        foreach (var a in dt.selectCTPNxe(lbMaPN.Text) )
                         {
                             tongtien = tongtien + Convert.ToDouble(a.DONGIANHAP) * Convert.ToDouble( a.SLNHAP);
                         }    
-                        dt.UPDATE_TIENNHAPXE(lbMaHD.Text, tongtien);
+                        dt.UPDATE_TIENNHAPXE(lbMaPN.Text, tongtien);
                     }
                 }
-                dgvXe.DataSource = dt.selectCTPNxe(lbMaHD.Text);
+                
+                dgvXe.DataSource = dt.selectCTPNxe(lbMaPN.Text);
                 txtDGXe.Enabled = false; 
                 txtSLXe.ResetText();
-
+                double TongTienHD = 0;
+                foreach (var a in dt.selectCTPNxe(lbMaPN.Text))
+                {
+                    TongTienHD = TongTienHD + Convert.ToDouble(a.DONGIANHAP) * Convert.ToDouble(a.SLNHAP);
+                }
+                lbTongTien.Text = TongTienHD.ToString("N0");
             }
         }
 
-        private void btnLuu_Click(object sender, EventArgs e)
-        {
-            //var pn = dt.PNHAPs.Where(s => s.MAPN == lbMaHD.Text).FirstOrDefault();
-            //var ctxe = dt.SANPHAMs.Where(s=>s.MASP == cbxXe.SelectedValue.ToString()).FirstOrDefault();
-            //var ctpt = dt.PHUTUNGs.Where(s => s.MAPT == cbxPT.SelectedValue.ToString()).FirstOrDefault();
-
-            //if (Convert.ToInt64(txtDGXe.Text) == 0)
-            //{
-            //    MessageBox.Show("Đơn giá phải lớn hơn 0", "Lỗi");
-            //}
-            //else if (Convert.ToInt32(txtSLXe.Text) == 0)
-            //{
-            //    MessageBox.Show("Số lượng phải lớn hơn 0", "Lỗi");
-            //}
-            //////////////////////////////////////////////////////////////
-            //if (Convert.ToInt64(txtDGPT.Text) == 0)
-            //{
-            //    MessageBox.Show("Đơn giá phải lớn hơn 0", "Lỗi");
-            //}
-            //else if (Convert.ToInt32(txtSLPT.Text) == 0)
-            //{
-            //    MessageBox.Show("Số lượng phải lớn hơn 0", "Lỗi");
-            //}
-            //if(pn == null)
-            //{
-            //    dt.INSERT_PNHAP(lbMaHD.Text, cbxNCC.SelectedValue.ToString(), DangNhap.TTNV.MaNV,
-            //                 Convert.ToDateTime(DateTime.Now), 0);
-            //    dt.INSERT_CTPNHAPXE(lbMaHD.Text, cbxXe.SelectedValue.ToString(), Convert.ToInt32(txtSLXe.Text),
-            //                   Convert.ToInt64(txtDGXe.Text));
-            //    dt.INSERT_CTPNHAPPT(lbMaHD.Text, cbxXe.SelectedValue.ToString(), Convert.ToInt32(txtSLXe.Text),
-            //                   Convert.ToInt64(txtDGXe.Text));
-                //if(dgvXe.Rows.Count == 1 && dgvPT.Rows.Count ==1)
-                //{
-                //    MessageBox.Show 
-                //}
-            
-        }
+        
 
         private void dgvXe_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
@@ -203,7 +177,7 @@ namespace QuanLyCuaHangXeMay
                     cbxXe.SelectedValue = sp.MASP;
                     hehe++;
                 }
-                var CTPNX = dt.selectCTPN(lbMaHD.Text, cbxXe.SelectedValue.ToString()).FirstOrDefault();
+                var CTPNX = dt.selectCTPN(lbMaPN.Text, cbxXe.SelectedValue.ToString()).FirstOrDefault();
                 if (CTPNX == null)
                 {
                     if (hehe ==2)
@@ -225,107 +199,29 @@ namespace QuanLyCuaHangXeMay
             }
         }
 
-        private void btnThemPT_Click(object sender, EventArgs e)
+        private void txtSLXe_TextAlignChanged(object sender, EventArgs e)
         {
-            var HDN = dt.selectPN(lbMaHD.Text).FirstOrDefault();
-            if (txtDGPT.Text.Trim() == "" || txtSLPT.Text.Trim() == "" || txtDGPT.Text == null || txtSLPT.Text == null)
-            {
-                MessageBox.Show("Chưa nhập đủ", "Thông Báo");
-            }
-            else if (Convert.ToInt32(txtSLPT.Text) == 0)
-            {
-                MessageBox.Show("Số lượng phải lớn hơn 0", "Lỗi");
-            }
-            else if (Convert.ToInt64(txtDGPT.Text) == 0)
-            {
-                MessageBox.Show("Đơn giá phải lớn hơn 0", "Lỗi");
-            }
-            else
-            {
-                if (HDN == null)
-                {
-                    dt.INSERT_PNHAP(lbMaHD.Text, Convert.ToString(cbxNCC.SelectedValue), "NV01", Convert.ToDateTime(DateTime.Now), 0);
-                    //insert CTPN + update slt
-                    dt.INSERT_CTPNHAPPT(lbMaHD.Text, cbxPT.SelectedValue.ToString(), Convert.ToInt32(txtSLPT.Text), Convert.ToDouble(txtDGPT.Text));
-                    double tongtien = 0;
-                    foreach (var a in dt.selectCTPNPT(lbMaHD.Text))
-                    {
-                        tongtien = tongtien + Convert.ToDouble(a.DONGIANHAP) * Convert.ToDouble(a.SLNHAP);
-                    }
-                    dt.UPDATE_TIENNHAPPT(lbMaHD.Text, tongtien);
-                    MessageBox.Show("Thêm thành công", "Thêm");
-                }
-                else if (HDN != null)
-                {
-                    var CTPNPT = dt.selectCTPTung(lbMaHD.Text, cbxPT.SelectedValue.ToString()).FirstOrDefault();
-                    if (CTPNPT == null)
-                    {
-                        dt.INSERT_CTPNHAPPT(lbMaHD.Text, cbxPT.SelectedValue.ToString(), Convert.ToInt32(txtSLPT.Text) + CTPNPT.SLNHAP, Convert.ToDouble(txtDGPT.Text));
-                        double tongtien = 0;
-                        foreach (var a in dt.selectCTPNPT(lbMaHD.Text))
-                        {
-                            tongtien = tongtien + Convert.ToDouble(a.DONGIANHAP) * Convert.ToDouble(a.SLNHAP);
-                        }
-                        dt.UPDATE_TIENNHAPPT(lbMaHD.Text, tongtien);
-                    }
-                    else if (CTPNPT != null)
-                    {
-                        dt.updateSLCTPPT(lbMaHD.Text, cbxPT.SelectedValue.ToString(), Convert.ToInt32(txtSLPT.Text) + CTPNPT.SLNHAP);
-                        double tongtien = 0;
-                        foreach (var a in dt.selectCTPNPT(lbMaHD.Text))
-                        {
-                            tongtien = tongtien + Convert.ToDouble(a.DONGIANHAP) * Convert.ToDouble(a.SLNHAP);
-                        }
-                        dt.UPDATE_TIENNHAPPT(lbMaHD.Text, tongtien);
-                    }
-                }
-                dgvPT.DataSource = dt.selectCTPNPT(lbMaHD.Text);
 
-                txtDGPT.Enabled = false;
-                txtSLPT.ResetText();
-            }
         }
 
-        private void cbxPT_SelectedValueChanged(object sender, EventArgs e)
+        private void txtSLXe_TextChanged(object sender, EventArgs e)
         {
-            try
-            {
-                var pt = dt.PHUTUNGs.FirstOrDefault();
-                if (haha == 1)
-                {
-                    cbxPT.DisplayMember = "TENPT";
-                    cbxPT.ValueMember = "MAPT";
-                    cbxPT.DataSource = dt.PHUTUNGs.ToList();
-                    cbxPT.SelectedValue = pt.MAPT;
-                    haha++;
-                }
-                var CTPNX = dt.selectCTPN(lbMaHD.Text, cbxPT.SelectedValue.ToString()).FirstOrDefault();
-                if (CTPNX == null)
-                {
-                    if (haha == 2)
-                    {
-                        txtDGPT.ResetText();
-                    }
 
-                    txtDGPT.Enabled = true;
-                }
-                else if (CTPNX != null)
-                {
-                    txtDGPT.Text = CTPNX.DONGIANHAP.ToString();
-                    txtDGPT.Enabled = false;
-                }
-            }
-            catch (Exception)
-            {
-
-            }
         }
 
-        private void dgvPT_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        private void dgvXe_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            for (int i = 0; i < dgvPT.Rows.Count - 1; i++)
+            if (dgvXe.Columns[e.ColumnIndex].Name == "Xoa")
             {
-                dgvPT.Rows[i].Cells[0].Value = i + 1;
+                DialogResult a = MessageBox.Show(" Ban co muon xoa khong?","Xoa", MessageBoxButtons.YesNo);
+                if(a == DialogResult.Yes)
+                {
+                    var SP = dt.SANPHAMs.Where(s => s.MASP == cbxXe.SelectedValue.ToString()).FirstOrDefault();
+                    var CTPN = dt.CTPNHAPs.Where(s => s.MAPN == lbMaPN.Text).Where(s => s.MASP == cbxXe.SelectedValue.ToString()).FirstOrDefault();
+                    dt.delete_PhieuNhap(lbMaPN.Text, cbxXe.SelectedValue.ToString());
+                    dt.updateSLT(cbxXe.SelectedValue.ToString(), SP.SOLUONG - CTPN.SLNHAP);
+                    dgvXe.DataSource = dt.selectCTPNxe(lbMaPN.Text);
+                }
             }
         }
     }

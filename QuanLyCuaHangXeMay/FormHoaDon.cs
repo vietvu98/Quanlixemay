@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace QuanLyCuaHangXeMay
 {
-    public partial class Hoadon : Form
+    public partial class FormHoaDon : Form
     {
-        public Hoadon()
+        public FormHoaDon()
         {
             InitializeComponent();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
