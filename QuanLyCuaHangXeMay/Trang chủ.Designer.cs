@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            Guna.UI.Animation.Animation animation2 = new Guna.UI.Animation.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnDangNhap = new Guna.UI.WinForms.GunaPictureBox();
@@ -43,26 +44,35 @@
             this.toolStripKhachHang = new System.Windows.Forms.ToolStripButton();
             this.toolStripSanPham = new System.Windows.Forms.ToolStripButton();
             this.toolStripPhuTung = new System.Windows.Forms.ToolStripButton();
-            this.toolStripBaoHanh = new System.Windows.Forms.ToolStripButton();
             this.toolStripDoiTac = new System.Windows.Forms.ToolStripButton();
             this.btnHoaDon = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.btnThongKe = new System.Windows.Forms.ToolStripButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.Transition1 = new Guna.UI.WinForms.GunaTransition(this.components);
+            this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
+            this.gunaCirclePictureBox2 = new Guna.UI.WinForms.GunaCirclePictureBox();
+            this.btnFacebook = new Guna.UI.WinForms.GunaCirclePictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnDangNhap)).BeginInit();
             this.status_NguoiDung.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnFacebook)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.gunaCirclePictureBox2);
+            this.panel1.Controls.Add(this.btnFacebook);
             this.panel1.Controls.Add(this.btnDangNhap);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label_TIME);
             this.panel1.Controls.Add(this.status_NguoiDung);
+            this.Transition1.SetDecoration(this.panel1, Guna.UI.Animation.DecorationType.None);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -73,6 +83,7 @@
             // btnDangNhap
             // 
             this.btnDangNhap.BaseColor = System.Drawing.Color.White;
+            this.Transition1.SetDecoration(this.btnDangNhap, Guna.UI.Animation.DecorationType.None);
             this.btnDangNhap.Image = ((System.Drawing.Image)(resources.GetObject("btnDangNhap.Image")));
             this.btnDangNhap.Location = new System.Drawing.Point(0, 0);
             this.btnDangNhap.Name = "btnDangNhap";
@@ -80,9 +91,11 @@
             this.btnDangNhap.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnDangNhap.TabIndex = 19;
             this.btnDangNhap.TabStop = false;
+            this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
             // 
             // label1
             // 
+            this.Transition1.SetDecoration(this.label1, Guna.UI.Animation.DecorationType.None);
             this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DarkOrange;
             this.label1.Location = new System.Drawing.Point(761, 9);
@@ -95,9 +108,10 @@
             // label_TIME
             // 
             this.label_TIME.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Transition1.SetDecoration(this.label_TIME, Guna.UI.Animation.DecorationType.None);
             this.label_TIME.Font = new System.Drawing.Font("Times New Roman", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_TIME.ForeColor = System.Drawing.Color.DarkOrange;
-            this.label_TIME.Location = new System.Drawing.Point(402, 9);
+            this.label_TIME.Location = new System.Drawing.Point(455, 9);
             this.label_TIME.Name = "label_TIME";
             this.label_TIME.Size = new System.Drawing.Size(229, 38);
             this.label_TIME.TabIndex = 17;
@@ -108,6 +122,7 @@
             // 
             this.status_NguoiDung.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.status_NguoiDung.BackColor = System.Drawing.Color.Transparent;
+            this.Transition1.SetDecoration(this.status_NguoiDung, Guna.UI.Animation.DecorationType.None);
             this.status_NguoiDung.Dock = System.Windows.Forms.DockStyle.None;
             this.status_NguoiDung.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.status_NguoiDung.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -157,22 +172,23 @@
             // toolStrip1
             // 
             this.toolStrip1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.Transition1.SetDecoration(this.toolStrip1, Guna.UI.Animation.DecorationType.None);
             this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Left;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripKhachHang,
             this.toolStripSanPham,
             this.toolStripPhuTung,
-            this.toolStripBaoHanh,
             this.toolStripDoiTac,
             this.btnHoaDon,
-            this.toolStripButton1,
-            this.toolStripButton2});
+            this.btnThongKe});
+            this.toolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Table;
             this.toolStrip1.Location = new System.Drawing.Point(0, 77);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.toolStrip1.Size = new System.Drawing.Size(119, 608);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
+            this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
             // 
             // toolStripKhachHang
             // 
@@ -180,8 +196,9 @@
             this.toolStripKhachHang.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolStripKhachHang.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripKhachHang.Name = "toolStripKhachHang";
-            this.toolStripKhachHang.Size = new System.Drawing.Size(116, 23);
+            this.toolStripKhachHang.Size = new System.Drawing.Size(98, 23);
             this.toolStripKhachHang.Text = "Khách Hàng";
+            this.toolStripKhachHang.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolStripKhachHang.Click += new System.EventHandler(this.toolStripKhachHang_Click);
             // 
             // toolStripSanPham
@@ -192,6 +209,7 @@
             this.toolStripSanPham.Name = "toolStripSanPham";
             this.toolStripSanPham.Size = new System.Drawing.Size(116, 23);
             this.toolStripSanPham.Text = "Xử lí sản phẩm";
+            this.toolStripSanPham.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolStripSanPham.Click += new System.EventHandler(this.toolStripSanPham_Click);
             // 
             // toolStripPhuTung
@@ -200,19 +218,10 @@
             this.toolStripPhuTung.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolStripPhuTung.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripPhuTung.Name = "toolStripPhuTung";
-            this.toolStripPhuTung.Size = new System.Drawing.Size(116, 23);
+            this.toolStripPhuTung.Size = new System.Drawing.Size(118, 23);
             this.toolStripPhuTung.Text = "Nhập sản phẩm";
+            this.toolStripPhuTung.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolStripPhuTung.Click += new System.EventHandler(this.toolStripLinhKien_Click);
-            // 
-            // toolStripBaoHanh
-            // 
-            this.toolStripBaoHanh.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripBaoHanh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolStripBaoHanh.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripBaoHanh.Name = "toolStripBaoHanh";
-            this.toolStripBaoHanh.Size = new System.Drawing.Size(116, 23);
-            this.toolStripBaoHanh.Text = "Bảo Hành";
-            this.toolStripBaoHanh.Click += new System.EventHandler(this.toolStripBaoHanh_Click);
             // 
             // toolStripDoiTac
             // 
@@ -220,8 +229,9 @@
             this.toolStripDoiTac.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolStripDoiTac.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDoiTac.Name = "toolStripDoiTac";
-            this.toolStripDoiTac.Size = new System.Drawing.Size(116, 23);
+            this.toolStripDoiTac.Size = new System.Drawing.Size(71, 23);
             this.toolStripDoiTac.Text = "Đối Tác ";
+            this.toolStripDoiTac.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolStripDoiTac.Click += new System.EventHandler(this.toolStripDoiTac_Click);
             // 
             // btnHoaDon
@@ -230,20 +240,26 @@
             this.btnHoaDon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnHoaDon.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnHoaDon.Name = "btnHoaDon";
-            this.btnHoaDon.Size = new System.Drawing.Size(116, 23);
+            this.btnHoaDon.Size = new System.Drawing.Size(75, 23);
             this.btnHoaDon.Text = "Hóa Đơn";
+            this.btnHoaDon.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHoaDon.Click += new System.EventHandler(this.btnHoaDon_Click_1);
             // 
-            // toolStripButton1
+            // btnThongKe
             // 
-            this.toolStripButton1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(116, 23);
-            this.toolStripButton1.Text = "Thống kê";
+            this.btnThongKe.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThongKe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnThongKe.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnThongKe.Name = "btnThongKe";
+            this.btnThongKe.Size = new System.Drawing.Size(79, 23);
+            this.btnThongKe.Text = "Thông Kê";
+            this.btnThongKe.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnThongKe.Click += new System.EventHandler(this.btnThongKe_Click);
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.gunaPictureBox1);
+            this.Transition1.SetDecoration(this.panel2, Guna.UI.Animation.DecorationType.None);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(119, 77);
             this.panel2.Name = "panel2";
@@ -263,14 +279,71 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // toolStripButton2
+            // Transition1
             // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(116, 20);
-            this.toolStripButton2.Text = "toolStripButton2";
+            this.Transition1.AnimationType = Guna.UI.Animation.AnimationType.Transparent;
+            this.Transition1.Cursor = null;
+            animation2.AnimateOnlyDifferences = true;
+            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
+            animation2.LeafCoeff = 0F;
+            animation2.MaxTime = 1F;
+            animation2.MinTime = 0F;
+            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
+            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
+            animation2.MosaicSize = 0;
+            animation2.Padding = new System.Windows.Forms.Padding(0);
+            animation2.RotateCoeff = 0F;
+            animation2.RotateLimit = 0F;
+            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
+            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
+            animation2.TimeCoeff = 0F;
+            animation2.TransparencyCoeff = 1F;
+            this.Transition1.DefaultAnimation = animation2;
+            this.Transition1.MaxAnimationTime = 2000;
+            this.Transition1.TimeStep = 0.005F;
+            // 
+            // gunaPictureBox1
+            // 
+            this.gunaPictureBox1.BaseColor = System.Drawing.Color.White;
+            this.Transition1.SetDecoration(this.gunaPictureBox1, Guna.UI.Animation.DecorationType.None);
+            this.gunaPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("gunaPictureBox1.Image")));
+            this.gunaPictureBox1.Location = new System.Drawing.Point(221, 129);
+            this.gunaPictureBox1.Name = "gunaPictureBox1";
+            this.gunaPictureBox1.Size = new System.Drawing.Size(575, 340);
+            this.gunaPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.gunaPictureBox1.TabIndex = 20;
+            this.gunaPictureBox1.TabStop = false;
+            this.gunaPictureBox1.Click += new System.EventHandler(this.gunaPictureBox1_Click);
+            // 
+            // gunaCirclePictureBox2
+            // 
+            this.gunaCirclePictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.gunaCirclePictureBox2.BaseColor = System.Drawing.Color.Transparent;
+            this.Transition1.SetDecoration(this.gunaCirclePictureBox2, Guna.UI.Animation.DecorationType.None);
+            this.gunaCirclePictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("gunaCirclePictureBox2.Image")));
+            this.gunaCirclePictureBox2.Location = new System.Drawing.Point(172, 9);
+            this.gunaCirclePictureBox2.Name = "gunaCirclePictureBox2";
+            this.gunaCirclePictureBox2.Size = new System.Drawing.Size(50, 52);
+            this.gunaCirclePictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.gunaCirclePictureBox2.TabIndex = 26;
+            this.gunaCirclePictureBox2.TabStop = false;
+            this.gunaCirclePictureBox2.UseTransfarantBackground = false;
+            this.gunaCirclePictureBox2.Click += new System.EventHandler(this.gunaCirclePictureBox2_Click);
+            // 
+            // btnFacebook
+            // 
+            this.btnFacebook.BackColor = System.Drawing.Color.Transparent;
+            this.btnFacebook.BaseColor = System.Drawing.Color.Transparent;
+            this.Transition1.SetDecoration(this.btnFacebook, Guna.UI.Animation.DecorationType.None);
+            this.btnFacebook.Image = ((System.Drawing.Image)(resources.GetObject("btnFacebook.Image")));
+            this.btnFacebook.Location = new System.Drawing.Point(246, 9);
+            this.btnFacebook.Name = "btnFacebook";
+            this.btnFacebook.Size = new System.Drawing.Size(50, 50);
+            this.btnFacebook.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnFacebook.TabIndex = 27;
+            this.btnFacebook.TabStop = false;
+            this.btnFacebook.UseTransfarantBackground = false;
+            this.btnFacebook.Click += new System.EventHandler(this.btnFacebook_Click);
             // 
             // Form1
             // 
@@ -281,6 +354,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.panel1);
+            this.Transition1.SetDecoration(this, Guna.UI.Animation.DecorationType.None);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -294,6 +368,10 @@
             this.status_NguoiDung.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnFacebook)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -314,14 +392,16 @@
         private System.Windows.Forms.ToolStripButton toolStripSanPham;
         private System.Windows.Forms.Label label_TIME;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.ToolStripButton toolStripBaoHanh;
         private System.Windows.Forms.ToolStripDropDownButton User_NguoiDung;
         private System.Windows.Forms.ToolStripMenuItem bt_ThongTinNguoiDung;
         private System.Windows.Forms.ToolStripMenuItem bt_DangXuat;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
         private Guna.UI.WinForms.GunaPictureBox btnDangNhap;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripButton btnThongKe;
+        public Guna.UI.WinForms.GunaTransition Transition1;
+        private Guna.UI.WinForms.GunaPictureBox gunaPictureBox1;
+        private Guna.UI.WinForms.GunaCirclePictureBox gunaCirclePictureBox2;
+        private Guna.UI.WinForms.GunaCirclePictureBox btnFacebook;
     }
 }
 

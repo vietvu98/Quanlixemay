@@ -49,11 +49,9 @@ E:\QuanLyCuaHangXeMay\QuanLyCuaHangXeMay\bin\Debug\ru\DevExpress.Pdf.v19.1.Core.
 E:\QuanLyCuaHangXeMay\QuanLyCuaHangXeMay\obj\Debug\QuanLyCuaHangXeMay.DangNhap.resources
 E:\QuanLyCuaHangXeMay\QuanLyCuaHangXeMay\obj\Debug\QuanLyCuaHangXeMay.csproj.CopyComplete
 E:\QuanLyCuaHangXeMay\QuanLyCuaHangXeMay\obj\Debug\QuanLyCuaHangXeMay.DoiTac.resources
-E:\QuanLyCuaHangXeMay\QuanLyCuaHangXeMay\obj\Debug\QuanLyCuaHangXeMay.PhuTung.resources
 E:\QuanLyCuaHangXeMay\QuanLyCuaHangXeMay\obj\Debug\QuanLyCuaHangXeMay.SanPham.resources
 E:\QuanLyCuaHangXeMay\QuanLyCuaHangXeMay\obj\Debug\QuanLyCuaHangXeMay.BaoHanh.resources
 E:\QuanLyCuaHangXeMay\QuanLyCuaHangXeMay\obj\Debug\QuanLyCuaHangXeMay.Google.resources
-E:\QuanLyCuaHangXeMay\QuanLyCuaHangXeMay\obj\Debug\QuanLyCuaHangXeMay.Phiếu_bảo_hành.resources
 E:\QuanLyCuaHangXeMay\QuanLyCuaHangXeMay\obj\Debug\QuanLyCuaHangXeMay.KhachHang.resources
 E:\QuanLyCuaHangXeMay\QuanLyCuaHangXeMay\obj\Debug\QuanLyCuaHangXeMay.exe.licenses
 E:\QuanLyCuaHangXeMay\QuanLyCuaHangXeMay\bin\Debug\Guna.UI.dll
@@ -258,3 +256,9 @@ E:\QuanLyCuaHangXeMay\QuanLyCuaHangXeMay\obj\Debug\QuanLyCuaHangXeMay.FormNhapSa
 E:\QuanLyCuaHangXeMay\QuanLyCuaHangXeMay\obj\Debug\QuanLyCuaHangXeMay.FormHoaDon.resources
 E:\QuanLyCuaHangXeMay\QuanLyCuaHangXeMay\obj\Debug\RdlCompile.cache
 E:\QuanLyCuaHangXeMay\QuanLyCuaHangXeMay\obj\Debug\RdlCompile.compiled
+E:\QuanLyCuaHangXeMay\QuanLyCuaHangXeMay\obj\Debug\QuanLyCuaHangXeMay.FromPhieuHoaDon.resources
+E:\QuanLyCuaHangXeMay\QuanLyCuaHangXeMay\bin\Debug\DevExpress.XtraCharts.v19.1.UI.dll
+E:\QuanLyCuaHangXeMay\QuanLyCuaHangXeMay\bin\Debug\DevExpress.XtraCharts.v19.1.UI.xml
+E:\QuanLyCuaHangXeMay\QuanLyCuaHangXeMay\obj\Debug\QuanLyCuaHangXeMay.FormThongKe.resources
+E:\QuanLyCuaHangXeMay\QuanLyCuaHangXeMay\obj\Debug\QuanLyCuaHangXeMay.ControlDangNhap1.resources
+E:\QuanLyCuaHangXeMay\QuanLyCuaHangXeMay\obj\Debug\QuanLyCuaHangXeMay.FormBackUp.resources

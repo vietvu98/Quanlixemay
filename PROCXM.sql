@@ -224,6 +224,7 @@ BEGIN
 	UPDATE NHANVIEN SET PASSWORD = @PASS WHERE USERLOGIN=@tk
 END
 ----------------------------------------------------------------------
+-------phiếu nhập---------------------------------------------------
 go
 create proc selectPN (@ma nvarchar (50))
 as
@@ -253,7 +254,7 @@ INSERT INTO CTPNHAP VALUES (@MAPN, @MASP, @SLNHAPXE, @DONGIANHAPXE,@THANHTIEN)
 UPDATE SANPHAM SET SOLUONG= SOLUONG +@SLNHAPXE where MASP=@MASP
 ---------------------------------------------------------------------
 go
-alter proc selectCTPNxe (@ma nvarchar (50))
+create proc selectCTPNxe (@ma nvarchar (50))
 as
 select CTPN.MASP, SP.TENSP, CTPN.SLNHAP, CTPN.DONGIANHAP, CTPN.THANHTIEN   from CTPNHAP CTPN, SANPHAM SP where MAPN = @ma and CTPN.MASP = SP.MASP
 
@@ -271,7 +272,7 @@ as
 UPDATE PNHAP SET TONGTIEN = @DONGIANHAPXE WHERE MAPN= @MAPN
 ---------------------------------------------------------------------
 go
-ALTER proc updateSLTCTPNX (@ma nvarchar (50), @masp nvarchar (50), @soluong int, @THANHTIEN float)
+CREATE proc updateSLTCTPNX (@ma nvarchar (50), @masp nvarchar (50), @soluong int, @THANHTIEN float)
 as
 update CTPNHAP set SLNHAP = @soluong, THANHTIEN = @THANHTIEN where MAPN = @ma and MASP = @masp
 ---------------------------------------------------------------------
@@ -285,8 +286,6 @@ create proc updateSLT (@masp nvarchar (50), @soluong int)
 as 
 update SANPHAM set SOLUONG = @soluong where MASP =@masp
 
-
-
 /*GO
 create PROC SELECT_CTNHAP
 AS BEGIN
@@ -299,17 +298,103 @@ go
 create proc selectNCC (@MA nvarchar (50))
 AS
 select * from NHACUNGCAP where MANHACUNGCAP = @ma
-
-
-
 select * from SANPHAM*/
 
+---------------------Hóa đơn -----------------------------------------------
+go
+create proc selectHoaDon (@ma nvarchar (50))
+as
+select * from HOADON where MAHD = @ma
+-------------------------------------------------
+go
+create proc selectCTHD (@ma nvarchar (50))
+as
+select CTHD.MASP, SP.TENSP, CTHD.SL, SP.GIABAN, CTHD.THANHTIEN   from CTHD , SANPHAM SP where MAHD = @ma and CTHD.MASP = SP.MASP
+-------------------------------------------------------------
+go
+create proc selectAll_CTHD (@maHD nvarchar (50), @masp nvarchar (50))
+as
+select * from CTHD where MAHD = @maHD and MASP = @masp
+---------------------------------------------------------------
+go 
+create proc Insert_HoaDon(
+    @MAHD			NVARCHAR(50)	,	
+	@MAKH			NVARCHAR(50)	,
+	@MANHANVIEN		NVARCHAR(50)	,	
+	@NGAYXUATHD          DATE ,
+	@CHIETKHAU       INT ,
+	@THANHTIEN        FLOAT,
+	@TRANGTHAI      BIT
+)
+as
+INSERT INTO HOADON VALUES (@MAHD, @MAKH, @MANHANVIEN, @NGAYXUATHD, @CHIETKHAU, @THANHTIEN,@TRANGTHAI)
+-------------------------------------------------
+GO 
+CREATE PROC INSERT_CTHD(
+@MAHD           NVARCHAR(50),
+@MASP           NVARCHAR(50),
+@SL             INT,
+@THANHTIEN      FLOAT
+)
+AS
+INSERT INTO CTHD VALUES (@MAHD, @MASP, @SL, @THANHTIEN)
+UPDATE SANPHAM SET SOLUONG = SOLUONG - @SL WHERE MASP=@MASP
+---------------------------------------------------------------------
+GO
+create PROC UPDATE_ThanhTien(
+@MAHD NVARCHAR(50),
+@THANHTIEN FLOAT
+)
+as	
+UPDATE HOADON SET THANHTIEN = @THANHTIEN WHERE MAHD= @MAHD
+-----------------------------------------------
+go
+CREATE proc updateSL_CTHD (@ma nvarchar (50), @masp nvarchar (50), @soluong int, @THANHTIEN float)
+as
+update CTHD set SL = @soluong, THANHTIEN = @THANHTIEN where MAHD = @ma and MASP = @masp
+---------------------------------------------------------------------
+GO
+CREATE PROC UPDATE_TONGTIEN(@MAHD NVARCHAR(50), @TONGTIEN FLOAT)
+AS
+UPDATE HOADON SET THANHTIEN=@TONGTIEN WHERE MAHD=@MAHD 
+--------------------------------------------------------------------
+go
+ ALTER proc thongKeDoanhThu
+ as begin
+	drop  table if exists tam
+	create table tam (thang int primary key,tien decimal)
+	declare @tongTien decimal,@i int =1
+	while (@i<13)
+		begin
+			insert into tam values (@i,0)
+			set @i=@i+1
+		end
+	set @i=1
+	while(@i<13)
+		begin
+		declare @count int =0 
+			select @count=count(*) from HOADON where DATEPart(MONTH,NGAYXUATHD)=@i AND DATEPART(YEAR,NGAYXUATHD)=DATEPART(YEAR,GETDATE())
+			if(@count>0)
+				begin
+					select @tongTien=SUM(THANHTIEN) from HOADON where DATEPart(MONTH,NGAYXUATHD)=@i AND DATEPART(YEAR,NGAYXUATHD)=DATEPART(YEAR,GETDATE())
+				end
+			else
+				begin 
+					set @tongTien=0
+				end
+			update tam set tien=@tongTien where thang=@i
+			set @i=@i+1
+		end
+		select N'Month '+CAST (thang as nvarchar(2)) as [thang],tien  from tam
+ end
+ ----------------------------------------------------------------
+ go
+ ALTER proc data_xuatExcel 
+as
+select HOADON.MAHD, KHACHHANG.TENKH, NHANVIEN.TENNHANVIEN, HOADON.NGAYXUATHD, HOADON.CHIETKHAU, HOADON.THANHTIEN from HOADON, KHACHHANG, NHANVIEN 
+where  HOADON.MAKH = KHACHHANG.MAKH AND HOADON.MANHANVIEN = NHANVIEN.MANHANVIEN
 
-
-
-
-
-
+ 
 
 
 

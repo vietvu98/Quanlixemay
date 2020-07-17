@@ -17,7 +17,7 @@ namespace QuanLyCuaHangXeMay
             InitializeComponent();
         }
         int hehe = 0;
-        int haha = 0;
+        
         DataClassesQLDataContext dt = new DataClassesQLDataContext();
         private void FormNhapSanPham_Load(object sender, EventArgs e)
         {
@@ -63,7 +63,7 @@ namespace QuanLyCuaHangXeMay
                 }
             }
             hehe = 1;
-            haha = 1;
+            
             cbxXe.DisplayMember = "TENSP";
             cbxXe.ValueMember = "MASP";
             cbxXe.DataSource = dt.SANPHAMs.ToList();
@@ -223,6 +223,11 @@ namespace QuanLyCuaHangXeMay
                     dgvXe.DataSource = dt.selectCTPNxe(lbMaPN.Text);
                 }
             }
+        }
+
+        private void gunaButton1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

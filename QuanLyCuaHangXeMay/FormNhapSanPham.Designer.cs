@@ -37,12 +37,6 @@
             this.txtDGXe = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.dgvXe = new System.Windows.Forms.DataGridView();
-            this.lbTongTien = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.btnThemXe = new Guna.UI.WinForms.GunaButton();
-            this.cbxXe = new System.Windows.Forms.ComboBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtSLXe = new System.Windows.Forms.TextBox();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,6 +44,12 @@
             this.DONGIANHAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.THANHTIEN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Xoa = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.lbTongTien = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.btnThemXe = new Guna.UI.WinForms.GunaButton();
+            this.cbxXe = new System.Windows.Forms.ComboBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtSLXe = new System.Windows.Forms.TextBox();
             this.gunaButton1 = new Guna.UI.WinForms.GunaButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvXe)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -137,7 +137,8 @@
             // 
             this.dgvXe.AllowUserToAddRows = false;
             this.dgvXe.AllowUserToDeleteRows = false;
-            this.dgvXe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvXe.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvXe.ColumnHeadersHeight = 40;
             this.dgvXe.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.MaSP,
@@ -154,6 +155,55 @@
             this.dgvXe.TabIndex = 38;
             this.dgvXe.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvXe_CellClick);
             this.dgvXe.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvXe_RowsAdded);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "STT";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // MaSP
+            // 
+            this.MaSP.DataPropertyName = "MaSP";
+            this.MaSP.HeaderText = "Mã xe";
+            this.MaSP.Name = "MaSP";
+            this.MaSP.ReadOnly = true;
+            // 
+            // TenSP
+            // 
+            this.TenSP.DataPropertyName = "TenSP";
+            this.TenSP.HeaderText = "Tên Xe";
+            this.TenSP.Name = "TenSP";
+            this.TenSP.ReadOnly = true;
+            // 
+            // SLNHAP
+            // 
+            this.SLNHAP.DataPropertyName = "SLNHAP";
+            this.SLNHAP.HeaderText = "Số lượng";
+            this.SLNHAP.Name = "SLNHAP";
+            this.SLNHAP.ReadOnly = true;
+            // 
+            // DONGIANHAP
+            // 
+            this.DONGIANHAP.DataPropertyName = "DONGIANHAP";
+            this.DONGIANHAP.HeaderText = "Đơn giá";
+            this.DONGIANHAP.Name = "DONGIANHAP";
+            this.DONGIANHAP.ReadOnly = true;
+            // 
+            // THANHTIEN
+            // 
+            this.THANHTIEN.DataPropertyName = "THANHTIEN";
+            this.THANHTIEN.HeaderText = "Thành tiền";
+            this.THANHTIEN.Name = "THANHTIEN";
+            this.THANHTIEN.ReadOnly = true;
+            // 
+            // Xoa
+            // 
+            this.Xoa.DataPropertyName = "Xoa";
+            this.Xoa.HeaderText = "Xóa";
+            this.Xoa.Name = "Xoa";
+            this.Xoa.ReadOnly = true;
+            this.Xoa.Text = "Xóa";
             // 
             // lbTongTien
             // 
@@ -239,58 +289,6 @@
             this.txtSLXe.TextAlignChanged += new System.EventHandler(this.txtSLXe_TextAlignChanged);
             this.txtSLXe.TextChanged += new System.EventHandler(this.txtSLXe_TextChanged);
             // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "STT";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 35;
-            // 
-            // MaSP
-            // 
-            this.MaSP.DataPropertyName = "MaSP";
-            this.MaSP.HeaderText = "Mã xe";
-            this.MaSP.Name = "MaSP";
-            this.MaSP.ReadOnly = true;
-            // 
-            // TenSP
-            // 
-            this.TenSP.DataPropertyName = "TenSP";
-            this.TenSP.HeaderText = "Tên Xe";
-            this.TenSP.Name = "TenSP";
-            this.TenSP.ReadOnly = true;
-            this.TenSP.Width = 150;
-            // 
-            // SLNHAP
-            // 
-            this.SLNHAP.DataPropertyName = "SLNHAP";
-            this.SLNHAP.HeaderText = "Số lượng";
-            this.SLNHAP.Name = "SLNHAP";
-            this.SLNHAP.ReadOnly = true;
-            // 
-            // DONGIANHAP
-            // 
-            this.DONGIANHAP.DataPropertyName = "DONGIANHAP";
-            this.DONGIANHAP.HeaderText = "Đơn giá";
-            this.DONGIANHAP.Name = "DONGIANHAP";
-            this.DONGIANHAP.ReadOnly = true;
-            // 
-            // THANHTIEN
-            // 
-            this.THANHTIEN.DataPropertyName = "THANHTIEN";
-            this.THANHTIEN.HeaderText = "Thành tiền";
-            this.THANHTIEN.Name = "THANHTIEN";
-            this.THANHTIEN.ReadOnly = true;
-            // 
-            // Xoa
-            // 
-            this.Xoa.DataPropertyName = "Xoa";
-            this.Xoa.HeaderText = "Xóa";
-            this.Xoa.Name = "Xoa";
-            this.Xoa.ReadOnly = true;
-            this.Xoa.Text = "Xóa";
-            this.Xoa.Width = 35;
-            // 
             // gunaButton1
             // 
             this.gunaButton1.AnimationHoverSpeed = 0.07F;
@@ -313,11 +311,13 @@
             this.gunaButton1.TabIndex = 43;
             this.gunaButton1.Text = "Xem Chi Tiết";
             this.gunaButton1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.gunaButton1.Click += new System.EventHandler(this.gunaButton1_Click);
             // 
             // FormNhapSanPham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.GhostWhite;
             this.ClientSize = new System.Drawing.Size(973, 610);
             this.Controls.Add(this.gunaButton1);
             this.Controls.Add(this.groupBox1);

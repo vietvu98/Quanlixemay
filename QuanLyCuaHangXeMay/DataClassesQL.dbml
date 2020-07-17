@@ -58,6 +58,7 @@
       <Column Name="MAHD" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="MASP" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="SL" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="THANHTIEN" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Association Name="SANPHAM_CTHD" Member="SANPHAM" ThisKey="MASP" OtherKey="MASP" Type="SANPHAM" IsForeignKey="true" />
       <Association Name="HOADON_CTHD" Member="HOADON" ThisKey="MAHD" OtherKey="MAHD" Type="HOADON" IsForeignKey="true" />
     </Type>
@@ -68,6 +69,7 @@
       <Column Name="MASP" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="SLNHAP" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="DONGIANHAP" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="THANHTIEN" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Association Name="SANPHAM_CTPNHAP" Member="SANPHAM" ThisKey="MASP" OtherKey="MASP" Type="SANPHAM" IsForeignKey="true" />
       <Association Name="PNHAP_CTPNHAP" Member="PNHAP" ThisKey="MAPN" OtherKey="MAPN" Type="PNHAP" IsForeignKey="true" />
     </Type>
@@ -94,6 +96,7 @@
       <Column Name="NGAYXUATHD" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="CHIETKHAU" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="THANHTIEN" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TRANGTHAI" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Association Name="HOADON_CTBAOHANH" Member="CTBAOHANHs" ThisKey="MAHD" OtherKey="MAHD" Type="CTBAOHANH" />
       <Association Name="HOADON_CTHD" Member="CTHDs" ThisKey="MAHD" OtherKey="MAHD" Type="CTHD" />
       <Association Name="KHACHHANG_HOADON" Member="KHACHHANG" ThisKey="MAKH" OtherKey="MAKH" Type="KHACHHANG" IsForeignKey="true" />
@@ -459,5 +462,87 @@
     <Parameter Name="masp" Type="System.String" DbType="NVarChar(50)" />
     <Parameter Name="soluong" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Insert_HoaDon" Method="Insert_HoaDon">
+    <Parameter Name="MAHD" Parameter="mAHD" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="MAKH" Parameter="mAKH" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="MANHANVIEN" Parameter="mANHANVIEN" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="NGAYXUATHD" Parameter="nGAYXUATHD" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="CHIETKHAU" Parameter="cHIETKHAU" Type="System.Int32" DbType="Int" />
+    <Parameter Name="THANHTIEN" Parameter="tHANHTIEN" Type="System.Double" DbType="Float" />
+    <Parameter Name="TRANGTHAI" Parameter="tRANGTHAI" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.selectCTHD" Method="selectCTHD">
+    <Parameter Name="ma" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="selectCTHDResult">
+      <Column Name="MASP" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TENSP" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="SL" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GIABAN" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="THANHTIEN" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.selectHoaDon" Method="selectHoaDon">
+    <Parameter Name="ma" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="selectHoaDonResult">
+      <Column Name="MAHD" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MAKH" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MANHANVIEN" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NGAYXUATHD" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="CHIETKHAU" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="THANHTIEN" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TRANGTHAI" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.INSERT_CTHD" Method="INSERT_CTHD">
+    <Parameter Name="MAHD" Parameter="mAHD" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="MASP" Parameter="mASP" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="SL" Parameter="sL" Type="System.Int32" DbType="Int" />
+    <Parameter Name="THANHTIEN" Parameter="tHANHTIEN" Type="System.Double" DbType="Float" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.UPDATE_ThanhTien" Method="UPDATE_ThanhTien">
+    <Parameter Name="MAHD" Parameter="mAHD" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="THANHTIEN" Parameter="tHANHTIEN" Type="System.Double" DbType="Float" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.selectAll_CTHD" Method="selectAll_CTHD">
+    <Parameter Name="maHD" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="masp" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="selectAll_CTHDResult">
+      <Column Name="MAHD" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MASP" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SL" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="THANHTIEN" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.updateSL_CTHD" Method="updateSL_CTHD">
+    <Parameter Name="ma" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="masp" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="soluong" Type="System.Int32" DbType="Int" />
+    <Parameter Name="THANHTIEN" Parameter="tHANHTIEN" Type="System.Double" DbType="Float" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.UPDATE_TONGTIEN" Method="UPDATE_TONGTIEN">
+    <Parameter Name="MAHD" Parameter="mAHD" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="TONGTIEN" Parameter="tONGTIEN" Type="System.Double" DbType="Float" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.thongKeDoanhThu" Method="thongKeDoanhThu">
+    <ElementType Name="thongKeDoanhThuResult">
+      <Column Name="thang" Type="System.String" DbType="NVarChar(8)" CanBeNull="true" />
+      <Column Name="tien" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.data_xuatExcel" Method="data_xuatExcel">
+    <ElementType Name="data_xuatExcelResult">
+      <Column Name="MAHD" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TENKH" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TENNHANVIEN" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NGAYXUATHD" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="CHIETKHAU" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="THANHTIEN" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
   </Function>
 </Database>
