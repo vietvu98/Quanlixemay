@@ -28,7 +28,7 @@ Lớp: Công nghệ thông tin K58
 ## Phần 3: Các chức năng chưa hoàn thành
 - Cửa hàng chưa có các dịch vụ dành cho khách hàng.
 - Khuyến mãi chỉ áp dụng cho hóa đơn, chưa phát triển được áp dụng trên sản phẩm và chương trình khuyến mãi.
-Hướng dẫn cài đặt
+## Hướng dẫn cài đặt
 - Mở folder Setup, mở file SetupQLXM.msi
 - Sau khi hiện hộp thoại, ấn Next
 - Chọn đường dẫn cài đặt, ấn Next
