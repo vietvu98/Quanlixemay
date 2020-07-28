@@ -24,6 +24,7 @@
 - Thống kê dữ liệu theo biểu đồ doanh thu theo tháng, tổng doanh thu năm và số lượng khách hàng.
 - Backup dữ liệu
 - Liên kết đến Facebook
+- Quét mã QR thời hạn sử dụng phiếu bảo hành.
 - Xuất file cài đặt
 ## Phần 3: Các chức năng chưa hoàn thành
 - Cửa hàng chưa có các dịch vụ dành cho khách hàng.
