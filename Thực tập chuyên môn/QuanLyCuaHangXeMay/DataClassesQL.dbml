@@ -208,16 +208,6 @@
     <Parameter Name="THANHTIEN" Parameter="tHANHTIEN" Type="System.Double" DbType="Float" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.Insert_HoaDon" Method="Insert_HoaDon">
-    <Parameter Name="MAHD" Parameter="mAHD" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="MAKH" Parameter="mAKH" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="MANHANVIEN" Parameter="mANHANVIEN" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="NGAYXUATHD" Parameter="nGAYXUATHD" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="CHIETKHAU" Parameter="cHIETKHAU" Type="System.Int32" DbType="Int" />
-    <Parameter Name="THANHTIEN" Parameter="tHANHTIEN" Type="System.Double" DbType="Float" />
-    <Parameter Name="TRANGTHAI" Parameter="tRANGTHAI" Type="System.Boolean" DbType="Bit" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.INSERT_PNHAP" Method="INSERT_PNHAP">
     <Parameter Name="MAPN" Parameter="mAPN" Type="System.String" DbType="NVarChar(50)" />
     <Parameter Name="MANHACUNGCAP" Parameter="mANHACUNGCAP" Type="System.String" DbType="NVarChar(50)" />
@@ -545,5 +535,49 @@
       <Column Name="thang" Type="System.String" DbType="NVarChar(8)" CanBeNull="true" />
       <Column Name="tien" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
     </ElementType>
+  </Function>
+  <Function Name="dbo.ctKhachHang" Method="ctKhachHang">
+    <Parameter Name="mahd" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="ctKhachHangResult">
+      <Column Name="MAKH" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TENKH" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DIACHI" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DIENTHOAI" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="GMAIL" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MAHD" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MAKH1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MANHANVIEN" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NGAYXUATHD" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="CHIETKHAU" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="THANHTIEN" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TRANGTHAI" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.selectSP" Method="selectSP">
+    <Parameter Name="ma" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="selectSPResult">
+      <Column Name="MASP" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TENSP" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="MALOAI" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DUNGTICHXL" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="KICHTHUOC" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="KHOILUONG" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CONGSUATTD" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="HANGXE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SOLUONG" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GIABAN" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="HINHANH" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Insert_HoaDon" Method="Insert_HoaDon">
+    <Parameter Name="MAHD" Parameter="mAHD" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="MAKH" Parameter="mAKH" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="MANHANVIEN" Parameter="mANHANVIEN" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="NGAYXUATHD" Parameter="nGAYXUATHD" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="CHIETKHAU" Parameter="cHIETKHAU" Type="System.Int32" DbType="Int" />
+    <Parameter Name="THANHTIEN" Parameter="tHANHTIEN" Type="System.Double" DbType="Float" />
+    <Parameter Name="TRANGTHAI" Parameter="tRANGTHAI" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="QR" Parameter="qR" Type="System.Data.Linq.Binary" DbType="Image" />
+    <Return Type="System.Int32" />
   </Function>
 </Database>

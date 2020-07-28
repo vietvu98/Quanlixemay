@@ -159,7 +159,7 @@ namespace QuanLyCuaHangXeMay
         {
             if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
             {
-                DialogResult dtr = MessageBox.Show("Lỗi rồi", "Thông Báo", MessageBoxButtons.OK);
+                DialogResult dtr = MessageBox.Show("Mời bạn nhập số", "Thông Báo", MessageBoxButtons.OK);
                 if (dtr == DialogResult.OK)
                 {
                     e.Handled = true;

@@ -97,28 +97,28 @@ namespace QuanLyCuaHangXeMay
             // Định dạng font chữ
             //     worksheet.Range["A1", "J100"].Font.Name = "";
             worksheet.Range["A1", "A100"].Font.Size = 24;
-            worksheet.Range["A3", "J100"].Font.Size = 16;
-            worksheet.Range["A1", "J1"].MergeCells = true;
-            worksheet.Range["A1", "J1"].Font.Bold = true;
+            worksheet.Range["A3", "G100"].Font.Size = 16;
+            worksheet.Range["A1", "G1"].MergeCells = true;
+            worksheet.Range["A1", "G1"].Font.Bold = true;
 
             //worksheet.Range["A3", "J3"].MergeCells = true;
-            worksheet.Range["A3", "J3"].Font.Bold = true;
+            worksheet.Range["A3", "G3"].Font.Bold = true;
 
             // kẻ bảng
-            worksheet.Range["A3", "J" + (dem + 3)].Borders.LineStyle = 1;
+            worksheet.Range["A3", "G" + (dem + 3)].Borders.LineStyle = 1;
 
 
             //Định dạng dòng text
-            worksheet.Range["A1", "J1"].HorizontalAlignment = 3;
-            worksheet.Range["A3", "J3"].HorizontalAlignment = 3;
-            worksheet.Range["A4", "J" + (dem + 4)].HorizontalAlignment = 3;
-            worksheet.Range["B4", "J" + (dem + 4)].HorizontalAlignment = 3;
-            worksheet.Range["C4", "J" + (dem + 4)].HorizontalAlignment = 3;
-            worksheet.Range["D4", "J" + (dem + 4)].HorizontalAlignment = 3;
-            worksheet.Range["E4", "J" + (dem + 4)].HorizontalAlignment = 3;
-            worksheet.Range["F4", "J" + (dem + 4)].HorizontalAlignment = 3;
-            worksheet.Range["G4", "J" + (dem + 4)].HorizontalAlignment = 3;
-            worksheet.Range["H4", "J" + (dem + 4)].HorizontalAlignment = 3;
+            worksheet.Range["A1", "G1"].HorizontalAlignment = 3;
+            worksheet.Range["A3", "G3"].HorizontalAlignment = 3;
+            worksheet.Range["A4", "G" + (dem + 4)].HorizontalAlignment = 3;
+            worksheet.Range["B4", "G" + (dem + 4)].HorizontalAlignment = 3;
+            worksheet.Range["C4", "G" + (dem + 4)].HorizontalAlignment = 3;
+            worksheet.Range["D4", "G" + (dem + 4)].HorizontalAlignment = 3;
+            worksheet.Range["E4", "G" + (dem + 4)].HorizontalAlignment = 3;
+            worksheet.Range["F4", "G" + (dem + 4)].HorizontalAlignment = 3;
+            worksheet.Range["G4", "G" + (dem + 4)].HorizontalAlignment = 3;
+            worksheet.Range["H4", "G" + (dem + 4)].HorizontalAlignment = 3;
 
         }
     }

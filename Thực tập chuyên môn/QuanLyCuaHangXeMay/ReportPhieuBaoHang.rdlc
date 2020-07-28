@@ -100,7 +100,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
         <Top>1.48042in</Top>
-        <Left>3.09597in</Left>
+        <Left>2.5022in</Left>
         <Height>0.34375in</Height>
         <Width>3.73958in</Width>
         <ZIndex>2</ZIndex>
@@ -527,7 +527,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox5</rd:DefaultName>
         <Top>1.97917in</Top>
-        <Left>3.72402in</Left>
+        <Left>3.10944in</Left>
         <Height>0.25in</Height>
         <Width>0.76042in</Width>
         <ZIndex>14</ZIndex>
@@ -562,7 +562,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox5</rd:DefaultName>
         <Top>1.97917in</Top>
-        <Left>4.73443in</Left>
+        <Left>4.42193in</Left>
         <Height>0.25in</Height>
         <Width>1.1825in</Width>
         <ZIndex>15</ZIndex>
@@ -576,6 +576,23 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Image Name="Image2">
+        <Source>Database</Source>
+        <Value>=First(Fields!QR.Value, "DataSet2")</Value>
+        <MIMEType>image/jpeg</MIMEType>
+        <Sizing>FitProportional</Sizing>
+        <Top>0.17583in</Top>
+        <Left>6.86333in</Left>
+        <Height>2.05334in</Height>
+        <Width>2.09704in</Width>
+        <ZIndex>16</ZIndex>
+        <ToolTip>=First(Fields!QR.Value, "DataSet2")</ToolTip>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
     </ReportItems>
     <Height>6.20834in</Height>
     <Style />
@@ -635,6 +652,70 @@
         <rd:TableAdapterName>selectCTHDTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
+    <DataSet Name="DataSet3">
+      <Query>
+        <DataSourceName>DataSetPhieuHoaDon</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="MAKH">
+          <DataField>MAKH</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TENKH">
+          <DataField>TENKH</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DIACHI">
+          <DataField>DIACHI</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DIENTHOAI">
+          <DataField>DIENTHOAI</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="GMAIL">
+          <DataField>GMAIL</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MAHD">
+          <DataField>MAHD</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MAKH1">
+          <DataField>MAKH1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MANHANVIEN">
+          <DataField>MANHANVIEN</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NGAYXUATHD">
+          <DataField>NGAYXUATHD</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="CHIETKHAU">
+          <DataField>CHIETKHAU</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="THANHTIEN">
+          <DataField>THANHTIEN</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="TRANGTHAI">
+          <DataField>TRANGTHAI</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>DataSetPhieuHoaDon</rd:DataSetName>
+        <rd:SchemaPath>E:\QuanLyCuaHangXeMay\Thực tập chuyên môn\QuanLyCuaHangXeMay\DataSetPhieuHoaDon.xsd</rd:SchemaPath>
+        <rd:TableName>ctKhachHang</rd:TableName>
+        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
+        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
+        <rd:TableAdapterName>ctKhachHangTableAdapter</rd:TableAdapterName>
+      </rd:DataSetInfo>
+    </DataSet>
     <DataSet Name="DataSet2">
       <Query>
         <DataSourceName>DataSetPhieuHoaDon</DataSourceName>
@@ -669,50 +750,18 @@
           <DataField>TRANGTHAI</DataField>
           <rd:TypeName>System.Boolean</rd:TypeName>
         </Field>
+        <Field Name="QR">
+          <DataField>QR</DataField>
+          <rd:TypeName>System.Byte[]</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DataSetPhieuHoaDon</rd:DataSetName>
-        <rd:SchemaPath>E:\QuanLyCuaHangXeMay\QuanLyCuaHangXeMay\DataSetPhieuHoaDon.xsd</rd:SchemaPath>
+        <rd:SchemaPath>E:\QuanLyCuaHangXeMay\Thực tập chuyên môn\QuanLyCuaHangXeMay\DataSetPhieuHoaDon.xsd</rd:SchemaPath>
         <rd:TableName>selectHoaDon</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
         <rd:TableAdapterName>selectHoaDonTableAdapter</rd:TableAdapterName>
-      </rd:DataSetInfo>
-    </DataSet>
-    <DataSet Name="DataSet3">
-      <Query>
-        <DataSourceName>DataSetPhieuHoaDon</DataSourceName>
-        <CommandText>/* Local Query */</CommandText>
-      </Query>
-      <Fields>
-        <Field Name="MAKH">
-          <DataField>MAKH</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="TENKH">
-          <DataField>TENKH</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="DIACHI">
-          <DataField>DIACHI</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="DIENTHOAI">
-          <DataField>DIENTHOAI</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
-        </Field>
-        <Field Name="GMAIL">
-          <DataField>GMAIL</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>DataSetPhieuHoaDon</rd:DataSetName>
-        <rd:SchemaPath>E:\QuanLyCuaHangXeMay\QuanLyCuaHangXeMay\DataSetPhieuHoaDon.xsd</rd:SchemaPath>
-        <rd:TableName>KHACHHANG</rd:TableName>
-        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
-        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>KHACHHANGTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>

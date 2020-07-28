@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,11 +28,11 @@ namespace QuanLyCuaHangXeMay
         {
 
         }
-
+        int huhu = 0;
         private void FormHoaDon_Load(object sender, EventArgs e)
         {
-            
-            
+
+            huhu++;
             int i = 0;
             List<int> demso = new List<int>();
             foreach (var r in dt.HOADONs)
@@ -113,8 +115,13 @@ namespace QuanLyCuaHangXeMay
             {
                 if (HDX == null)
                 {
-                    dt.Insert_HoaDon(lbMaHD.Text, Convert.ToString(cbbMaKH.SelectedValue), "NV01",
-                        Convert.ToDateTime(DateTime.Now), Convert.ToInt32(numericChietKhau.Value), 0, Convert.ToBoolean("true"));
+                    Image QR;
+                    Zen.Barcode.CodeQrBarcodeDraw qr = Zen.Barcode.BarcodeDrawFactory.CodeQr;
+                    QR = qr.Draw(lbMaHD.Text, 50);
+                    MemoryStream stream = new MemoryStream();
+                    QR.Save(stream, ImageFormat.Jpeg);
+                    dt.Insert_HoaDon(lbMaHD.Text, Convert.ToString(cbbMaKH.SelectedValue), DangNhap.TTNV.MaNV,
+                        Convert.ToDateTime(DateTime.Now), Convert.ToInt32(numericChietKhau.Value), 0, Convert.ToBoolean("true"), stream.ToArray());
                     dt.INSERT_CTHD(lbMaHD.Text, cbbTenSP.SelectedValue.ToString(), Convert.ToInt32(txtSL.Text),
                                         (Convert.ToDouble(txtSL.Text) * Convert.ToDouble(lbDongia.Text)));
                     double thanhtien = 0;
@@ -125,6 +132,8 @@ namespace QuanLyCuaHangXeMay
                     dt.UPDATE_ThanhTien(lbMaHD.Text, thanhtien);
                     MessageBox.Show("Thêm thành công", "Thêm");
                     numericChietKhau.Enabled = false;
+                    var sp = dt.selectSP(cbbTenSP.SelectedValue.ToString()).FirstOrDefault();
+                    label2.Text = sp.SOLUONG.ToString();
                 }
                 else if (HDX != null)
                 {
@@ -140,6 +149,8 @@ namespace QuanLyCuaHangXeMay
                         }
                         dt.UPDATE_ThanhTien(lbMaHD.Text, thanhtien);
                         MessageBox.Show("Thêm thành công", "Thêm");
+                        var sp = dt.selectSP(cbbTenSP.SelectedValue.ToString()).FirstOrDefault();
+                        label2.Text = sp.SOLUONG.ToString();
                     }
                     else if(CTX != null)
                     {
@@ -152,9 +163,11 @@ namespace QuanLyCuaHangXeMay
                         }
                         dt.UPDATE_ThanhTien(lbMaHD.Text, thanhtien);
                         MessageBox.Show("Thêm thành công", "Thêm");
+                        var sp = dt.selectSP(cbbTenSP.SelectedValue.ToString()).FirstOrDefault();
+                        label2.Text = sp.SOLUONG.ToString();
                     }
                 }
-
+        
 
             }
             dgvHD.DataSource = dt.selectCTHD(lbMaHD.Text);
@@ -176,7 +189,7 @@ namespace QuanLyCuaHangXeMay
         private void gunaButton1_Click(object sender, EventArgs e)
         {
             thongtinHD.ma = lbMaHD.Text;          
-            FromPhieuHoaDon hd = new FromPhieuHoaDon();
+            FormPhieuBH hd = new FormPhieuBH();
             hd.Show();
         }
 
@@ -195,8 +208,38 @@ namespace QuanLyCuaHangXeMay
         private void gunaButton2_Click(object sender, EventArgs e)
         {
             thongtinHD.ma = lbMaHD.Text;
-            FormPhieuBaoHanh hd = new FormPhieuBaoHanh();
+            FormPBaoHanh hd = new FormPBaoHanh();
             hd.Show();
+        }
+
+        private void cbbTenSP_SelectedValueChanged(object sender, EventArgs e)
+        {
+            try
+            {            
+                if (huhu ==1)
+                {
+                    cbbTenSP.DisplayMember = "TENSP";
+                    cbbTenSP.ValueMember = "MASP";
+                    cbbTenSP.DataSource = dt.SANPHAMs.ToList();
+                    cbbTenSP.SelectedValue = "SP01";
+                }
+
+                var sp = dt.selectSP(cbbTenSP.SelectedValue.ToString()).FirstOrDefault();
+                label2.Text = sp.SOLUONG.ToString();
+                huhu++;
+            }
+            catch (Exception)
+            {
+            }
+ 
+            
+
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            FormQR qr = new FormQR();
+            qr.Show();
         }
     }
 }

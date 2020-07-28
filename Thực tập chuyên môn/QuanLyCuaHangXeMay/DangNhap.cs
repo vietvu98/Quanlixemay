@@ -102,7 +102,7 @@ namespace QuanLyCuaHangXeMay
                         MailMessage mail = new MailMessage();
                         mail.From = new MailAddress("tvfahasa@gmail.com");
                         mail.To.Add(rda.EMAIL);
-                        mail.Subject = "Thư Viện Fahasa- Đưa Tri Thức Đến Gần Với Các Bạn";
+                        mail.Subject = "Motocyecle VN- Đưa những chiếc xe về ngôi nhà của bạn";
                         mail.Body = bodyemail;
                         SmtpClient smptClient = new SmtpClient();
                         smptClient.Host = "smtp.gmail.com";

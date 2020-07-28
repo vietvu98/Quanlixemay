@@ -91,15 +91,15 @@ namespace QuanLyCuaHangXeMay
                 }
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-
-                DialogResult b = MessageBox.Show("Bạn có chắc chắn backup dữ liệu không ?", "Back up", MessageBoxButtons.YesNo);
-                if (b == DialogResult.Yes)
-                {
-                    backup();
-                    this.Close();
-                }
+                btn_BackUp_Click(sender, e);
+                //DialogResult b = MessageBox.Show("Bạn có chắc chắn backup dữ liệu không ?", "Back up", MessageBoxButtons.YesNo);
+                //if (b == DialogResult.Yes)
+                //{
+                //    backup();
+                //    this.Close();
+                //}
             }
         }
     }
